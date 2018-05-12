@@ -1,1 +1,1 @@
-# A work in progress of the OSGi enRoute Redesign
+# An opinionated approach towards modularity with Java
