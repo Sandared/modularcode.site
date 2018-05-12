@@ -3,10 +3,9 @@ layout: heroheader
 button:
   text: Get Started!
   url: tutorials.html
-title: OSGi enRoute
-subtitle: The Easy Way Towards Real Modularity
-quote: I hear and I forget. I see and I remember. I do and I understand!
-version: 2.0.0
+title: modularcode
+subtitle: JAVA MODULARITY
+quote: We are called to be architects of the future, not its victims
 ---
 
 This content is never used... We just need the information for the heroheader

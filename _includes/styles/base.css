@@ -23,7 +23,7 @@ h1,h2,h3,h4,h5,h6{-webkit-font-smoothing: antialiased;}
 .icon-block{padding: 0 15px;}
 .icon-block .material-icons{font-size: inherit;}
 .row{margin-bottom:0px;}
-.logo{width: 116px; height: 56px;}
+.logo img{padding-top:3px;}
 .page-footer{background-color:{{accentColor}}; padding-top: 0px;}
 .nav-button{width:20px; height:20px; viewBox:0 0 20 20;}
 footer h5{color:{{inverseTextColor}};}

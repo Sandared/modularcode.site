@@ -2,7 +2,7 @@
 layout: nested
 title: Tutorials
 navbaritem: true
-index: 2
+index: 1
 subfolders:
   - 'quick_start'
   - 'base_tutorial'

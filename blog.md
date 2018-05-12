@@ -1,8 +1,8 @@
 ---
 layout: nested
-title: FAQ
+title: Blog
 navbaritem: true
-index: 4
+index: 3
 subfolders:
   - 'test'
 ---

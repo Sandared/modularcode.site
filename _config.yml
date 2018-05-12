@@ -1,7 +1,7 @@
-title: OSGi enRoute
-author: OSGi Alliance
-email: 
-description: The Easy Way Towards Modularity
+title: modularcode
+author: Thomas Driessen
+email: thomas.driessen.td@gmail.com
+description: Java Modularity
 
 
 # language to use in html tag, can be overriden by page.lang
@@ -11,39 +11,39 @@ sass:
     style: compressed
 
 # You can look up the color names at http://materializecss.com/color.html
-#colors:
-#    primary_dark: black
-#    primary_light: grey-darken-1
-#    primary: grey-darken-3
-#    accent: light-blue
-#    primary_text: grey-darken-4
-#    secondary_text: grey-darken-1
-#    inverse_text: white
-#    divider: grey-lighten-1
-#    secondaryBackground: grey-lighten-4
-
-hexcolors:
-    primary_dark: '#0a385c'
-    primary_light: '#37668a'
-    primary: '#0b4470'
-    accent: '#f18b21'
-    primary_text: '#212121'
-    secondary_text: '#757575'
-    inverse_text: '#fff'
-    divider: '#bdbdbd'
-    secondaryBackground: '#f5f5f5'
+colors:
+    primary_dark: black
+    primary_light: grey-darken-1
+    primary: grey-darken-3
+    accent: light-blue
+    primary_text: grey-darken-4
+    secondary_text: grey-darken-1
+    inverse_text: white
+    divider: grey-lighten-1
+    secondaryBackground: grey-lighten-4
+#hexcolors:
+#    primary_dark: '#0a385c'
+#    primary_light: '#37668a'
+#    primary: '#0b4470'
+#    accent: '#f18b21'
+#    primary_text: '#212121'
+#    secondary_text: '#757575'
+#    inverse_text: '#fff'
+#    divider: '#bdbdbd'
+#    secondaryBackground: '#f5f5f5'
 
 # path to logo without leading slash e.g. images/logo.png or just the file name if it is in the root directory
 logo: logo.png
+logo_small: logo-small.png
 
 # Github data, if present there will be a GitHub button in the navbar
 github_button:
-  user: osgi
-  project:
+  user: Sandared
+  project: modularcode.site
 
 # Twitter data, if present there will be a Twitter button in the navbar
 twitter_button:
-  user: OSGiAlliance
+  user: SanfteSchorle
 
 # any of these collections is used for nested pages
 collections:
