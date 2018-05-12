@@ -1,0 +1,34 @@
+{% assign primaryColor = site.data.colormapper[site.colors.primary] | default: site.hexcolors.primary %}
+{% assign primaryLightColor = site.data.colormapper[site.colors.primary_light] | default: site.hexcolors.primary_light %}
+{% assign primaryDarkColor = site.data.colormapper[site.colors.primary_dark] | default: site.hexcolors.primary_dark %}
+{% assign accentColor = site.data.colormapper[site.colors.accent] | default: site.hexcolors.accent %}
+{% assign primaryTextColor = site.data.colormapper[site.colors.primary_text] | default: site.hexcolors.primary_text %}
+{% assign secondaryTextColor = site.data.colormapper[site.colors.secondary_text] | default: site.hexcolors.secondary_text %}
+{% assign inverseTextColor = site.data.colormapper[site.colors.inverse_text] | default: site.hexcolors.inverse_text %}
+{% assign dividerColor = site.data.colormapper[site.colors.divider] | default: site.hexcolors.divider %}
+{% assign secondaryBackgroundColor = site.data.colormapper[site.colors.secondaryBackground] | default: site.hexcolors.secondaryBackground %}
+a {color: {{primaryLightColor}};fill:{{primaryColor}};}
+a:hover {color: {{accentColor}};fill:{{accentColor}};}
+h1,h2,h3,h4,h5,h6{color: {{primaryColor}};}
+body{color: {{primaryTextColor}}; display: flex; min-height: 100vh; flex-direction: column;}
+nav ul a{color: {{primaryColor}};}
+nav .brand-logo{color: {{primaryColor}}}
+.justify-align{text-align:justify;}
+nav a{color: {{primaryColor}};}
+main{flex: 1 0 auto;}
+.side-nav li>a{color: {{primaryColor}};}
+.side-nav .collapsible-header, .side-nav.fixed .collapsible-header{padding-left:32px;}
+.side-nav .collapsible-body li a, .side-nav.fixed .collapsible-body li a{padding-left:47px;}
+h1,h2,h3,h4,h5,h6{-webkit-font-smoothing: antialiased;}
+.icon-block{padding: 0 15px;}
+.icon-block .material-icons{font-size: inherit;}
+.row{margin-bottom:0px;}
+.logo{width: 116px; height: 56px;}
+.page-footer{background-color:{{accentColor}}; padding-top: 0px;}
+.nav-button{width:20px; height:20px; viewBox:0 0 20 20;}
+footer h5{color:{{inverseTextColor}};}
+hr{background-color:{{dividerColor}};}
+.divider{background-color:{{dividerColor}};}
+img{max-width: 100%; height: auto;}
+.page-footer .footer-copyright{background-color:{{accentColor}};}
+

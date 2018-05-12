@@ -1,0 +1,11 @@
+/* Table of Contents */
+.second-level{padding:0px;}
+.table-of-contents .second-level a{padding-left:40px;font-size:13px;}
+.table-of-contents a{color:{{primaryLightColor}};}
+.table-of-contents a:hover{border-left:1px solid {{accentColor}};color:{{accentColor}};}
+.table-of-contents a.active{border-left:2px solid {{accentColor}};color:{{primaryLightColor}};}
+.toc-wrapper li{padding:1px;}
+
+/* Navigation Arrows */
+.prev-nav{top: 50%;left: 3%;position:fixed;}
+.next-nav{top: 50%;right: 3%;position:fixed;}
