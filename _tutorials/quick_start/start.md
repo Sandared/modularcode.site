@@ -10,7 +10,7 @@ JUST A TEST:
 
 <ul class="collapsible">
 <li>
-<div class="collapsible-header"><i class="material-icons">filter_drama</i>Upper.java</div>
+<div class="collapsible-header"><i class="material-icons">view_headline</i>Upper.java</div>
 <div class="collapsible-body" markdown="1">
 ```java
 {% remote_file_content https://raw.githubusercontent.com/timothyjward/osgi.enroute/R7/examples/quickstart/rest/src/main/java/org/osgi/enroute/examples/quickstart/rest/Upper.java %}

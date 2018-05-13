@@ -1,6 +1,8 @@
 ---
 layout: peptalk
 icon: flash_on
-title: Get Started
+title: Get Involved
 ---
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+You are fascinated by the simplicity of modularcode and want to spread word of it? Then don't hestitate! We appreciate every form of [contribution](/Contribute). 
+May this be through your own [modules](/Modules), your fancy [project](/Projects) or a mention on Twitter.
+Go to our [Contribute](/Contribute) page and start your involvement today!

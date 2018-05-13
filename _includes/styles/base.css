@@ -7,7 +7,7 @@
 {% assign inverseTextColor = site.data.colormapper[site.colors.inverse_text] | default: site.hexcolors.inverse_text %}
 {% assign dividerColor = site.data.colormapper[site.colors.divider] | default: site.hexcolors.divider %}
 {% assign secondaryBackgroundColor = site.data.colormapper[site.colors.secondaryBackground] | default: site.hexcolors.secondaryBackground %}
-a {color: {{primaryLightColor}};fill:{{primaryColor}};}
+a {color: {{primaryLightColor}};fill:{{primaryColor}};font-weight:450;}
 a:hover {color: {{accentColor}};fill:{{accentColor}};}
 h1,h2,h3,h4,h5,h6{color: {{primaryColor}};}
 body{color: {{primaryTextColor}}; display: flex; min-height: 100vh; flex-direction: column;}

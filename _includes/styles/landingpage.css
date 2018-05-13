@@ -14,10 +14,10 @@
 .secondary-background{background: {{secondaryBackgroundColor}};}
 
 /* Heroheader */
-.heroheader-title{color:{{inverseTextColor}};padding-top:55px;margin:0px;font-size:50px;font-weight:lighter;}
+.heroheader-title{color:{{inverseTextColor}};padding-top:90px;margin:0px;font-size:50px;font-weight:lighter;}
 .heroheader-subtitle{color:{{inverseTextColor}};font-size:20px;margin-top:0px;margin-bottom:35px;font-weight:lighter;}
 .heroheader-quote{color:{{inverseTextColor}};margin:0px;font-size:20px;font-style:italic;font-weight:lighter;}
-.lead{padding-bottom:60px;margin-top:45px;}
+.lead{padding-bottom:95px;margin-top:45px;}
 #titlebutton{background-color:{{accentColor}};}
 a:hover#titlebutton{color:{{inverseTextColor}};}
 #trianglify-content{background:linear-gradient(135deg, {{primaryDarkColor}}, {{primaryLightColor}});}
@@ -26,3 +26,9 @@ a:hover#titlebutton{color:{{inverseTextColor}};}
 .peptalkitem-icon{color:{{primaryLightColor}};}
 .peptalkitem-header{font-weight:350;}
 .peptalkitem-content{text-align:justify;}
+
+/* About */
+.about-header{font-weight:350;padding-top:10px;}
+.about-content{font-weight:300;}
+.about-card{background-color:{{inverseTextColor}};}
+.about-img{background-color:{{secondaryBackgroundColor}};}

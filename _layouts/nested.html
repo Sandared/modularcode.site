@@ -45,7 +45,6 @@
 						{% break %}
 					{% endif %}
 				{% endfor %}				
-				
 				<!--create a card with image for each-->
 				<div class="col s12 m8 push-m2 l6 xl4">
 					<a class="card-action-link" href="{{"" | relative_url | prepend: site.url | append: fileHTMLPath}}">
@@ -60,7 +59,7 @@
 								<span class="card-title">{{ htmlFile.title | truncate: 21}}</span>
 							</div>
 							<div class="card-content">
-								<p>{{htmlFile.description | truncatewords: 17}}</p>
+								<p>{{htmlFile.description | truncatewords: 13}}</p>
 							</div>
 						</div>							
 					</a>
@@ -94,7 +93,7 @@
 							</div>
 							<div class="card-stacked">
 								<div class="card-content">
-									<p>{{ subfolderInfo.description | truncatewords: 17 }}</p>									
+									<p>{{ subfolderInfo.description | truncatewords: 13 }}</p>									
 								</div>								
 							</div>
 						</div>

@@ -3,4 +3,4 @@ layout: peptalk
 icon: check
 title: Do It Right
 ---
-This site is currently under construction.
+Have you ever struggeled with a large codebase in Java? Ever wondered how others make those magical plugin mechanisms work in their apps? Then you should wander no further and go straight to the [Tutorials](/Tutorials) section to learn how you should modularize your code the right way!

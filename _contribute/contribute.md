@@ -1,7 +1,12 @@
 ---
 title: Contribute
 layout: nested
-description: How to contirbute to this Site
-lprev: test
-lnext: test
+description: How to contribute to this Site
+lprev: markdown_cheatsheet
+lnext: markdown_cheatsheet
+image: img/contribute.png
 ---
+
+#How to Contribute to this Website?
+
+lorem ipsum 

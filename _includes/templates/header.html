@@ -1,7 +1,7 @@
 <nav class="white lighten-1" role="navigation">
 	<div class="nav-wrapper container">
-		<a id="logo-container" class="brand-logo logo show-on-medium-and-up hide-on-small-only" href="{{ "/" | relative_url }}"><img src="{{site.logo | relative_url | prepend: "/" | prepend: site.url}}"></a>
-		<a id="logo-container" class="brand-logo logo show-on-small hide-on-med-and-up" href="{{ "/" | relative_url }}"><img src="{{site.logo_small | relative_url | prepend: "/" | prepend: site.url}}"></a>
+		<a id="logo-container" class="brand-logo logo show-on-medium-and-up hide-on-small-only" href="{{ "/" | relative_url }}"><img src="{{site.logo | prepend: "/"}}"></a>
+		<a id="logo-container" class="brand-logo logo show-on-small hide-on-med-and-up" href="{{ "/" | relative_url }}"><img src="{{site.logo_small | prepend: "/"}}"></a>
 	  {% assign navbaritems = site.pages | where_exp:"item", "item.navbaritem == true"%}
 	  {% assign page_paths = navbaritems | sort: 'index' | map: "path"%}
 	
