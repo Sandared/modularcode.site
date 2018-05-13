@@ -1,1 +1,1 @@
-# An opinionated approach towards modularity with Java
+# A curated source for Java modularity with OSGi 

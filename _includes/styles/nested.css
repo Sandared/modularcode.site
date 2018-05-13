@@ -10,6 +10,7 @@
 .highlight .kr { color: {{primaryColor}}; font-weight: bold } /* Keyword.Reserved */
 .highlight .kt { color: {{primaryColor}}; font-weight: bold } /* Keyword.Type */
 .highlight .s { color: {{primaryLightColor}} } /* Literal.String */
+.highlight .n { color: {{accentColor}} } /* Name */
 .highlight .na { color: {{accentColor}} } /* Name.Attribute */
 .highlight .nc { color: {{accentColor}}} /* Name.Class */
 .highlight .nd { color: {{secondaryTextColor}} } /* Name.Decorator */
@@ -30,7 +31,8 @@
 .highlight .s1 { color: {{primaryLightColor}} } /* Literal.String.Single */
 .highlight .ss { color: {{primaryLightColor}} } /* Literal.String.Symbol */
 .highlight {tab-size: 4;}
-div.highlighter-rouge{padding:9px 14px;background:{{secondaryBackgroundColor}};border:1px solid {{dividerColor}};border-radius:4px; margin-bottom: 10px;}
+div.highlighter-rouge{padding:5px;background:{{secondaryBackgroundColor}};border:1px solid {{dividerColor}};border-radius:4px;}
+div.highlight pre.highlight{margin:0px;}
 code.highlighter-rouge{padding:0px 3px;background:{{secondaryBackgroundColor}};border:1px solid {{dividerColor}};border-radius:3px;}
 
 /* Make headers a little bit smaller */
@@ -69,3 +71,6 @@ a.breadcrumb{color: {{primaryLightColor}};}
 .breadcrumb:before{color:{{primaryLightColor}};font-size:15px;}
 nav.breadcrumbs{box-shadow:none;margin-top:4px;}
 
+ul.collapsible{list-style-type: none;padding:0px;}
+.collapsible-header{border-bottom:0px;}
+.collapsible-body{padding:5px;}

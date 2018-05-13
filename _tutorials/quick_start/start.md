@@ -6,6 +6,21 @@ lnext: prerequisites
 ---
 # Overview
 
+JUST A TEST:
+
+<ul class="collapsible">
+<li>
+<div class="collapsible-header"><i class="material-icons">filter_drama</i>Upper.java</div>
+<div class="collapsible-body" markdown="1">
+```java
+{% remote_file_content https://raw.githubusercontent.com/timothyjward/osgi.enroute/R7/examples/quickstart/rest/src/main/java/org/osgi/enroute/examples/quickstart/rest/Upper.java %}
+```	
+</div>
+</li>
+</ul>
+
+ 
+
 ![Thumbnail for Quickstart Tutorial](img/app-0.png)
 {: .thumb200-l }
 
@@ -25,7 +40,6 @@ If you have any questions about this quick-start, please discuss them in the [fo
 1. [The Workspace](workspace.html) – Setup a bnd workspace
 1. [Creating an Application](create_an_application.html) – Creating a sample enRoute Application
 1. [Exercise Services](exercise_service.html) – Using services in the Demo Application
-
 
 ## End
 

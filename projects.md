@@ -1,6 +1,6 @@
 ---
 layout: nested
-title: Blog
+title: Projects
 navbaritem: true
 index: 3
 subfolders:
