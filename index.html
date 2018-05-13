@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>modularcode</title>
+    <meta name="description" content="Java Modularity" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="/assets/materialize.css" />
+    <link rel="canonical" href="/" />
+    <link rel="alternate" type="application/rss+xml" title="modularcode" href="/feed.xml" />
+    
+</head>
+<style>a {color: #757575;fill:#424242;}a:hover {color: #03a9f4;fill:#03a9f4;}h1,h2,h3,h4,h5,h6{color: #424242;}body{color: #212121; display: flex; min-height: 100vh; flex-direction: column;}nav ul a{color: #424242;}nav .brand-logo{color: #424242}.justify-align{text-align:justify;}nav a{color: #424242;}main{flex: 1 0 auto;}.side-nav li>a{color: #424242;}.side-nav .collapsible-header, .side-nav.fixed .collapsible-header{padding-left:32px;}.side-nav .collapsible-body li a, .side-nav.fixed .collapsible-body li a{padding-left:47px;}h1,h2,h3,h4,h5,h6{-webkit-font-smoothing: antialiased;}.icon-block{padding: 0 15px;}.icon-block .material-icons{font-size: inherit;}.row{margin-bottom:0px;}.logo img{padding-top:3px;}.page-footer{background-color:#03a9f4; padding-top: 0px;}.nav-button{width:20px; height:20px; viewBox:0 0 20 20;}footer h5{color:#FFFFFF;}hr{background-color:#bdbdbd;}.divider{background-color:#bdbdbd;}img{max-width: 100%; height: auto;}.page-footer .footer-copyright{background-color:#03a9f4;}/* News */.news-header{margin-top:0px;margin-bottom:0px;padding-top:34px;padding-bottom:20px;text-align:left;font-weight:300;color:#757575;}.newsitem-header{margin-bottom:14px;margin-top:14px;font-size:1.3rem;color:#424242;font-weight:350;}.newsitem-header-row{margin-bottom:0px;}.newsitem-content{text-align:justify;}.newsitem-date{margin-top:0px;font-size:12px;color:#03a9f4;font-style:italic;}.newsitem-divider-row{margin-top:14px;margin-bottom:14px;}.newsitem-date-card{box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);width:110px;height:105px;border-radius:3px;background-color:#424242;color:#FFFFFF;font-size:14px;margin-top:14px;}.newsitem-date-card-header{height:30px;background-color:#000000;border-radius:3px;}.newsitem-day-number{margin-top:-5px;margin-bottom:0px;font-size:25px;}.newsitem-day-of-week{margin:0px;padding-top:7px;font-size:11px;}.newsitem-year{margin-top:-5px;margin-bottom:0px;color:#757575;}.newsitem-month{margin-bottom:0px;margin-top:3px;}.secondary-background{background: #f5f5f5;}/* Heroheader */.heroheader-title{color:#FFFFFF;padding-top:55px;margin:0px;font-size:50px;font-weight:lighter;}.heroheader-subtitle{color:#FFFFFF;font-size:20px;margin-top:0px;margin-bottom:35px;font-weight:lighter;}.heroheader-quote{color:#FFFFFF;margin:0px;font-size:20px;font-style:italic;font-weight:lighter;}.lead{padding-bottom:60px;margin-top:45px;}#titlebutton{background-color:#03a9f4;}a:hover#titlebutton{color:#FFFFFF;}#trianglify-content{background:linear-gradient(135deg, #000000, #757575);}/* Peptalks */.peptalkitem-icon{color:#757575;}.peptalkitem-header{font-weight:350;}.peptalkitem-content{text-align:justify;}</style>
+
+  <body>
+	<!-- Navigation Header -->
+	<nav class="white lighten-1" role="navigation">
+	<div class="nav-wrapper container">
+		<a id="logo-container" class="brand-logo logo show-on-medium-and-up hide-on-small-only" href="/"><img src="//logo.png"></a>
+		<a id="logo-container" class="brand-logo logo show-on-small hide-on-med-and-up" href="/"><img src="//logo-small.png"></a>
+	  
+	  
+	
+	  <ul class="right hide-on-med-and-down">
+		
+			
+			<li><a href="/tutorials.html">Tutorials</a></li>
+		
+			
+			<li><a href="/modules.html">Modules</a></li>
+		
+			
+			<li><a href="/projects.html">Projects</a></li>
+		
+			
+			<li><a href="/contribute.html">Contribute</a></li>
+		
+		
+			<li>
+				<a title="modularcode.site on GitHub" href="https://github.com/Sandared/modularcode.site"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>github</title>
+						<path d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0 1 10 4.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.163 20 14.418 20 10c0-5.523-4.478-10-10-10" fill-rule="evenodd">
+						</path>
+					</svg>					
+				</a>
+			</li>
+		
+		
+		
+			<li>
+				<a title="SanfteSchorle on Twitter" href="https://twitter.com/SanfteSchorle"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>twitter</title>
+						<path d="M15.115 7.788c.005.11.009.223.009.335 0 3.43-2.611 7.384-7.386 7.384-1.467 0-2.831-.43-3.98-1.166a5.244 5.244 0 0 0 3.843-1.075 2.596 2.596 0 0 1-2.424-1.801 2.645 2.645 0 0 0 1.171-.045 2.597 2.597 0 0 1-2.082-2.544v-.033c.351.194.752.311 1.177.324a2.59 2.59 0 0 1-1.154-2.16c0-.475.127-.92.35-1.305A7.37 7.37 0 0 0 9.99 8.414a2.596 2.596 0 0 1 4.423-2.367 5.174 5.174 0 0 0 1.648-.63 2.602 2.602 0 0 1-1.142 1.436 5.17 5.17 0 0 0 1.491-.41 5.233 5.233 0 0 1-1.295 1.345M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0" fill-rule="evenodd">
+						</path>
+					</svg>			
+				</a>
+			</li>
+		
+	  </ul>
+
+	  <ul id="nav-mobile" class="side-nav">
+		<li><a href="">Home</a></li>
+		<li class="divider"></li>
+		
+			
+			<li><a href="/tutorials.html">Tutorials</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/modules.html">Modules</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/projects.html">Projects</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/contribute.html">Contribute</a></li>
+			<li class="divider"></li>
+		
+		
+			<li>
+				<a title="modularcode.site on GitHub" href="https://github.com/Sandared/modularcode.site"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>github</title>
+						<path d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0 1 10 4.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.163 20 14.418 20 10c0-5.523-4.478-10-10-10" fill-rule="evenodd">
+						</path>
+					</svg>					
+				</a>
+			</li>
+			<li class="divider"></li>
+		
+		
+		
+			<li>
+				<a title="SanfteSchorle on Twitter" href="https://twitter.com/SanfteSchorle"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>twitter</title>
+						<path d="M15.115 7.788c.005.11.009.223.009.335 0 3.43-2.611 7.384-7.386 7.384-1.467 0-2.831-.43-3.98-1.166a5.244 5.244 0 0 0 3.843-1.075 2.596 2.596 0 0 1-2.424-1.801 2.645 2.645 0 0 0 1.171-.045 2.597 2.597 0 0 1-2.082-2.544v-.033c.351.194.752.311 1.177.324a2.59 2.59 0 0 1-1.154-2.16c0-.475.127-.92.35-1.305A7.37 7.37 0 0 0 9.99 8.414a2.596 2.596 0 0 1 4.423-2.367 5.174 5.174 0 0 0 1.648-.63 2.602 2.602 0 0 1-1.142 1.436 5.17 5.17 0 0 0 1.491-.41 5.233 5.233 0 0 1-1.295 1.345M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0" fill-rule="evenodd">
+						</path>
+					</svg>			
+				</a>
+			</li>
+			<li class="divider"></li>
+		
+	  </ul>        
+
+	  <a data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+	</div>
+</nav>
+	
+	<main>
+	<!-- HeroHeader -->
+	
+	<div id="trianglify-content" class="center-align">
+  <h1 class="heroheader-title">modularcode</h1>
+  <p class="heroheader-subtitle" >JAVA MODULARITY</p>
+  <p class="heroheader-quote">"We are called to be architects of the future, not its victims"</p>
+  <p class="lead">
+	<a id="titlebutton" href="/tutorials.html" class="waves-effect waves-light btn-large hoverable">Get Started!</a>
+  </p>
+</div>	
+	
+	<div class="section container">
+	  <div class="row">
+		
+		<div class="col s12 m4">
+  <div class="icon-block">
+	<h2 class="center peptalkitem-icon"><i class="material-icons">check</i></h2>
+	<h5 class="center peptalkitem-header">Do It Right</h5>
+	<div  class="light peptalkitem-content"><p>This site is currently under construction.</p>
+</div>
+  </div>
+</div><div class="col s12 m4">
+  <div class="icon-block">
+	<h2 class="center peptalkitem-icon"><i class="material-icons">view_module</i></h2>
+	<h5 class="center peptalkitem-header">Real Modularity</h5>
+	<div  class="light peptalkitem-content"><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+</div>
+  </div>
+</div><div class="col s12 m4">
+  <div class="icon-block">
+	<h2 class="center peptalkitem-icon"><i class="material-icons">flash_on</i></h2>
+	<h5 class="center peptalkitem-header">Get Started</h5>
+	<div  class="light peptalkitem-content"><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+</div>
+  </div>
+</div>
+	  </div>
+	</div>
+      
+    <!--<div class="secondary-background">
+		<div class="container">
+			<h4 class="center-align news-header"> News </h4>
+			<div class="row">
+			
+				<div class="col s12 m4 l3 hide-on-small-only">
+	<div class="row newsitem-header-row">
+		<div class="col push-m3">
+			<div class="newsitem-date-card center-align">
+				<div class="newsitem-date-card-header">
+					<p class="newsitem-day-of-week">Wednesday</p>
+				</div>
+			  <div>
+				<p class="newsitem-month">Apr</p> 
+				<p class="newsitem-day-number">25</p> 
+				<p class="newsitem-year">2018</p> 
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="col s12 m7 l8 light newsitem-content">
+	<h6 class="newsitem-header">OSGi CORE RELEASE 7 AND COMPENDIUM RELEASE 7 NOW AVAILABLE</h6>
+	<p class="newsitem-date hide-on-med-and-up">April 25, 2018</p>
+	<p>The OSGi Alliance announces that the OSGi Core Release 7 and Compendium Release 7 Specifications (R7) are available for download. Developers can now use these new specifications to more easily extend the functionality of their software. The OSGi Core Specification delivers an open, common modular architecture for enterprises, service providers,...
+	<p><a href="https://www.osgi.org/osgi-core-release-7-and-compendium-release-7-now-available/">Read on ...</a></p>
+</div>
+<div class="col s12">
+	<div class="row newsitem-divider-row">
+		<div class="col s10 push-s1 m8 push-m2">
+			<div class="divider"></div>
+		</div>
+	</div>
+</div>
+<div class="col s12 m4 l3 hide-on-small-only">
+	<div class="row newsitem-header-row">
+		<div class="col push-m3">
+			<div class="newsitem-date-card center-align">
+				<div class="newsitem-date-card-header">
+					<p class="newsitem-day-of-week">Tuesday</p>
+				</div>
+			  <div>
+				<p class="newsitem-month">Apr</p> 
+				<p class="newsitem-day-number">24</p> 
+				<p class="newsitem-year">2018</p> 
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="col s12 m7 l8 light newsitem-content">
+	<h6 class="newsitem-header">OSGi R7 Highlights - Cluster Information Specification</h6>
+	<p class="newsitem-date hide-on-med-and-up">April 24, 2018</p>
+	<p>In my experience, one of the most powerful parts of the OSGi specification are the Remote Services and Remote Service Admin, which enable you to develop complex, distributed applications in a modular way. However, in order to deploy such a distributed application, it is key to find out on which...
+	<p><a href="https://blog.osgi.org/2018/04/osgi-r7-highlights-cluster-information.html">Read on ...</a></p>
+</div>
+<div class="col s12">
+	<div class="row newsitem-divider-row">
+		<div class="col s10 push-s1 m8 push-m2">
+			<div class="divider"></div>
+		</div>
+	</div>
+</div>
+<div class="col s12 m4 l3 hide-on-small-only">
+	<div class="row newsitem-header-row">
+		<div class="col push-m3">
+			<div class="newsitem-date-card center-align">
+				<div class="newsitem-date-card-header">
+					<p class="newsitem-day-of-week">Tuesday</p>
+				</div>
+			  <div>
+				<p class="newsitem-month">Apr</p> 
+				<p class="newsitem-day-number">10</p> 
+				<p class="newsitem-year">2018</p> 
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="col s12 m7 l8 light newsitem-content">
+	<h6 class="newsitem-header">OSGi R7 Highlights - The Converter</h6>
+	<p class="newsitem-date hide-on-med-and-up">April 10, 2018</p>
+	<p>OSGi enRoute is an ongoing project that normally increments in minor version changes. However, OSGi enRoute is this time a major version because we made a lot of changes to the underlying machinery. For the use of OSGi enRoute there is not much difference. However, under the cover we’ve made...
+	<p><a href="https://blog.osgi.org/2018/04/osgi-r7-highlights-converter.html">Read on ...</a></p>
+</div>
+<div class="col s12">
+	<div class="row newsitem-divider-row">
+		<div class="col s10 push-s1 m8 push-m2">
+			<div class="divider"></div>
+		</div>
+	</div>
+</div>
+<div class="col s12 m4 l3 hide-on-small-only">
+	<div class="row newsitem-header-row">
+		<div class="col push-m3">
+			<div class="newsitem-date-card center-align">
+				<div class="newsitem-date-card-header">
+					<p class="newsitem-day-of-week">Tuesday</p>
+				</div>
+			  <div>
+				<p class="newsitem-month">Apr</p> 
+				<p class="newsitem-day-number">03</p> 
+				<p class="newsitem-year">2018</p> 
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="col s12 m7 l8 light newsitem-content">
+	<h6 class="newsitem-header">CHINESE MINISTRY OF COMMERCE, SHANGHAI BASE AND OSGi ALLIANCE ANNOUNCE STRATEGIC PARTNERSHIP</h6>
+	<p class="newsitem-date hide-on-med-and-up">April 03, 2018</p>
+	<p>The OSGi™ Alliance announced today a partnership agreement with the Industry Transfer Promotion Center (Chinese Ministry of Commerce, Shanghai Base) to collaborate on several programs that will further promote the wide adoption of OSGi™ technology in China. The strategic partnership includes a new Information Sharing Facility for OSGi technology located...
+	<p><a href="https://www.osgi.org/chinese-ministry-of-commerce-shanghai-base-and-osgi-alliance-announce-strategic-partnership/">Read on ...</a></p>
+</div>
+<div class="col s12">
+	<div class="row newsitem-divider-row">
+		<div class="col s10 push-s1 m8 push-m2">
+			<div class="divider"></div>
+		</div>
+	</div>
+</div>
+
+			</div>
+		</div>
+	</div>-->
+  </main>
+
+    <footer class="page-footer">
+    <!--<div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5>Lorem Ipsum</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+    </div>-->
+    <div class="footer-copyright">
+        <div class="container">
+            <div>
+				<span style="text-align: left; float: left; width: 30%;">
+				Made with <a target="_blank" href="http://materializecss.com">Materialize</a>
+				</span>
+				<span style="text-align: center; float: left; width: 40%;">
+				Copyright © 2018 <a href="https://www.osgi.org/">Thomas Driessen</a>
+				</span>
+                <span style="text-align: right; float: left; width: 30%;">
+				Powered by <a target="_blank" href="http://jekyllrb.com/">Jekyll</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!--  Scripts-->  
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/materialize.min.js"></script>
+<script src="/assets/js/init.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.1.0/trianglify.min.js"></script>  
+<script>
+var something = document.getElementById('trianglify-content');
+var dimensions = something.getClientRects()[0];
+var pattern = Trianglify({
+    width: dimensions.width, 
+    height: dimensions.height,
+	cell_size: 100,
+	variance: 1,
+	x_colors: ['#000000', '#424242', '#757575']
+	//x_colors: ['#757575','#424242', '#03a9f4', '#424242','#757575']
+}).png();
+var pattern64 = pattern.substr(pattern.indexOf("base64") + 7);
+something.style.backgroundImage = 'url(data:image/png;base64,' + pattern64;
+</script>
+
+  </body>
+
+</html>

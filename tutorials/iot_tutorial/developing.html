@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Developing</title>
+    <meta name="description" content="Developing" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="/assets/materialize.css" />
+    <link rel="canonical" href="/tutorials/iot_tutorial/developing.html" />
+    <link rel="alternate" type="application/rss+xml" title="modularcode" href="/feed.xml" />
+    
+</head>
+<!-- Is it a content or a nested page -->
+	
+	
+	
+	<style>a {color: #757575;fill:#424242;}a:hover {color: #03a9f4;fill:#03a9f4;}h1,h2,h3,h4,h5,h6{color: #424242;}body{color: #212121; display: flex; min-height: 100vh; flex-direction: column;}nav ul a{color: #424242;}nav .brand-logo{color: #424242}.justify-align{text-align:justify;}nav a{color: #424242;}main{flex: 1 0 auto;}.side-nav li>a{color: #424242;}.side-nav .collapsible-header, .side-nav.fixed .collapsible-header{padding-left:32px;}.side-nav .collapsible-body li a, .side-nav.fixed .collapsible-body li a{padding-left:47px;}h1,h2,h3,h4,h5,h6{-webkit-font-smoothing: antialiased;}.icon-block{padding: 0 15px;}.icon-block .material-icons{font-size: inherit;}.row{margin-bottom:0px;}.logo img{padding-top:3px;}.page-footer{background-color:#03a9f4; padding-top: 0px;}.nav-button{width:20px; height:20px; viewBox:0 0 20 20;}footer h5{color:#FFFFFF;}hr{background-color:#bdbdbd;}.divider{background-color:#bdbdbd;}img{max-width: 100%; height: auto;}.page-footer .footer-copyright{background-color:#03a9f4;}/* Code Highlighting */.highlight .c { color: #bdbdbd; font-style: italic } /* Comment */.highlight .k { color: #212121; font-weight: bold } /* Keyword */.highlight .cm { color: #bdbdbd; font-style: italic } /* Comment.Multiline */.highlight .c1 { color: #bdbdbd; font-style: italic } /* Comment.Single */.highlight .kc { color: #424242; font-weight: bold } /* Keyword.Constant */.highlight .kd { color: #212121; font-weight: bold } /* Keyword.Declaration */.highlight .kn { color: #424242; font-weight: bold } /* Keyword.Namespace */.highlight .kp { color: #424242; font-weight: bold } /* Keyword.Pseudo */.highlight .kr { color: #424242; font-weight: bold } /* Keyword.Reserved */.highlight .kt { color: #424242; font-weight: bold } /* Keyword.Type */.highlight .s { color: #757575 } /* Literal.String */.highlight .n { color: #03a9f4 } /* Name */.highlight .na { color: #03a9f4 } /* Name.Attribute */.highlight .nc { color: #03a9f4} /* Name.Class */.highlight .nd { color: #757575 } /* Name.Decorator */.highlight .nf { color: #03a9f4 } /* Name.Function */.highlight .mf { color: #757575 } /* Literal.Number.Float */.highlight .mh { color: #757575 } /* Literal.Number.Hex */.highlight .mi { color: #757575 } /* Literal.Number.Integer */.highlight .mo { color: #757575 } /* Literal.Number.Oct */.highlight .sb { color: #757575 } /* Literal.String.Backtick */.highlight .sc { color: #757575 } /* Literal.String.Char */.highlight .sd { color: #757575 } /* Literal.String.Doc */.highlight .s2 { color: #757575 } /* Literal.String.Double */.highlight .se { color: #757575 } /* Literal.String.Escape */.highlight .sh { color: #757575 } /* Literal.String.Heredoc */.highlight .si { color:#757575 } /* Literal.String.Interpol */.highlight .sx { color: #757575 } /* Literal.String.Other */.highlight .sr { color: #757575 } /* Literal.String.Regex */.highlight .s1 { color: #757575 } /* Literal.String.Single */.highlight .ss { color: #757575 } /* Literal.String.Symbol */.highlight {tab-size: 4;}div.highlighter-rouge{padding:5px;background:#f5f5f5;border:1px solid #bdbdbd;border-radius:4px;}div.highlight pre.highlight{margin:0px;}code.highlighter-rouge{padding:0px 3px;background:#f5f5f5;border:1px solid #bdbdbd;border-radius:3px;}/* Make headers a little bit smaller */h1{font-size:2.8rem;}h2{font-size:2.5rem;}h3{font-size:2.1rem;}h4{font-size:1.8rem;}h5{font-size:1.3rem;}h6{font-size:1rem;}/* Plain text */p{text-align:justify;}/* Blockquotes */blockquote{border-left:3px solid #03a9f4;font-style:italic;font-weight:300;}/* Tables */table.striped>tbody>tr:nth-child(odd){background-color:#f5f5f5;}/* Cards */.card .card-image .card-title{color: #212121; font-weight: 600; padding-bottom: 0px; padding-left:12px; padding-right: 12px;}.card-content{color: #757575;}.card .card-content{padding-top: 5px;}.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){color: #424242;}.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover{color: #03a9f4;}.card.small{height: 225px;}.card-placeholder-image{color:#bdbdbd;}.card-image img{opacity: 0.3;}.card-image h2{opacity: 0.3;}.card .card-image{min-height:60%;}/* Breadcrumbs */nav{background-color: #FFFFFF;}a.breadcrumb{color: #757575;}.breadcrumb:last-child{color:#03a9f4;}.breadcrumb:before{color:#757575;font-size:15px;}nav.breadcrumbs{box-shadow:none;margin-top:4px;}ul.collapsible{list-style-type: none;padding:0px;}.collapsible-header{border-bottom:0px;}.collapsible-body{padding:5px;}/* Table of Contents */.second-level{padding:0px;}.table-of-contents .second-level a{padding-left:40px;font-size:13px;}.table-of-contents a{color:#757575;}.table-of-contents a:hover{border-left:1px solid #03a9f4;color:#03a9f4;}.table-of-contents a.active{border-left:2px solid #03a9f4;color:#757575;}.toc-wrapper li{padding:1px;}/* Navigation Arrows */.prev-nav{top: 50%;left: 3%;position:fixed;}.next-nav{top: 50%;right: 3%;position:fixed;}</style>
+
+  <body>
+	<!-- Navigation Header -->
+	<nav class="white lighten-1" role="navigation">
+	<div class="nav-wrapper container">
+		<a id="logo-container" class="brand-logo logo show-on-medium-and-up hide-on-small-only" href="/"><img src="//logo.png"></a>
+		<a id="logo-container" class="brand-logo logo show-on-small hide-on-med-and-up" href="/"><img src="//logo-small.png"></a>
+	  
+	  
+	
+	  <ul class="right hide-on-med-and-down">
+		
+			
+			<li><a href="/tutorials.html">Tutorials</a></li>
+		
+			
+			<li><a href="/modules.html">Modules</a></li>
+		
+			
+			<li><a href="/projects.html">Projects</a></li>
+		
+			
+			<li><a href="/contribute.html">Contribute</a></li>
+		
+		
+			<li>
+				<a title="modularcode.site on GitHub" href="https://github.com/Sandared/modularcode.site"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>github</title>
+						<path d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0 1 10 4.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.163 20 14.418 20 10c0-5.523-4.478-10-10-10" fill-rule="evenodd">
+						</path>
+					</svg>					
+				</a>
+			</li>
+		
+		
+		
+			<li>
+				<a title="SanfteSchorle on Twitter" href="https://twitter.com/SanfteSchorle"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>twitter</title>
+						<path d="M15.115 7.788c.005.11.009.223.009.335 0 3.43-2.611 7.384-7.386 7.384-1.467 0-2.831-.43-3.98-1.166a5.244 5.244 0 0 0 3.843-1.075 2.596 2.596 0 0 1-2.424-1.801 2.645 2.645 0 0 0 1.171-.045 2.597 2.597 0 0 1-2.082-2.544v-.033c.351.194.752.311 1.177.324a2.59 2.59 0 0 1-1.154-2.16c0-.475.127-.92.35-1.305A7.37 7.37 0 0 0 9.99 8.414a2.596 2.596 0 0 1 4.423-2.367 5.174 5.174 0 0 0 1.648-.63 2.602 2.602 0 0 1-1.142 1.436 5.17 5.17 0 0 0 1.491-.41 5.233 5.233 0 0 1-1.295 1.345M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0" fill-rule="evenodd">
+						</path>
+					</svg>			
+				</a>
+			</li>
+		
+	  </ul>
+
+	  <ul id="nav-mobile" class="side-nav">
+		<li><a href="">Home</a></li>
+		<li class="divider"></li>
+		
+			
+			<li><a href="/tutorials.html">Tutorials</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/modules.html">Modules</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/projects.html">Projects</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/contribute.html">Contribute</a></li>
+			<li class="divider"></li>
+		
+		
+			<li>
+				<a title="modularcode.site on GitHub" href="https://github.com/Sandared/modularcode.site"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>github</title>
+						<path d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0 1 10 4.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.163 20 14.418 20 10c0-5.523-4.478-10-10-10" fill-rule="evenodd">
+						</path>
+					</svg>					
+				</a>
+			</li>
+			<li class="divider"></li>
+		
+		
+		
+			<li>
+				<a title="SanfteSchorle on Twitter" href="https://twitter.com/SanfteSchorle"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>twitter</title>
+						<path d="M15.115 7.788c.005.11.009.223.009.335 0 3.43-2.611 7.384-7.386 7.384-1.467 0-2.831-.43-3.98-1.166a5.244 5.244 0 0 0 3.843-1.075 2.596 2.596 0 0 1-2.424-1.801 2.645 2.645 0 0 0 1.171-.045 2.597 2.597 0 0 1-2.082-2.544v-.033c.351.194.752.311 1.177.324a2.59 2.59 0 0 1-1.154-2.16c0-.475.127-.92.35-1.305A7.37 7.37 0 0 0 9.99 8.414a2.596 2.596 0 0 1 4.423-2.367 5.174 5.174 0 0 0 1.648-.63 2.602 2.602 0 0 1-1.142 1.436 5.17 5.17 0 0 0 1.491-.41 5.233 5.233 0 0 1-1.295 1.345M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0" fill-rule="evenodd">
+						</path>
+					</svg>			
+				</a>
+			</li>
+			<li class="divider"></li>
+		
+	  </ul>        
+
+	  <a data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+	</div>
+</nav>
+	
+	
+	
+  <main>	
+  <div class="container">
+		<div class="row">	
+		
+			<div id="text-content" class="section col s12 l10">
+				
+
+
+<nav class="breadcrumbs">
+	<div class="nav-wrapper">
+	
+	
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+							
+				
+				
+							
+				
+				
+			
+				
+					
+					<a href="/tutorials.html" class="breadcrumb">Tutorials</a>
+				
+			
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+							
+				
+				
+							
+				
+				
+					
+				
+				<a href="/tutorials/iot_tutorial.html" class="breadcrumb">IoT Tutorial</a>
+				
+			
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+							
+				
+				
+							
+				
+				
+					
+				
+				<a href="/tutorials/iot_tutorial/developing.html" class="breadcrumb">Developing</a>
+				
+			
+		
+	
+	</div>
+</nav>
+
+				<h1 id="developing">Developing</h1>
+
+<h2 id="what-you-will-learn">What You Will Learn</h2>
+
+<p>In the previous section we used the Pi4j library to blink a LED. It is tempting to continue to explore the Pi with this library but in an OSGi world we need to share our resources with other bundles. The Pi4J library is a fantastic library to control the Raspberry Pi but it is just not very good in sharing control between a number of bundles. In an OSGi world, we need to share. For this reason, the OSGi enRoute distro contains the <a href="/services/osgi.enroute.io.circuit.api.html">osgi.enroute.iot.circuit</a> API. This allows us to use Configuration Admin and Webconsole to define what Raspberry Pi pins are used for what bundles.</p>
+
+<p>In this part we therefore let the LED blink and use a hardware switch to receive hardware events.</p>
+
+<p>Before you continue, please read the description of the <a href="/services/osgi.enroute.io.circuit.api.html">osgi.enroute.iot.circuit</a> service.</p>
+
+<h2 id="led-command">Led Command</h2>
+
+<p>The Apache Felix Gogo shell is a very nice way to explore a new environment. So let’s create a simple <code class="highlighter-rouge">led</code> command that takes a boolean. If it is true, the LED should be on, otherwise it should be false. Creating a Gogo command can hardly be simpler. You have to declare two service properties:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">osgi.command.scope</code> – The <em>scope</em>. The scope can be used to make a command unique. For example if there are multiple <code class="highlighter-rouge">foo</code> commands, then <code class="highlighter-rouge">a:foo</code> and <code class="highlighter-rouge">b:foo</code> can be used to discriminate between the <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">b</code> command providers.</li>
+  <li><code class="highlighter-rouge">osgi.command.function</code> – The name of the function. This must be a public function. The arguments of this function will be filled with the parameters from the command line after proper conversion.</li>
+</ul>
+
+<p>So our component should look like:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Component</span><span class="o">(</span>
+	<span class="n">service</span> <span class="o">=</span> <span class="n">IC</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> 
+	<span class="n">property</span> <span class="o">=</span> <span class="o">{</span>
+		<span class="n">Debug</span><span class="o">.</span><span class="na">COMMAND_SCOPE</span><span class="o">+</span><span class="s">"=domo"</span><span class="o">,</span> 
+		<span class="n">Debug</span><span class="o">.</span><span class="na">COMMAND_FUNCTION</span><span class="o">+</span><span class="s">"=led"</span>
+	<span class="o">}</span>
+<span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DomoticaCommand</span> <span class="kd">extends</span> <span class="n">ICAdapter</span><span class="o">&lt;</span><span class="n">Void</span><span class="o">,</span> <span class="n">Digital</span><span class="o">&gt;</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">led</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">on</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+		<span class="n">out</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">on</span><span class="o">);</span>	
+	<span class="o">}</span>
+
+	<span class="nd">@Reference</span>
+	<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">setCircuitBoard</span><span class="o">(</span><span class="n">CircuitBoard</span> <span class="n">cb</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kd">super</span><span class="o">.</span><span class="na">setCircuitBoard</span><span class="o">(</span><span class="n">cb</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>On the command line we can now control the led:</p>
+
+<div class="shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; led true
+&gt; led false
+</code></pre></div></div>
+
+<p>Ok, fooled you. This does not do anything yet since we’ve not wired our component yet. We need to prepare the environment first.</p>
+
+<h2 id="adding-the-gogo-commands">Adding The Gogo Commands</h2>
+
+<p>There is one more bundle that we should add to the <code class="highlighter-rouge">osgi.enroute.iot.domotica.bndrun</code> file:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>osgi.enroute.iot.circuit.command
+</code></pre></div></div>
+
+<p>The command bundle provides us with Gogo commands to list the ICs and maintain the wires. The application does the same, but then with an HTML/Javascript front end using drag &amp; drop.</p>
+
+<p>You can add this bundle in the <code class="highlighter-rouge">osgi.enroute.iot.domotica.bndrun</code> file. Click on the <code class="highlighter-rouge">Run</code> tab, select the bundle in <code class="highlighter-rouge">Avaliable Bundles</code> list and drag it to the right and drop it on the <code class="highlighter-rouge">Run Requirements</code>, then save and close. Then goto the <code class="highlighter-rouge">debug.bndrun</code> file, resolve &amp; save it.</p>
+
+<h2 id="using-the-gogo-commands">Using the Gogo Commands</h2>
+
+<p>If things worked out, you now should be able to see our IC:</p>
+
+<div class="shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; ics
+{"deviceId":"DomoticaCommand", "type":"osgi.enro...caCommand", \
+	"name":"DomoticaCommand", "icon":null, "inputs":[], \
+	"outputs":[{"name":"set", "type":"boolean", "value":false}]}
+&gt; wires
+&gt;
+&gt; circuit
+	wires                           – Show the existing wires
+	ics                             – Show the current ICs
+	connect &lt;from&gt; &lt;pin&gt; &lt;to&gt; &lt;pin&gt; – Connect two ics
+	gpo &lt;id&gt;                        – Create a test output to the Console
+	clock &lt;id&gt;                      – Create a test clock
+	disconnect id                   – Disconnect a write
+</code></pre></div></div>
+
+<p>Feel free to send a pull request to improve the output. That said, the GUI looks better.</p>
+
+<h2 id="configuring-the-raspberry-pi">Configuring the Raspberry Pi</h2>
+
+<p>Remember the <code class="highlighter-rouge">osgi.enroute.iot.pi</code> bundle with the Gpio Controller? Well, this bundle works very well with the Circuit Board service. It detects the Pi model and then allows this Pi to be configured via Configuration Admin. Since it provides Metatypes, we can now interactively configure it with Webconsole.</p>
+
+<p>In our previous example we used GPIO00 on pin 11 of the Pi’s connector. If we call up the Webconsole and go to the <code class="highlighter-rouge">Configuration</code> tab we can click on the <code class="highlighter-rouge">Pi 2 Model B</code> entry. This opens a LARGE form. This form contains multiple configuration properties for each useful pin on the connector. Let’s leave this overwhelming large form as is and focus on pin 11 or GPIO00.</p>
+
+<p><img src="img/circuits.pi.webconsole.png" alt="Webconsole Pin 11" height="80px" />.</p>
+
+<p>We need to set the following fields:</p>
+
+<ul>
+  <li>GPIO 0 – This popup menu allows us to select the mode:
+    <ul>
+      <li>ignore – Ignore this pin completely, it is somebody’s elses responsibility</li>
+      <li>none – Set to default state</li>
+      <li>out – Set the pin to output</li>
+      <li>in – Set the pin to input</li>
+    </ul>
+  </li>
+  <li>GPIO 0 Level – This popup selects options, the differ if the pin is set to output or input
+    <ul>
+      <li>off – For input, no pull ups. For output no inverter</li>
+      <li>high – For input, pull up high. For output use an inverter for the actual output (also initial state)</li>
+      <li>low – For input, pull low. For output, use the normal signal (also initial state)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>We need GPIO00 as an output, so select the <code class="highlighter-rouge">Out</code> entry in the first popup menu of pin 11. Set the level menu to <code class="highlighter-rouge">low</code>. Then save the form. This will create a new IC for the Raspberry Pi GPIO00 pin. You can see this IC with the following commands.</p>
+
+<p>If we now look in the Gogo shell we see 2 ICs:</p>
+
+<div class="shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; ics
+{"deviceId":"DomoticaCommand", "type":"osgi.enro...caCommand", ...
+{"deviceId":"GPIO00", "type":"osgi.enro...ev1Impl$1", "name":"1", ...
+&gt;
+</code></pre></div></div>
+
+<p>Note that we create an IC for each pin. The reason is that the GPIO chip in the Raspberry Pi is very flexible. It would be impossible to describe it as one IC since many pins vary significantly in function. How would you parameterize input or output in this model? So each pin (or group of pins) is modeled as its own IC.</p>
+
+<h2 id="controlling-the-led">Controlling the LED</h2>
+
+<p>Time to go back to our LED. If we list the ICs, we can spot the value of the outputs (look at <code class="highlighter-rouge">"value":false</code>):</p>
+
+<div class="shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; ics
+{"deviceId":"DomoticaCommand", "type":"osgi.enro...caCommand", \
+	"name":"DomoticaCommand", "icon":null, "inputs":[], \
+	"outputs":[{"name":"set", "type":"boolean", "value":false}]
+}
+&gt;
+</code></pre></div></div>
+
+<p>So if we execute out <code class="highlighter-rouge">led</code> command we should be able to change it:</p>
+
+<div class="shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; led true
+&gt; ics
+{"deviceId":"DomoticaCommand", "type":"osgi.enro...caCommand", \
+	"name":"DomoticaCommand", "icon":null, "inputs":[], \
+	"outputs":[{"name":"set", "type":"boolean", "value":true}]
+}
+&gt;
+</code></pre></div></div>
+
+<p>So this worked. Now the trick is to connect the <code class="highlighter-rouge">DomoticaCommand</code> <code class="highlighter-rouge">set</code> pin to the <code class="highlighter-rouge">GPIO00</code> <code class="highlighter-rouge">set</code> pin.</p>
+
+<div class="shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; connect DomoticaCommand set GPIO00 set
+{"wireId":1001, "fromDevice":"DomoticaCommand", "fromPin":"set", \
+	 "toDevice":"GPIO00", "toPin":"set", "wired":false}
+&gt;
+</code></pre></div></div>
+
+<p>Miracles! Well, if your LED is now glowing brightly red, otherwise you’re in for some debugging.</p>
+
+<p>We can now control the LED with the led command:</p>
+
+<div class="shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; led false
+&gt; led true
+&gt; led false
+&gt; led true
+&gt; led false
+&gt; led true
+</code></pre></div></div>
+
+<h2 id="adding-the-gui">Adding the GUI</h2>
+
+<p>So one more bundle that we should add to the <code class="highlighter-rouge">osgi.enroute.iot.domotica.bndrun</code> file:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>osgi.enroute.iot.circuit.application
+</code></pre></div></div>
+
+<p>You can add this bundle in the <code class="highlighter-rouge">osgi.enroute.iot.domotica.bndrun</code> file. Click on the <code class="highlighter-rouge">Run</code> tab, select the bundle in <code class="highlighter-rouge">Avaliable Bundles</code> list and drag it to the right and drop it on the <code class="highlighter-rouge">Run Requirements</code>, then save and close. Then goto the <code class="highlighter-rouge">debug.bndrun</code> file, resolve &amp; save it.</p>
+
+<p>This bundle provides a HTML/Javascript GUI on the Pi’s HTTP server. This server is generally located at the Pi’s IP number on port 8080.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://192.168.2.4/osgi.enroute.iot.circuit
+</code></pre></div></div>
+
+<p>If you go to that page, you should be able to see the two ICs we created with their corresponding wire. The state of the LED is also indicated.</p>
+
+<p><img src="img/circuit.application.png" alt="Circuit Application" />.</p>
+
+<p>We could have some fun, just to demo the GUI application. The IoT Circuit Toolkit also contains a number of standard components. Let’s create an 8 bit counter and connect one of the d0..d7 to the LED, this will blink the LED.</p>
+
+<p>To do this, go to the Webconsole, and click on the <code class="highlighter-rouge">Configuration</code> tab. Find the <code class="highlighter-rouge">Counter counter config</code> entry, and click on the <code class="highlighter-rouge">+</code> button. This opens a small menu. Just name the component and safe it.</p>
+
+<p><img src="img/circuit.webconsole.counter.png" alt="Creating a counter" />.</p>
+
+<p>In the Circuit GUI you will see the counter showing up. You can drag one of the d0..d7 on the counter’s IC to the GPIO00 IC set pin. You should then see this reflected in your real world LED.</p>
+
+<p>You could delete the wire from the DomoticaCommand (DC) set pin and create a wire between that pin and the counter’s set pin. This set pin on the counter is an enable. If it is false, it will stop the counter. Once you created that wire you can start stop the counter with the <code class="highlighter-rouge">led</code> command.</p>
+
+<p><img src="img/circuit.application.counter.png" alt="Creating a counter" />.</p>
+
+<h2 id="and-now-an-input-">And Now an Input …</h2>
+
+<p>So far we’ve created an output but now for an input. Though you can just use a wire that you connect between an input port and ground (if you make the pull up level high), we will use a little pushbutton switch. We connect one side of the switch to the ground, the other to GPIO02 (in Pi4J terms), this is pin 13, adjacent to the output we’ve used for our LED so far.</p>
+
+<p><img src="img/circuit.breadboard.button.png" alt="Circuit Application" /></p>
+
+<p>Next step is to configure our Raspberry Pi to turn pin 13 into an input with the name GPIO02. Go to the Webconsole, select the Raspberry Pi configuration, and change pin 13 into:</p>
+
+<ul>
+  <li>An input</li>
+  <li>A high level. Since we connected the switch to the ground, the other pin will float when the switch is not pressed. By specifying a high level we get a “default” value of 1.</li>
+</ul>
+
+<p>Save the configuration. You should now have a screen for the Circuit Application like this:</p>
+
+<p><img src="img/circuit.application.button.png" alt="Circuit Application with button" /></p>
+
+<p>If you press the button, the state of the GPIO02 IC should change. You can now wire the output set pin of GPIO02 to any of the input pins. For example, you could use it to enable the counter. However, that is not so much fun. More fun is to wire it to our DomoticaCommand. However, we defined no inputs. As an example, lets make a component that bkinks the LED for 5 seconds when you press the button.</p>
+
+<p>First the code:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Component</span><span class="o">(</span><span class="n">service</span> <span class="o">=</span> <span class="n">IC</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">property</span> <span class="o">=</span> <span class="o">{</span><span class="n">Debug</span><span class="o">.</span><span class="na">COMMAND_SCOPE</span><span class="o">+</span><span class="s">"=domo"</span><span class="o">,</span> <span class="n">Debug</span><span class="o">.</span><span class="na">COMMAND_FUNCTION</span><span class="o">+</span><span class="s">"=led"</span><span class="o">})</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DomoticaCommand</span> <span class="kd">extends</span> <span class="n">ICAdapter</span><span class="o">&lt;</span><span class="n">Digital</span><span class="o">,</span> <span class="n">Digital</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Digital</span> <span class="o">{</span>
+ 
+	<span class="kd">private</span> <span class="n">AtomicBoolean</span> <span class="n">busy</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AtomicBoolean</span><span class="o">();</span>
+	<span class="kd">private</span> <span class="n">Scheduler</span> <span class="n">scheduler</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">count</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="n">Closeable</span> <span class="n">schedule</span><span class="o">;</span>
+	
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">value</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+		
+		<span class="k">if</span> <span class="o">(</span> <span class="n">value</span> <span class="o">&amp;&amp;</span> <span class="n">busy</span><span class="o">.</span><span class="na">getAndSet</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">==</span> <span class="kc">false</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">count</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+			<span class="n">schedule</span> <span class="o">=</span> <span class="n">scheduler</span><span class="o">.</span><span class="na">schedule</span><span class="o">(</span> <span class="o">()-&gt;</span> <span class="o">{</span>
+				<span class="k">if</span> <span class="o">(</span> <span class="n">count</span><span class="o">--</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">busy</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+					<span class="n">schedule</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+				<span class="o">}</span>
+				<span class="n">led</span><span class="o">(</span> <span class="o">(</span><span class="n">count</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">);</span>
+			<span class="o">},</span> <span class="mi">500</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">led</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">on</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span> 
+		<span class="n">out</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">on</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Reference</span> <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">setCircuitBoard</span><span class="o">(</span><span class="n">CircuitBoard</span> <span class="n">cb</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kd">super</span><span class="o">.</span><span class="na">setCircuitBoard</span><span class="o">(</span><span class="n">cb</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Reference</span> <span class="kt">void</span> <span class="nf">setScheduler</span><span class="o">(</span><span class="n">Scheduler</span> <span class="n">scheduler</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">scheduler</span> <span class="o">=</span> <span class="n">scheduler</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>When we receive an input event (the <code class="highlighter-rouge">set</code> method), we check if we’re already busy and if the button was high. If so, we set a counter and create a schedule. This schedule kills itself after ten times and reverses the output of the LED. Simple.</p>
+
+<p>So all you have to do now is to wire the GPIO02.set output pin to the DC.set input pin. The DC.set output pin is then wired to the LED. You might want to delete the configuration for the counter because we don’t need it. We then have the following screen:</p>
+
+<p><img src="img/circuit.application.blinker.png" alt="Circuit Application with button &amp; blinker" /></p>
+
+<h2 id="what-you-should-have-learned">What You Should Have Learned</h2>
+
+<p>In this section we learned that using the GPIOs directly is wrong because we need to share these singleton resources with other bundles. The OSGi enRoute Circuit Board API provides a means to create IC components that declare their inputs and outputs with methods on a Java interface; a bundle can then wire the pins of these ICs together.</p>
+
+<p>Wirings are stored in Configuration Admin and in general components are configured using Configuration Admin.</p>
+
+<h2 id="whats-next">What’s Next?</h2>
+
+<p>Next is back to the start page. We intend to extend this tutorial over time.</p>
+
+
+		    </div>
+			<div class="col hide-on-med-and-down l2">
+				<div id="toc-wrapper" class="toc-wrapper pin-top">
+				  <ul id="toc" class="section table-of-contents">
+					
+				  </ul>
+				</div>
+			</div>
+			
+			
+				
+				<div class="col s6 left-align hide-on-large-only show-on-med-and-down"><a href="exploring.html"><i class="large material-icons">keyboard_arrow_left</i></a></div>
+			
+			
+				<div class="col s6  right-align hide-on-large-only show-on-med-and-down"><a href="start.html"><i class="large material-icons">keyboard_arrow_right</i></a></div>
+			
+			
+			
+				<div class="prev-nav hide-on-med-and-down"><a href="exploring.html"><i class="small material-icons">keyboard_arrow_left</i></a></div>
+			
+			
+				<div class="next-nav hide-on-med-and-down"><a href="start.html"><i class="small material-icons">keyboard_arrow_right</i></a></div>
+			
+		
+			
+    </div> 
+	
+  </div>
+  </main>
+	<footer class="page-footer">
+    <!--<div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5>Lorem Ipsum</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+    </div>-->
+    <div class="footer-copyright">
+        <div class="container">
+            <div>
+				<span style="text-align: left; float: left; width: 30%;">
+				Made with <a target="_blank" href="http://materializecss.com">Materialize</a>
+				</span>
+				<span style="text-align: center; float: left; width: 40%;">
+				Copyright © 2018 <a href="https://www.osgi.org/">Thomas Driessen</a>
+				</span>
+                <span style="text-align: right; float: left; width: 30%;">
+				Powered by <a target="_blank" href="http://jekyllrb.com/">Jekyll</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>      
+	<!--  Scripts-->  
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/materialize.min.js"></script>
+<script src="/assets/js/init.js"></script>	
+	<script src="/assets/js/content.js"></script>	
+  </body>
+
+</html>

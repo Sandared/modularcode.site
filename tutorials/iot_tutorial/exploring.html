@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Exploring</title>
+    <meta name="description" content="Exploring" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="/assets/materialize.css" />
+    <link rel="canonical" href="/tutorials/iot_tutorial/exploring.html" />
+    <link rel="alternate" type="application/rss+xml" title="modularcode" href="/feed.xml" />
+    
+</head>
+<!-- Is it a content or a nested page -->
+	
+	
+	
+	<style>a {color: #757575;fill:#424242;}a:hover {color: #03a9f4;fill:#03a9f4;}h1,h2,h3,h4,h5,h6{color: #424242;}body{color: #212121; display: flex; min-height: 100vh; flex-direction: column;}nav ul a{color: #424242;}nav .brand-logo{color: #424242}.justify-align{text-align:justify;}nav a{color: #424242;}main{flex: 1 0 auto;}.side-nav li>a{color: #424242;}.side-nav .collapsible-header, .side-nav.fixed .collapsible-header{padding-left:32px;}.side-nav .collapsible-body li a, .side-nav.fixed .collapsible-body li a{padding-left:47px;}h1,h2,h3,h4,h5,h6{-webkit-font-smoothing: antialiased;}.icon-block{padding: 0 15px;}.icon-block .material-icons{font-size: inherit;}.row{margin-bottom:0px;}.logo img{padding-top:3px;}.page-footer{background-color:#03a9f4; padding-top: 0px;}.nav-button{width:20px; height:20px; viewBox:0 0 20 20;}footer h5{color:#FFFFFF;}hr{background-color:#bdbdbd;}.divider{background-color:#bdbdbd;}img{max-width: 100%; height: auto;}.page-footer .footer-copyright{background-color:#03a9f4;}/* Code Highlighting */.highlight .c { color: #bdbdbd; font-style: italic } /* Comment */.highlight .k { color: #212121; font-weight: bold } /* Keyword */.highlight .cm { color: #bdbdbd; font-style: italic } /* Comment.Multiline */.highlight .c1 { color: #bdbdbd; font-style: italic } /* Comment.Single */.highlight .kc { color: #424242; font-weight: bold } /* Keyword.Constant */.highlight .kd { color: #212121; font-weight: bold } /* Keyword.Declaration */.highlight .kn { color: #424242; font-weight: bold } /* Keyword.Namespace */.highlight .kp { color: #424242; font-weight: bold } /* Keyword.Pseudo */.highlight .kr { color: #424242; font-weight: bold } /* Keyword.Reserved */.highlight .kt { color: #424242; font-weight: bold } /* Keyword.Type */.highlight .s { color: #757575 } /* Literal.String */.highlight .n { color: #03a9f4 } /* Name */.highlight .na { color: #03a9f4 } /* Name.Attribute */.highlight .nc { color: #03a9f4} /* Name.Class */.highlight .nd { color: #757575 } /* Name.Decorator */.highlight .nf { color: #03a9f4 } /* Name.Function */.highlight .mf { color: #757575 } /* Literal.Number.Float */.highlight .mh { color: #757575 } /* Literal.Number.Hex */.highlight .mi { color: #757575 } /* Literal.Number.Integer */.highlight .mo { color: #757575 } /* Literal.Number.Oct */.highlight .sb { color: #757575 } /* Literal.String.Backtick */.highlight .sc { color: #757575 } /* Literal.String.Char */.highlight .sd { color: #757575 } /* Literal.String.Doc */.highlight .s2 { color: #757575 } /* Literal.String.Double */.highlight .se { color: #757575 } /* Literal.String.Escape */.highlight .sh { color: #757575 } /* Literal.String.Heredoc */.highlight .si { color:#757575 } /* Literal.String.Interpol */.highlight .sx { color: #757575 } /* Literal.String.Other */.highlight .sr { color: #757575 } /* Literal.String.Regex */.highlight .s1 { color: #757575 } /* Literal.String.Single */.highlight .ss { color: #757575 } /* Literal.String.Symbol */.highlight {tab-size: 4;}div.highlighter-rouge{padding:5px;background:#f5f5f5;border:1px solid #bdbdbd;border-radius:4px;}div.highlight pre.highlight{margin:0px;}code.highlighter-rouge{padding:0px 3px;background:#f5f5f5;border:1px solid #bdbdbd;border-radius:3px;}/* Make headers a little bit smaller */h1{font-size:2.8rem;}h2{font-size:2.5rem;}h3{font-size:2.1rem;}h4{font-size:1.8rem;}h5{font-size:1.3rem;}h6{font-size:1rem;}/* Plain text */p{text-align:justify;}/* Blockquotes */blockquote{border-left:3px solid #03a9f4;font-style:italic;font-weight:300;}/* Tables */table.striped>tbody>tr:nth-child(odd){background-color:#f5f5f5;}/* Cards */.card .card-image .card-title{color: #212121; font-weight: 600; padding-bottom: 0px; padding-left:12px; padding-right: 12px;}.card-content{color: #757575;}.card .card-content{padding-top: 5px;}.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){color: #424242;}.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover{color: #03a9f4;}.card.small{height: 225px;}.card-placeholder-image{color:#bdbdbd;}.card-image img{opacity: 0.3;}.card-image h2{opacity: 0.3;}.card .card-image{min-height:60%;}/* Breadcrumbs */nav{background-color: #FFFFFF;}a.breadcrumb{color: #757575;}.breadcrumb:last-child{color:#03a9f4;}.breadcrumb:before{color:#757575;font-size:15px;}nav.breadcrumbs{box-shadow:none;margin-top:4px;}ul.collapsible{list-style-type: none;padding:0px;}.collapsible-header{border-bottom:0px;}.collapsible-body{padding:5px;}/* Table of Contents */.second-level{padding:0px;}.table-of-contents .second-level a{padding-left:40px;font-size:13px;}.table-of-contents a{color:#757575;}.table-of-contents a:hover{border-left:1px solid #03a9f4;color:#03a9f4;}.table-of-contents a.active{border-left:2px solid #03a9f4;color:#757575;}.toc-wrapper li{padding:1px;}/* Navigation Arrows */.prev-nav{top: 50%;left: 3%;position:fixed;}.next-nav{top: 50%;right: 3%;position:fixed;}</style>
+
+  <body>
+	<!-- Navigation Header -->
+	<nav class="white lighten-1" role="navigation">
+	<div class="nav-wrapper container">
+		<a id="logo-container" class="brand-logo logo show-on-medium-and-up hide-on-small-only" href="/"><img src="//logo.png"></a>
+		<a id="logo-container" class="brand-logo logo show-on-small hide-on-med-and-up" href="/"><img src="//logo-small.png"></a>
+	  
+	  
+	
+	  <ul class="right hide-on-med-and-down">
+		
+			
+			<li><a href="/tutorials.html">Tutorials</a></li>
+		
+			
+			<li><a href="/modules.html">Modules</a></li>
+		
+			
+			<li><a href="/projects.html">Projects</a></li>
+		
+			
+			<li><a href="/contribute.html">Contribute</a></li>
+		
+		
+			<li>
+				<a title="modularcode.site on GitHub" href="https://github.com/Sandared/modularcode.site"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>github</title>
+						<path d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0 1 10 4.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.163 20 14.418 20 10c0-5.523-4.478-10-10-10" fill-rule="evenodd">
+						</path>
+					</svg>					
+				</a>
+			</li>
+		
+		
+		
+			<li>
+				<a title="SanfteSchorle on Twitter" href="https://twitter.com/SanfteSchorle"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>twitter</title>
+						<path d="M15.115 7.788c.005.11.009.223.009.335 0 3.43-2.611 7.384-7.386 7.384-1.467 0-2.831-.43-3.98-1.166a5.244 5.244 0 0 0 3.843-1.075 2.596 2.596 0 0 1-2.424-1.801 2.645 2.645 0 0 0 1.171-.045 2.597 2.597 0 0 1-2.082-2.544v-.033c.351.194.752.311 1.177.324a2.59 2.59 0 0 1-1.154-2.16c0-.475.127-.92.35-1.305A7.37 7.37 0 0 0 9.99 8.414a2.596 2.596 0 0 1 4.423-2.367 5.174 5.174 0 0 0 1.648-.63 2.602 2.602 0 0 1-1.142 1.436 5.17 5.17 0 0 0 1.491-.41 5.233 5.233 0 0 1-1.295 1.345M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0" fill-rule="evenodd">
+						</path>
+					</svg>			
+				</a>
+			</li>
+		
+	  </ul>
+
+	  <ul id="nav-mobile" class="side-nav">
+		<li><a href="">Home</a></li>
+		<li class="divider"></li>
+		
+			
+			<li><a href="/tutorials.html">Tutorials</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/modules.html">Modules</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/projects.html">Projects</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/contribute.html">Contribute</a></li>
+			<li class="divider"></li>
+		
+		
+			<li>
+				<a title="modularcode.site on GitHub" href="https://github.com/Sandared/modularcode.site"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>github</title>
+						<path d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0 1 10 4.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.163 20 14.418 20 10c0-5.523-4.478-10-10-10" fill-rule="evenodd">
+						</path>
+					</svg>					
+				</a>
+			</li>
+			<li class="divider"></li>
+		
+		
+		
+			<li>
+				<a title="SanfteSchorle on Twitter" href="https://twitter.com/SanfteSchorle"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>twitter</title>
+						<path d="M15.115 7.788c.005.11.009.223.009.335 0 3.43-2.611 7.384-7.386 7.384-1.467 0-2.831-.43-3.98-1.166a5.244 5.244 0 0 0 3.843-1.075 2.596 2.596 0 0 1-2.424-1.801 2.645 2.645 0 0 0 1.171-.045 2.597 2.597 0 0 1-2.082-2.544v-.033c.351.194.752.311 1.177.324a2.59 2.59 0 0 1-1.154-2.16c0-.475.127-.92.35-1.305A7.37 7.37 0 0 0 9.99 8.414a2.596 2.596 0 0 1 4.423-2.367 5.174 5.174 0 0 0 1.648-.63 2.602 2.602 0 0 1-1.142 1.436 5.17 5.17 0 0 0 1.491-.41 5.233 5.233 0 0 1-1.295 1.345M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0" fill-rule="evenodd">
+						</path>
+					</svg>			
+				</a>
+			</li>
+			<li class="divider"></li>
+		
+	  </ul>        
+
+	  <a data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+	</div>
+</nav>
+	
+	
+	
+  <main>	
+  <div class="container">
+		<div class="row">	
+		
+			<div id="text-content" class="section col s12 l10">
+				
+
+
+<nav class="breadcrumbs">
+	<div class="nav-wrapper">
+	
+	
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+							
+				
+				
+							
+				
+				
+			
+				
+					
+					<a href="/tutorials.html" class="breadcrumb">Tutorials</a>
+				
+			
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+							
+				
+				
+							
+				
+				
+					
+				
+				<a href="/tutorials/iot_tutorial.html" class="breadcrumb">IoT Tutorial</a>
+				
+			
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+							
+				
+				
+							
+				
+				
+					
+				
+				<a href="/tutorials/iot_tutorial/exploring.html" class="breadcrumb">Exploring</a>
+				
+			
+		
+	
+	</div>
+</nav>
+
+				<h1 id="exploring">Exploring</h1>
+
+<h2 id="what-will-you-learn">What Will You Learn</h2>
+
+<p>The Raspberry Pi is humming, you’re logged into the Raspberry via ssh, java works,and bndtools is showing an empty workspace with only the cnf directory. In this section we will start exploring the Raspberry in the most basic way. We will create an application project that we then use to first just create a little component that plays with the hardware in a component.</p>
+
+<h2 id="create-application-project">Create Application Project</h2>
+
+<p>In the workspace, create a project. In this tutorial this project is called <code class="highlighter-rouge">osgi.enroute.examples.iot.domotica.application</code>, but you should obviously give it a name dear to you, just make sure it ends with <code class="highlighter-rouge">.application</code> since the OSGi enRoute template uses that extension to provide the proper project structure for a web application. It should therefore go without saying, that you should select the OSGi enRoute template when asked.</p>
+
+<p>The following code assumes the <code class="highlighter-rouge">osgi.enroute.examples.iot.domotica.application</code> name and from this name it derives package names. If you choose your own names, make sure to proper translate these derived names.</p>
+
+<h2 id="hello-world">Hello World</h2>
+
+<p>An OSGi enRoute Application project is a full web application with REST but we are first going to ignore those goodies. As always, the easiest app is to say <code class="highlighter-rouge">Hello World</code> (and on OSGi also <code class="highlighter-rouge">Goodbye World!</code>). So lets create a component in the <code class="highlighter-rouge">osgi.enroute.examples.iot.domotica.command</code> package that performs these highly complex actions:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DomoticaCommand</span> <span class="o">{</span>
+
+	<span class="nd">@Activate</span>
+	<span class="kt">void</span> <span class="nf">activate</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello World"</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Deactivate</span>
+	<span class="kt">void</span> <span class="nf">deactivate</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Goodbye World"</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Make sure you add the package to the private packages of the bundle. You can do this by double clicking on the <code class="highlighter-rouge">provider.bnd</code> file, select the <code class="highlighter-rouge">Contents</code> tab and drag the package in the <code class="highlighter-rouge">Private Package</code> list.</p>
+
+<h2 id="remote-debugging">Remote Debugging</h2>
+
+<p>The OSGi enRoute Application template has created a complete runnable project. The <code class="highlighter-rouge">osgi.enroute.examples.iot.domotica.bndrun</code> file has a specification for running this application on an OSGi server that contains an HTTP server an other necessities in life. However, in this case we will use  the <code class="highlighter-rouge">debug.bndrun</code> run specification. This run specification inherits its setup from the <code class="highlighter-rouge">osgi.enroute.examples.iot.domotica.bndrun</code> file, it just adds a number of useful debugging bundles.</p>
+
+<p>The Http Server will run by (the OSGi) default on port 8080. You can change this port number by setting a run property in the <code class="highlighter-rouge">osgi.enroute.examples.iot.domotica.bndrun</code> file:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-runproperties: org.osgi.service.http.port = 9090
+</code></pre></div></div>
+
+<p>So double click this file and go to the <code class="highlighter-rouge">Source</code> tab. In the editor, add the following instruction:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-runpath: biz.aQute.remote.launcher
+-runremote: \
+	pi; \
+		jdb=1044; \
+		host=192.168.2.4; \
+		shell=-1
+</code></pre></div></div>
+
+<p>Obviously you have to change the IP number to the one you are using. In the <a href="100-prerequisites.html">pre-requisites</a> we should have started the bnd remote main program via ssh:</p>
+
+<div class="shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh pi@192.168.2.4
+pi@raspberrypi ~ $ sudo bndremote -a
+Listening for transport dt_socket at address: 1044
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">-a</code> option indicates that bndremote should listen to all interfaces, not just localhost.</p>
+
+<p>We now need to <em>resolve</em> the run specification. On the <code class="highlighter-rouge">debug.bndrun</code>, select the <code class="highlighter-rouge">Run</code> tab and click the <code class="highlighter-rouge">Resolve</code> button.</p>
+
+<p>The next step is to run this Run specification. Select the <code class="highlighter-rouge">debug.bndrun</code> file and call up the context menu, and select <code class="highlighter-rouge">@/Debug As/Bnd Native Launcher</code>. This will cause bnd to start the debugger and look for a remote agent on the specified host. If you forgot to start the remote agent then you have all the time of the world, bnd(tools) will keep tryng until it finds an agent. Once it succeeds, the ssh shell window should look like:</p>
+
+<div class="shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>____________________________
+Welcome to Apache Felix Gogo
+
+g!
+2015-07-14 16:41:59.701:INFO:oejs.Server:jetty-8.1.14.v20131031
+2015-07-14 16:42:00.202:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:8080
+[INFO] Started Jetty 8.1.14.v20131031 at port(s) HTTP:8080 on context path /
+[INFO] Detected extended HttpService. Filters enabled.
+[INFO] Http service whiteboard started
+Hello world	
+Web server
+</code></pre></div></div>
+
+<p>The bndtools IDE will continuously update the bundles on the remote agent. Let’s test it by changing the “Hello World” to “I love Domotica!”.</p>
+
+<div class="shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Goodbye World!
+I love Domotica
+</code></pre></div></div>
+
+<h2 id="talking-to-the-hardware">Talking to the Hardware</h2>
+
+<p>We can now run code on the Pi so the next step is to talk to do something really “Piish”. Obviously, talking to the hardware is pretty specific to the Pi. The primary library talking to the hardware in the Java world is <a href="http://pi4j.com/">Pi4j</a>. We could use this library directly but we can also use the OSGi enRoute version. The OSGi enRoute distro contains a bundle <code class="highlighter-rouge">osgi.enroute.iot.pi.provider</code>. This bundle contains <a href="http://pi4j.com/">Pi4j</a>, which is a Java library based on <a href="http://wiringpi.com/">Wiring Pi</a>, a native code library to control the BCM2835 chip in the Raspberry Pi, which will be our gateway to leave the cyberworld and talk to things. This bundle is designed to work with the <code class="highlighter-rouge">osgi.enroute.iot.circuit.provider</code> bundle, however, we will first descent to the Pi4J level. The  <code class="highlighter-rouge">osgi.enroute.iot.pi.provider</code> bundle therefore also registers  a Pi4J GpioController.</p>
+
+<p>So first add the maven dependency into the central.xml of your bnd workspace (into the cnf folder) with these lines:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	&lt;dependency&gt;
+		&lt;groupId&gt;org.osgi&lt;/groupId&gt;
+		&lt;artifactId&gt;osgi.enroute.iot.pi.provider&lt;/artifactId&gt;
+		&lt;version&gt;2.0.0&lt;/version&gt;
+	&lt;/dependency&gt; 
+</code></pre></div></div>
+
+<p>To see change you probably have to refresh the repository tree from eclipse repositories view. Then add <code class="highlighter-rouge">osgi.enroute.iot.pi.provider</code> to the <code class="highlighter-rouge">osgi.enroute.examples.iot.domotica.bndrun</code>’s <code class="highlighter-rouge">-runrequires</code> instruction:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-runrequires: \
+	osgi.identity;filter:='(osgi.identity=osgi.enroute.iot.domotica.application)',\
+	osgi.identity;filter:='(osgi.identity=osgi.enroute.iot.pi.provider)'
+</code></pre></div></div>
+
+<p>Actually, the easiest way to do this is to select the <code class="highlighter-rouge">Run</code> tab and then drag the <code class="highlighter-rouge">osgi.enroute.iot.pi.provider</code> from the repositories to the Run Requirements list. Save this file, then go to the <code class="highlighter-rouge">debug.bndrun</code> file and click on the <code class="highlighter-rouge">Resolve</code> button in the <code class="highlighter-rouge">Run</code> tab and save this file. This will load the   <code class="highlighter-rouge">osgi.enroute.iot.pi.provider</code> bundle in the Pi.</p>
+
+<p>The <code class="highlighter-rouge">osgi.enroute.iot.pi.provider</code> bundle adds a GpioController service from the Pi4j project. Since we want to use that GpioController service we need access to the type. We therefore need to add  this bundle also to the <code class="highlighter-rouge">bnd.bnd</code> file’s <code class="highlighter-rouge">-buildpath</code> instruction.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-buildpath: \
+	osgi.enroute.base.api,\
+	osgi.enroute.logger.simple.provider,\
+	osgi.enroute.web.simple.provider;version=1.2,\
+	osgi.enroute.iot.circuit.provider,\
+	osgi.enroute.iot.pi.provider
+</code></pre></div></div>
+
+<p>You can of course also click on the <code class="highlighter-rouge">+</code> in the <code class="highlighter-rouge">bnd.bnd</code>’s file Build tab and it from the list.</p>
+
+<p>Let’s first do something very naughty: use statics. The Pi4j library has a SystemInfo class that provides lots of information about our Pi.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DomoticaCommand</span> <span class="o">{</span>
+
+	<span class="nd">@Activate</span>
+	<span class="kt">void</span> <span class="nf">activate</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">SystemInfo</span><span class="o">.</span><span class="na">getBoardType</span><span class="o">().</span><span class="na">name</span><span class="o">()</span> 
+			<span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">SystemInfo</span><span class="o">.</span><span class="na">getSerial</span><span class="o">());</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Deactivate</span>
+	<span class="kt">void</span> <span class="nf">deactivate</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Goodbye World"</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Save the file Java source file and watch the output:</p>
+
+<div class="shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Goodbye World!
+Model2B_Rev1 00000000237a3302
+</code></pre></div></div>
+
+<h2 id="real-hardware">Real Hardware</h2>
+
+<p>It is time to get this hardware out of the static-electricy protection pouches! We are going to make an LED blink! To “design” this scenario we use a handy open source tool called <a href="http://fritzing.org/home/">“Fritzing”</a>. It allows us to design in schema or breadboard mode. Let’s start with a schema:</p>
+
+<p><img src="img/exploring-led-schema-1.png" alt="LED Example" height="300px" />.</p>
+
+<p>A bit about pin numbering … that is a bit of a mess. Pi4j uses another numbering than the Raspberry connector/chip uses. This is highly confusing. In the schema we connected the LED to the Raspberry GPIO17 on in the connector pin 11, in Pi4J this called the GPIO00 pin. Confused? You will be. We will keep the Pi4J numbering as much as possible. This the connector for Pi4j numbering:</p>
+
+<p><img src="http://pi4j.com/images/j8header-2b.png" alt="Model 2B pins" height="600px" />.</p>
+
+<p>We connect the positive side of the LED to the GPIO 4 of the Raspberry and then connect it to ground via a 220Ω resistor. An LED is a <em>light emitting diode</em>, quite popular nowadays because they are very power efficient. The resistor is there to limit the current, otherwise we could destroy the Raspberry GPIO port or the LED. (Murphy says the Raspberry is the more likely candidate since it is more expensive). Remember that Electronics 101 class? We limit the current to less than (2.7V)/220Ω ~ 20 mA. This is within the  <a href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/gpio-pin-electrical-specifications">Raspberry Pi</a> limits.</p>
+
+<p>We implement this schema on a <em>breadboard</em>. A <a href="http://tangentsoft.net/elec/breadboard.html">breadboard</a> is a little board that makes it easy to prototype with the Raspberry Pi. It provides power lines above and below the board and a prototyping area where the vertical lines are connected. The distance between the holes is standard 0.1 inch, most ICs can be delivered with pins that use this spacing. Connections are made using small wires. Our breadboard is shown in the following picture:</p>
+
+<p><img src="img/exploring-led-breadboard-1.png" alt="LED Example" height="300px" />.</p>
+
+<p>We follow industry standard colors:</p>
+
+<ul>
+  <li>Red – Power, in our case the Raspberry 3.3V</li>
+  <li>Blue – Ground</li>
+  <li>Other – Signal wires</li>
+</ul>
+
+<p>A quick word about the electronics involved. LEDs are <em>Light Emitting Diodes</em> and the diode part is important for us – they only pass electricity one way, so we need to make sure we put them in the right way round. They have a long leg and a slightly shorter leg. The long leg goes to the plus side and the shorter leg to the negative (or 0v) side. If we’re cut the legs short (as I have done here), then another way is to look at the side of the LED – there will be a flat section. Think of the flat as a minus sign and connect that to the resistor so that it is connected to the ground side of the circuit.</p>
+
+<p>You could test the circuit by connecting a temporary wire from the red 3.3V barto the LED on the side of the yellow wire. This should light the LED.</p>
+
+<h2 id="blinking">Blinking!</h2>
+
+<p>The next step is the software. The following code will start a thread and blink the LED. The details about the API are to be found at the <a href="http://pi4j.com/">Pi4j site</a>. We are using the Pi4J API but realize that this API is not how you should use the Raspberry Pi on with OSGi.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="n">Scheduler</span> <span class="n">scheduler</span><span class="o">;</span>
+<span class="kd">private</span> <span class="n">Closeable</span> <span class="n">schedule</span><span class="o">;</span>
+
+<span class="nd">@Activate</span>
+<span class="kt">void</span> <span class="nf">activate</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+	<span class="k">try</span> <span class="o">{</span>
+		<span class="n">GpioController</span> <span class="n">gpioController</span> <span class="o">=</span> <span class="n">GpioFactory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+		
+		<span class="k">while</span> <span class="o">(!</span><span class="n">gpioController</span><span class="o">.</span><span class="na">getProvisionedPins</span><span class="o">().</span><span class="na">isEmpty</span><span class="o">())</span> 
+			<span class="n">gpioController</span><span class="o">.</span><span class="na">unprovisionPin</span><span class="o">(</span><span class="n">gpioController</span><span class="o">.</span><span class="na">getProvisionedPins</span><span class="o">().</span><span class="na">iterator</span><span class="o">().</span><span class="na">next</span><span class="o">());</span>
+
+		<span class="n">GpioPinDigitalOutput</span> <span class="n">out</span> <span class="o">=</span> <span class="n">gpioController</span>
+				<span class="o">.</span><span class="na">provisionDigitalOutputPin</span><span class="o">(</span><span class="n">RaspiPin</span><span class="o">.</span><span class="na">GPIO_00</span><span class="o">,</span> <span class="s">"LED1"</span><span class="o">,</span>
+						<span class="n">PinState</span><span class="o">.</span><span class="na">LOW</span><span class="o">);</span>
+
+		<span class="n">schedule</span> <span class="o">=</span> <span class="n">scheduler</span><span class="o">.</span><span class="na">schedule</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+			<span class="kt">boolean</span> <span class="n">high</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="na">getState</span><span class="o">().</span><span class="na">isHigh</span><span class="o">();</span>
+			<span class="n">out</span><span class="o">.</span><span class="na">setState</span><span class="o">(!</span><span class="n">high</span><span class="o">);</span>
+		<span class="o">},</span> <span class="mi">500</span><span class="o">);</span>
+	<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="nd">@Deactivate</span>
+<span class="kt">void</span> <span class="nf">deactivate</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+	<span class="n">schedule</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+	<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Goodbye World!"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Reference</span>
+<span class="kt">void</span> <span class="nf">setScheduler</span><span class="o">(</span><span class="n">Scheduler</span> <span class="n">scheduler</span><span class="o">)</span> <span class="o">{</span>
+	<span class="k">this</span><span class="o">.</span><span class="na">scheduler</span> <span class="o">=</span> <span class="n">scheduler</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Save the code, and see how the LED is blinking at you!</p>
+
+<h2 id="thinking-ahead">Thinking Ahead</h2>
+
+<p>We hope you’re still reading this and not escaped to the Pi4J site to see how you can use the GpioController to do more cool stuff and impress your partner with your explorations outside cyberspace. For we need to talk a bit …</p>
+
+<p>Take a look at the code. This <code class="highlighter-rouge">activate</code> method clearly shows that we have one of those evil static APIs with life cycle attitude. Static APIs with such an attitude generally spell trouble in OSGi. Things work better with services. And this is a prime example of the disadvantages. As you can see, we need this odd loop to clear out any pins that were already provisioned before. We then need to create the pin while choosing a specific GPIO. If you think about this API then you should realize that such a design does not work very well in a shared environment. What if other bundles want use a GPIO pin as well? How do we prevent it from being cleared. We picked GPIO00 but that was arbitrary, we could’ve picked any GPIO. Sadly, lots of APIs are designed with the God complex, thinking that there is a single designer that omniscient. In a modular environment we try to avoid those like the plague. So in the coming sections we show an alternative on OSGi mechanisms. This example was just to get a quick and dirty win.</p>
+
+
+		    </div>
+			<div class="col hide-on-med-and-down l2">
+				<div id="toc-wrapper" class="toc-wrapper pin-top">
+				  <ul id="toc" class="section table-of-contents">
+					
+				  </ul>
+				</div>
+			</div>
+			
+			
+				
+				<div class="col s6 left-align hide-on-large-only show-on-med-and-down"><a href="prerequisites.html"><i class="large material-icons">keyboard_arrow_left</i></a></div>
+			
+			
+				<div class="col s6  right-align hide-on-large-only show-on-med-and-down"><a href="developing.html"><i class="large material-icons">keyboard_arrow_right</i></a></div>
+			
+			
+			
+				<div class="prev-nav hide-on-med-and-down"><a href="prerequisites.html"><i class="small material-icons">keyboard_arrow_left</i></a></div>
+			
+			
+				<div class="next-nav hide-on-med-and-down"><a href="developing.html"><i class="small material-icons">keyboard_arrow_right</i></a></div>
+			
+		
+			
+    </div> 
+	
+  </div>
+  </main>
+	<footer class="page-footer">
+    <!--<div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5>Lorem Ipsum</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+    </div>-->
+    <div class="footer-copyright">
+        <div class="container">
+            <div>
+				<span style="text-align: left; float: left; width: 30%;">
+				Made with <a target="_blank" href="http://materializecss.com">Materialize</a>
+				</span>
+				<span style="text-align: center; float: left; width: 40%;">
+				Copyright © 2018 <a href="https://www.osgi.org/">Thomas Driessen</a>
+				</span>
+                <span style="text-align: right; float: left; width: 30%;">
+				Powered by <a target="_blank" href="http://jekyllrb.com/">Jekyll</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>      
+	<!--  Scripts-->  
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/materialize.min.js"></script>
+<script src="/assets/js/init.js"></script>	
+	<script src="/assets/js/content.js"></script>	
+  </body>
+
+</html>

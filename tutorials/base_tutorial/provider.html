@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Provider Project</title>
+    <meta name="description" content="Provider Project" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="/assets/materialize.css" />
+    <link rel="canonical" href="/tutorials/base_tutorial/provider.html" />
+    <link rel="alternate" type="application/rss+xml" title="modularcode" href="/feed.xml" />
+    
+</head>
+<!-- Is it a content or a nested page -->
+	
+	
+	
+	<style>a {color: #757575;fill:#424242;}a:hover {color: #03a9f4;fill:#03a9f4;}h1,h2,h3,h4,h5,h6{color: #424242;}body{color: #212121; display: flex; min-height: 100vh; flex-direction: column;}nav ul a{color: #424242;}nav .brand-logo{color: #424242}.justify-align{text-align:justify;}nav a{color: #424242;}main{flex: 1 0 auto;}.side-nav li>a{color: #424242;}.side-nav .collapsible-header, .side-nav.fixed .collapsible-header{padding-left:32px;}.side-nav .collapsible-body li a, .side-nav.fixed .collapsible-body li a{padding-left:47px;}h1,h2,h3,h4,h5,h6{-webkit-font-smoothing: antialiased;}.icon-block{padding: 0 15px;}.icon-block .material-icons{font-size: inherit;}.row{margin-bottom:0px;}.logo img{padding-top:3px;}.page-footer{background-color:#03a9f4; padding-top: 0px;}.nav-button{width:20px; height:20px; viewBox:0 0 20 20;}footer h5{color:#FFFFFF;}hr{background-color:#bdbdbd;}.divider{background-color:#bdbdbd;}img{max-width: 100%; height: auto;}.page-footer .footer-copyright{background-color:#03a9f4;}/* Code Highlighting */.highlight .c { color: #bdbdbd; font-style: italic } /* Comment */.highlight .k { color: #212121; font-weight: bold } /* Keyword */.highlight .cm { color: #bdbdbd; font-style: italic } /* Comment.Multiline */.highlight .c1 { color: #bdbdbd; font-style: italic } /* Comment.Single */.highlight .kc { color: #424242; font-weight: bold } /* Keyword.Constant */.highlight .kd { color: #212121; font-weight: bold } /* Keyword.Declaration */.highlight .kn { color: #424242; font-weight: bold } /* Keyword.Namespace */.highlight .kp { color: #424242; font-weight: bold } /* Keyword.Pseudo */.highlight .kr { color: #424242; font-weight: bold } /* Keyword.Reserved */.highlight .kt { color: #424242; font-weight: bold } /* Keyword.Type */.highlight .s { color: #757575 } /* Literal.String */.highlight .n { color: #03a9f4 } /* Name */.highlight .na { color: #03a9f4 } /* Name.Attribute */.highlight .nc { color: #03a9f4} /* Name.Class */.highlight .nd { color: #757575 } /* Name.Decorator */.highlight .nf { color: #03a9f4 } /* Name.Function */.highlight .mf { color: #757575 } /* Literal.Number.Float */.highlight .mh { color: #757575 } /* Literal.Number.Hex */.highlight .mi { color: #757575 } /* Literal.Number.Integer */.highlight .mo { color: #757575 } /* Literal.Number.Oct */.highlight .sb { color: #757575 } /* Literal.String.Backtick */.highlight .sc { color: #757575 } /* Literal.String.Char */.highlight .sd { color: #757575 } /* Literal.String.Doc */.highlight .s2 { color: #757575 } /* Literal.String.Double */.highlight .se { color: #757575 } /* Literal.String.Escape */.highlight .sh { color: #757575 } /* Literal.String.Heredoc */.highlight .si { color:#757575 } /* Literal.String.Interpol */.highlight .sx { color: #757575 } /* Literal.String.Other */.highlight .sr { color: #757575 } /* Literal.String.Regex */.highlight .s1 { color: #757575 } /* Literal.String.Single */.highlight .ss { color: #757575 } /* Literal.String.Symbol */.highlight {tab-size: 4;}div.highlighter-rouge{padding:5px;background:#f5f5f5;border:1px solid #bdbdbd;border-radius:4px;}div.highlight pre.highlight{margin:0px;}code.highlighter-rouge{padding:0px 3px;background:#f5f5f5;border:1px solid #bdbdbd;border-radius:3px;}/* Make headers a little bit smaller */h1{font-size:2.8rem;}h2{font-size:2.5rem;}h3{font-size:2.1rem;}h4{font-size:1.8rem;}h5{font-size:1.3rem;}h6{font-size:1rem;}/* Plain text */p{text-align:justify;}/* Blockquotes */blockquote{border-left:3px solid #03a9f4;font-style:italic;font-weight:300;}/* Tables */table.striped>tbody>tr:nth-child(odd){background-color:#f5f5f5;}/* Cards */.card .card-image .card-title{color: #212121; font-weight: 600; padding-bottom: 0px; padding-left:12px; padding-right: 12px;}.card-content{color: #757575;}.card .card-content{padding-top: 5px;}.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){color: #424242;}.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover{color: #03a9f4;}.card.small{height: 225px;}.card-placeholder-image{color:#bdbdbd;}.card-image img{opacity: 0.3;}.card-image h2{opacity: 0.3;}.card .card-image{min-height:60%;}/* Breadcrumbs */nav{background-color: #FFFFFF;}a.breadcrumb{color: #757575;}.breadcrumb:last-child{color:#03a9f4;}.breadcrumb:before{color:#757575;font-size:15px;}nav.breadcrumbs{box-shadow:none;margin-top:4px;}ul.collapsible{list-style-type: none;padding:0px;}.collapsible-header{border-bottom:0px;}.collapsible-body{padding:5px;}/* Table of Contents */.second-level{padding:0px;}.table-of-contents .second-level a{padding-left:40px;font-size:13px;}.table-of-contents a{color:#757575;}.table-of-contents a:hover{border-left:1px solid #03a9f4;color:#03a9f4;}.table-of-contents a.active{border-left:2px solid #03a9f4;color:#757575;}.toc-wrapper li{padding:1px;}/* Navigation Arrows */.prev-nav{top: 50%;left: 3%;position:fixed;}.next-nav{top: 50%;right: 3%;position:fixed;}</style>
+
+  <body>
+	<!-- Navigation Header -->
+	<nav class="white lighten-1" role="navigation">
+	<div class="nav-wrapper container">
+		<a id="logo-container" class="brand-logo logo show-on-medium-and-up hide-on-small-only" href="/"><img src="//logo.png"></a>
+		<a id="logo-container" class="brand-logo logo show-on-small hide-on-med-and-up" href="/"><img src="//logo-small.png"></a>
+	  
+	  
+	
+	  <ul class="right hide-on-med-and-down">
+		
+			
+			<li><a href="/tutorials.html">Tutorials</a></li>
+		
+			
+			<li><a href="/modules.html">Modules</a></li>
+		
+			
+			<li><a href="/projects.html">Projects</a></li>
+		
+			
+			<li><a href="/contribute.html">Contribute</a></li>
+		
+		
+			<li>
+				<a title="modularcode.site on GitHub" href="https://github.com/Sandared/modularcode.site"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>github</title>
+						<path d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0 1 10 4.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.163 20 14.418 20 10c0-5.523-4.478-10-10-10" fill-rule="evenodd">
+						</path>
+					</svg>					
+				</a>
+			</li>
+		
+		
+		
+			<li>
+				<a title="SanfteSchorle on Twitter" href="https://twitter.com/SanfteSchorle"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>twitter</title>
+						<path d="M15.115 7.788c.005.11.009.223.009.335 0 3.43-2.611 7.384-7.386 7.384-1.467 0-2.831-.43-3.98-1.166a5.244 5.244 0 0 0 3.843-1.075 2.596 2.596 0 0 1-2.424-1.801 2.645 2.645 0 0 0 1.171-.045 2.597 2.597 0 0 1-2.082-2.544v-.033c.351.194.752.311 1.177.324a2.59 2.59 0 0 1-1.154-2.16c0-.475.127-.92.35-1.305A7.37 7.37 0 0 0 9.99 8.414a2.596 2.596 0 0 1 4.423-2.367 5.174 5.174 0 0 0 1.648-.63 2.602 2.602 0 0 1-1.142 1.436 5.17 5.17 0 0 0 1.491-.41 5.233 5.233 0 0 1-1.295 1.345M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0" fill-rule="evenodd">
+						</path>
+					</svg>			
+				</a>
+			</li>
+		
+	  </ul>
+
+	  <ul id="nav-mobile" class="side-nav">
+		<li><a href="">Home</a></li>
+		<li class="divider"></li>
+		
+			
+			<li><a href="/tutorials.html">Tutorials</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/modules.html">Modules</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/projects.html">Projects</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/contribute.html">Contribute</a></li>
+			<li class="divider"></li>
+		
+		
+			<li>
+				<a title="modularcode.site on GitHub" href="https://github.com/Sandared/modularcode.site"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>github</title>
+						<path d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0 1 10 4.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.163 20 14.418 20 10c0-5.523-4.478-10-10-10" fill-rule="evenodd">
+						</path>
+					</svg>					
+				</a>
+			</li>
+			<li class="divider"></li>
+		
+		
+		
+			<li>
+				<a title="SanfteSchorle on Twitter" href="https://twitter.com/SanfteSchorle"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>twitter</title>
+						<path d="M15.115 7.788c.005.11.009.223.009.335 0 3.43-2.611 7.384-7.386 7.384-1.467 0-2.831-.43-3.98-1.166a5.244 5.244 0 0 0 3.843-1.075 2.596 2.596 0 0 1-2.424-1.801 2.645 2.645 0 0 0 1.171-.045 2.597 2.597 0 0 1-2.082-2.544v-.033c.351.194.752.311 1.177.324a2.59 2.59 0 0 1-1.154-2.16c0-.475.127-.92.35-1.305A7.37 7.37 0 0 0 9.99 8.414a2.596 2.596 0 0 1 4.423-2.367 5.174 5.174 0 0 0 1.648-.63 2.602 2.602 0 0 1-1.142 1.436 5.17 5.17 0 0 0 1.491-.41 5.233 5.233 0 0 1-1.295 1.345M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0" fill-rule="evenodd">
+						</path>
+					</svg>			
+				</a>
+			</li>
+			<li class="divider"></li>
+		
+	  </ul>        
+
+	  <a data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+	</div>
+</nav>
+	
+	
+	
+  <main>	
+  <div class="container">
+		<div class="row">	
+		
+			<div id="text-content" class="section col s12 l10">
+				
+
+
+<nav class="breadcrumbs">
+	<div class="nav-wrapper">
+	
+	
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+							
+				
+				
+							
+				
+				
+			
+				
+					
+					<a href="/tutorials.html" class="breadcrumb">Tutorials</a>
+				
+			
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+							
+				
+				
+							
+				
+				
+					
+				
+				<a href="/tutorials/base_tutorial.html" class="breadcrumb">Base Tutorial</a>
+				
+			
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+							
+				
+				
+							
+				
+				
+					
+				
+				<a href="/tutorials/base_tutorial/provider.html" class="breadcrumb">Provider Project</a>
+				
+			
+		
+	
+	</div>
+</nav>
+
+				<h1 id="provider-project">Provider Project</h1>
+
+<h2 id="what-you-will-learn-in-this-section">What you will learn in this section</h2>
+
+<p>In this section we create another project that provides an implementation for our Eval API, a so called <em>provider</em>.</p>
+
+<h2 id="create-a-provider-project">Create a Provider Project</h2>
+
+<p>In the previous section we created an API for an expression evaluator. We now need a so called <em>provider</em> for this service. A provider is responsible for the contract defined in the API so that <em>consumers</em> can use the service. In the case of the Eval service the consumer will call the <code class="highlighter-rouge">eval(String)</code> method and the provider must implement it. In the previous section we also learned that the last segment in the project name defines its <em>type</em>; this is supported by OSGi enRoute templates. A provider project must therefore have a name that ends in <code class="highlighter-rouge">.provider</code>. We also like to start the project name with the workspace, the service API name and an indication of what kind of implementation this is. Well, this is going to be an awful simple implementation, so the name should be:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>com.acme.prime.eval.provider
+</code></pre></div></div>
+
+<p>So let’s create a new project with this name. In Eclipse, choose <code class="highlighter-rouge">New/Bndtools/Bnd OSGi Project</code>. Enter the new name (<code class="highlighter-rouge">com.acme.prime.eval.provider</code>), select the OSGi enRoute templates, and follow the defaults.</p>
+
+<p><img src="img/provider-create-0.png" alt="Provider Project" /></p>
+
+<h2 id="implementation">Implementation</h2>
+
+<p>Our friendly OSGi enRoute template already has created a <code class="highlighter-rouge">EvalImpl.java</code> class for us. This is already setup as a Declarative Service (DS) µservice component because the <code class="highlighter-rouge">@Component</code> annotation was added. If your component class implements one or more interfaces, then these will be registered as OSGi services. So in this case, we want to implement an <code class="highlighter-rouge">Eval</code> interface so that we’re registered as an Eval service. So the first thing we should do is add this <code class="highlighter-rouge">Eval</code> interface to the class:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Component</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"com.acme.prime.eval"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EvalImpl</span> <span class="kd">implements</span> <span class="n">Eval</span> <span class="o">{</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="build-path">Build Path</h2>
+
+<p>Unfortunately, this causes an error; Eclipse cannot find the <code class="highlighter-rouge">Eval</code> class because we’re not linked to the <code class="highlighter-rouge">com.acme.prime.eval.api</code> project yet. Hold your temptation to add this to the Eclipse Build Path because this will then fail later in the continuous integration where there is no Eclipse. Nope, we must add the dependency to bnd to get fidelity between our user friendly Eclipse world and the software engineering world of continuous integration.</p>
+
+<p>The dependencies of bnd are defined in the <code class="highlighter-rouge">bnd.bnd</code> file. We can control the build path through the build path editor. Double click on the <code class="highlighter-rouge">bnd.bnd</code> file and select the <code class="highlighter-rouge">Build</code> tab.</p>
+
+<p><img src="img/provider-create-1.png" alt="Build Tab" /></p>
+
+<p>This tab not only shows you the bnd errors, it also shows you the current build path (OSGi enRoute API, JUnit, etc). To add the API project, click on the green plus (‘+’) just above the list. This pops up a list of all the <em>repositories</em>. As you can see, the top repository is the workspace and contains our API project.</p>
+
+<p><img src="img/provider-create-2.png" alt="Adding to the Build Path" /></p>
+
+<p>You can type text in the search box to filter the list. Double click the <code class="highlighter-rouge">com.acme.prime.eval.api</code> project and click in <code class="highlighter-rouge">Finish</code>. Save the <code class="highlighter-rouge">bnd.bnd</code> file because otherwise there is no effect.</p>
+
+<p>You can now go back to the <code class="highlighter-rouge">EvalImpl</code> class and import the <code class="highlighter-rouge">Eval</code> interface. Just select the <code class="highlighter-rouge">Eval</code> name (which is red underlined) and click <code class="highlighter-rouge">Control-1</code>. You then click on Command-1, and select  <code class="highlighter-rouge">Import 'Eval' (com.acme.prime.eval.api)</code>. This will take care of the import. Don’t forget to save!</p>
+
+<p>Bugger, still errors!</p>
+
+<h2 id="code">Code</h2>
+
+<p>Alas, we got rid of the import error but in place of this error we now get a red underlined <code class="highlighter-rouge">EvalImpl</code> class. The problem is that we need to provide the <code class="highlighter-rouge">eval</code> method as prescribed by the Eval interface that it now implements. Let’s keep it simple:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Component</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"com.acme.prime.eval"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EvalImpl</span> <span class="kd">implements</span> <span class="n">Eval</span> <span class="o">{</span>
+	<span class="n">Pattern</span> <span class="n">EXPR</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span> <span class="s">"\\s*(?&lt;left&gt;\\d+)\\s*(?&lt;op&gt;\\+|-)\\s*(?&lt;right&gt;\\d+)\\s*"</span><span class="o">);</span>
+	
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">double</span> <span class="nf">eval</span><span class="o">(</span><span class="n">String</span> <span class="n">expression</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+		<span class="n">Matcher</span> <span class="n">m</span> <span class="o">=</span> <span class="n">EXPR</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="n">expression</span><span class="o">);</span>
+		<span class="k">if</span> <span class="o">(</span> <span class="o">!</span><span class="n">m</span><span class="o">.</span><span class="na">matches</span><span class="o">())</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="s">"Invalid expression "</span> <span class="o">+</span> <span class="n">expression</span><span class="o">);</span>
+		
+		<span class="kt">double</span> <span class="n">left</span> <span class="o">=</span> <span class="n">Double</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span> <span class="n">m</span><span class="o">.</span><span class="na">group</span><span class="o">(</span><span class="s">"left"</span><span class="o">));</span>
+		<span class="kt">double</span> <span class="n">right</span> <span class="o">=</span> <span class="n">Double</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span> <span class="n">m</span><span class="o">.</span><span class="na">group</span><span class="o">(</span><span class="s">"right"</span><span class="o">));</span>
+		<span class="k">switch</span><span class="o">(</span> <span class="n">m</span><span class="o">.</span><span class="na">group</span><span class="o">(</span><span class="s">"op"</span><span class="o">))</span> <span class="o">{</span>
+		<span class="k">case</span> <span class="s">"+"</span><span class="o">:</span> <span class="k">return</span> <span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="o">;</span>
+		<span class="k">case</span> <span class="s">"-"</span><span class="o">:</span> <span class="k">return</span> <span class="n">left</span> <span class="o">-</span> <span class="n">right</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">Double</span><span class="o">.</span><span class="na">NaN</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Ok, ok, simple might still give it too much credit but we’re not here to learn parsing. At least it has (some) error handling! Notice that we can only handle trivial additions and subtractions of constants.</p>
+
+<h2 id="imports">Imports</h2>
+
+<p>It is about time now to take a look at what our module (bundle) really looks like. Let’s double click on <code class="highlighter-rouge">bnd.bnd</code> and select the <code class="highlighter-rouge">Contents</code> tab. This tab shows us how the bundle is layed out:</p>
+
+<ul>
+  <li>Private packages – Packages that are only available inside the bundle. Another bundle could have the same name for the package but different contents.</li>
+  <li>Exported packages – Packages that we provide to other bundles and which we are supposed to maintain over time.</li>
+  <li>Imported packages – Packages we expect someone else to export, hoping that they are as good as we will be in maintaining that package over time.</li>
+</ul>
+
+<p><img src="img/provider-imports-0.png" alt="Contents" /></p>
+
+<p>If we translate this to a picture with the standard OSGi notation it looks as follows:</p>
+
+<p><img src="img/provider-imports-1.png" alt="Bundle Layout" /></p>
+
+<p>We can see that our simple bundle is importing the <code class="highlighter-rouge">com.acme.prime.eval.api</code> package to get the <code class="highlighter-rouge">Eval</code> interface. This is quite unpleasant for our users since they are forced to always download two bundles. Since the service API package and our simple implementation are tightly coupled (virtually any change will force a change in our provider) we can simplify the life of our customers by exporting the API from our provider bundle. This can be done by dragging the imported package in the right ‘Import Packages’ list to the Exported Package list and dropping it there. If there is already an export of the <code class="highlighter-rouge">com.acme.prime.eval.api</code> then you should remove it, it is a placeholder.</p>
+
+<p>After you save the <code class="highlighter-rouge">bnd.bnd</code> file, you’ll see that the imports disappear.</p>
+
+<p><img src="img/provider-imports-2.png" alt="Exporting the  API" /></p>
+
+<p>Exporting the API should only be done by the providers of the service API, never by the consumers.</p>
+
+<p class="note">Note that the OSGi enRoute templates setup the API projects in such a way that they cannot be used in runtime and therefore require that the provider exports them.</p>
+
+<p>Anyway, our bundle now looks different:</p>
+
+<p><img src="img/provider-imports-3.png" alt="Exporting the  API" /></p>
+
+<h2 id="how-does-it-work">How Does it Work?</h2>
+
+<p>The concepts of consumers and providers can be confusing, mostly because they are often confused with implementers of an interface and clients of an interface. However, providers of a service API can both implement and/or be a client of interfaces in the service package. A provider is responsible for providing the value of the contract and a consumer receives the value of the contract. The reason we need to distinguish between these two roles is that they have far ranging consequences for how you package and version bundles.</p>
+
+<p>Lets say you buy a house from me. In this scenario you are consumer of the contract and I am the provider of the contract. These roles are, surprisingly, not symmetrical. For example, if the seller adds an extra room after the contract was signed then the buyer will not object (ok, in general, you get my point). However, if the seller removes a room the buyer is going to be upset. A consumer can expect backward compatibility but a provider is closely bound to the contract. Virtually any change in the service contract will require a provider to be updated to provide the new functions.</p>
+
+<p>So a consumer is relatively distant from the contract and it often plays the role of a consumer in many different service contracts. A provider usually provides only a single service contact while being a consumer in other service contracts.</p>
+
+<p>Therefore the best practice in OSGi is for a provider to include its service API codes and export it. Separating the API from the provider makes no sense since there is a 1:1 relation between provider and API, unlike the consumer that will get backward compatibility from the API. Having the API in the bundle just makes life easier. That said, do not make the mistake to place them in the same <em>project</em> since that would require compiling against a JAR that would also contain the implementation. Compilation should always be done against API only JARs to prevent accidentally becoming dependent on implementation code.</p>
+
+<p>In this section we dragged the service API import to the exported package list. For developers not used to bnd this can be surprising because the API is not part of the provider project; it came from the API project. However, in bnd you can put any package in your bundle that is available on the build path.</p>
+
+
+		    </div>
+			<div class="col hide-on-med-and-down l2">
+				<div id="toc-wrapper" class="toc-wrapper pin-top">
+				  <ul id="toc" class="section table-of-contents">
+					
+				  </ul>
+				</div>
+			</div>
+			
+			
+				
+				<div class="col s6 left-align hide-on-large-only show-on-med-and-down"><a href="api.html"><i class="large material-icons">keyboard_arrow_left</i></a></div>
+			
+			
+				<div class="col s6  right-align hide-on-large-only show-on-med-and-down"><a href="junit.html"><i class="large material-icons">keyboard_arrow_right</i></a></div>
+			
+			
+			
+				<div class="prev-nav hide-on-med-and-down"><a href="api.html"><i class="small material-icons">keyboard_arrow_left</i></a></div>
+			
+			
+				<div class="next-nav hide-on-med-and-down"><a href="junit.html"><i class="small material-icons">keyboard_arrow_right</i></a></div>
+			
+		
+			
+    </div> 
+	
+  </div>
+  </main>
+	<footer class="page-footer">
+    <!--<div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5>Lorem Ipsum</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+    </div>-->
+    <div class="footer-copyright">
+        <div class="container">
+            <div>
+				<span style="text-align: left; float: left; width: 30%;">
+				Made with <a target="_blank" href="http://materializecss.com">Materialize</a>
+				</span>
+				<span style="text-align: center; float: left; width: 40%;">
+				Copyright © 2018 <a href="https://www.osgi.org/">Thomas Driessen</a>
+				</span>
+                <span style="text-align: right; float: left; width: 30%;">
+				Powered by <a target="_blank" href="http://jekyllrb.com/">Jekyll</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>      
+	<!--  Scripts-->  
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/materialize.min.js"></script>
+<script src="/assets/js/init.js"></script>	
+	<script src="/assets/js/content.js"></script>	
+  </body>
+
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Continuous Integration</title>
+    <meta name="description" content="Continuous Integration" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="/assets/materialize.css" />
+    <link rel="canonical" href="/tutorials/base_tutorial/ci.html" />
+    <link rel="alternate" type="application/rss+xml" title="modularcode" href="/feed.xml" />
+    
+</head>
+<!-- Is it a content or a nested page -->
+	
+	
+	
+	<style>a {color: #757575;fill:#424242;}a:hover {color: #03a9f4;fill:#03a9f4;}h1,h2,h3,h4,h5,h6{color: #424242;}body{color: #212121; display: flex; min-height: 100vh; flex-direction: column;}nav ul a{color: #424242;}nav .brand-logo{color: #424242}.justify-align{text-align:justify;}nav a{color: #424242;}main{flex: 1 0 auto;}.side-nav li>a{color: #424242;}.side-nav .collapsible-header, .side-nav.fixed .collapsible-header{padding-left:32px;}.side-nav .collapsible-body li a, .side-nav.fixed .collapsible-body li a{padding-left:47px;}h1,h2,h3,h4,h5,h6{-webkit-font-smoothing: antialiased;}.icon-block{padding: 0 15px;}.icon-block .material-icons{font-size: inherit;}.row{margin-bottom:0px;}.logo img{padding-top:3px;}.page-footer{background-color:#03a9f4; padding-top: 0px;}.nav-button{width:20px; height:20px; viewBox:0 0 20 20;}footer h5{color:#FFFFFF;}hr{background-color:#bdbdbd;}.divider{background-color:#bdbdbd;}img{max-width: 100%; height: auto;}.page-footer .footer-copyright{background-color:#03a9f4;}/* Code Highlighting */.highlight .c { color: #bdbdbd; font-style: italic } /* Comment */.highlight .k { color: #212121; font-weight: bold } /* Keyword */.highlight .cm { color: #bdbdbd; font-style: italic } /* Comment.Multiline */.highlight .c1 { color: #bdbdbd; font-style: italic } /* Comment.Single */.highlight .kc { color: #424242; font-weight: bold } /* Keyword.Constant */.highlight .kd { color: #212121; font-weight: bold } /* Keyword.Declaration */.highlight .kn { color: #424242; font-weight: bold } /* Keyword.Namespace */.highlight .kp { color: #424242; font-weight: bold } /* Keyword.Pseudo */.highlight .kr { color: #424242; font-weight: bold } /* Keyword.Reserved */.highlight .kt { color: #424242; font-weight: bold } /* Keyword.Type */.highlight .s { color: #757575 } /* Literal.String */.highlight .n { color: #03a9f4 } /* Name */.highlight .na { color: #03a9f4 } /* Name.Attribute */.highlight .nc { color: #03a9f4} /* Name.Class */.highlight .nd { color: #757575 } /* Name.Decorator */.highlight .nf { color: #03a9f4 } /* Name.Function */.highlight .mf { color: #757575 } /* Literal.Number.Float */.highlight .mh { color: #757575 } /* Literal.Number.Hex */.highlight .mi { color: #757575 } /* Literal.Number.Integer */.highlight .mo { color: #757575 } /* Literal.Number.Oct */.highlight .sb { color: #757575 } /* Literal.String.Backtick */.highlight .sc { color: #757575 } /* Literal.String.Char */.highlight .sd { color: #757575 } /* Literal.String.Doc */.highlight .s2 { color: #757575 } /* Literal.String.Double */.highlight .se { color: #757575 } /* Literal.String.Escape */.highlight .sh { color: #757575 } /* Literal.String.Heredoc */.highlight .si { color:#757575 } /* Literal.String.Interpol */.highlight .sx { color: #757575 } /* Literal.String.Other */.highlight .sr { color: #757575 } /* Literal.String.Regex */.highlight .s1 { color: #757575 } /* Literal.String.Single */.highlight .ss { color: #757575 } /* Literal.String.Symbol */.highlight {tab-size: 4;}div.highlighter-rouge{padding:5px;background:#f5f5f5;border:1px solid #bdbdbd;border-radius:4px;}div.highlight pre.highlight{margin:0px;}code.highlighter-rouge{padding:0px 3px;background:#f5f5f5;border:1px solid #bdbdbd;border-radius:3px;}/* Make headers a little bit smaller */h1{font-size:2.8rem;}h2{font-size:2.5rem;}h3{font-size:2.1rem;}h4{font-size:1.8rem;}h5{font-size:1.3rem;}h6{font-size:1rem;}/* Plain text */p{text-align:justify;}/* Blockquotes */blockquote{border-left:3px solid #03a9f4;font-style:italic;font-weight:300;}/* Tables */table.striped>tbody>tr:nth-child(odd){background-color:#f5f5f5;}/* Cards */.card .card-image .card-title{color: #212121; font-weight: 600; padding-bottom: 0px; padding-left:12px; padding-right: 12px;}.card-content{color: #757575;}.card .card-content{padding-top: 5px;}.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){color: #424242;}.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover{color: #03a9f4;}.card.small{height: 225px;}.card-placeholder-image{color:#bdbdbd;}.card-image img{opacity: 0.3;}.card-image h2{opacity: 0.3;}.card .card-image{min-height:60%;}/* Breadcrumbs */nav{background-color: #FFFFFF;}a.breadcrumb{color: #757575;}.breadcrumb:last-child{color:#03a9f4;}.breadcrumb:before{color:#757575;font-size:15px;}nav.breadcrumbs{box-shadow:none;margin-top:4px;}ul.collapsible{list-style-type: none;padding:0px;}.collapsible-header{border-bottom:0px;}.collapsible-body{padding:5px;}/* Table of Contents */.second-level{padding:0px;}.table-of-contents .second-level a{padding-left:40px;font-size:13px;}.table-of-contents a{color:#757575;}.table-of-contents a:hover{border-left:1px solid #03a9f4;color:#03a9f4;}.table-of-contents a.active{border-left:2px solid #03a9f4;color:#757575;}.toc-wrapper li{padding:1px;}/* Navigation Arrows */.prev-nav{top: 50%;left: 3%;position:fixed;}.next-nav{top: 50%;right: 3%;position:fixed;}</style>
+
+  <body>
+	<!-- Navigation Header -->
+	<nav class="white lighten-1" role="navigation">
+	<div class="nav-wrapper container">
+		<a id="logo-container" class="brand-logo logo show-on-medium-and-up hide-on-small-only" href="/"><img src="//logo.png"></a>
+		<a id="logo-container" class="brand-logo logo show-on-small hide-on-med-and-up" href="/"><img src="//logo-small.png"></a>
+	  
+	  
+	
+	  <ul class="right hide-on-med-and-down">
+		
+			
+			<li><a href="/tutorials.html">Tutorials</a></li>
+		
+			
+			<li><a href="/modules.html">Modules</a></li>
+		
+			
+			<li><a href="/projects.html">Projects</a></li>
+		
+			
+			<li><a href="/contribute.html">Contribute</a></li>
+		
+		
+			<li>
+				<a title="modularcode.site on GitHub" href="https://github.com/Sandared/modularcode.site"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>github</title>
+						<path d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0 1 10 4.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.163 20 14.418 20 10c0-5.523-4.478-10-10-10" fill-rule="evenodd">
+						</path>
+					</svg>					
+				</a>
+			</li>
+		
+		
+		
+			<li>
+				<a title="SanfteSchorle on Twitter" href="https://twitter.com/SanfteSchorle"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>twitter</title>
+						<path d="M15.115 7.788c.005.11.009.223.009.335 0 3.43-2.611 7.384-7.386 7.384-1.467 0-2.831-.43-3.98-1.166a5.244 5.244 0 0 0 3.843-1.075 2.596 2.596 0 0 1-2.424-1.801 2.645 2.645 0 0 0 1.171-.045 2.597 2.597 0 0 1-2.082-2.544v-.033c.351.194.752.311 1.177.324a2.59 2.59 0 0 1-1.154-2.16c0-.475.127-.92.35-1.305A7.37 7.37 0 0 0 9.99 8.414a2.596 2.596 0 0 1 4.423-2.367 5.174 5.174 0 0 0 1.648-.63 2.602 2.602 0 0 1-1.142 1.436 5.17 5.17 0 0 0 1.491-.41 5.233 5.233 0 0 1-1.295 1.345M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0" fill-rule="evenodd">
+						</path>
+					</svg>			
+				</a>
+			</li>
+		
+	  </ul>
+
+	  <ul id="nav-mobile" class="side-nav">
+		<li><a href="">Home</a></li>
+		<li class="divider"></li>
+		
+			
+			<li><a href="/tutorials.html">Tutorials</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/modules.html">Modules</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/projects.html">Projects</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/contribute.html">Contribute</a></li>
+			<li class="divider"></li>
+		
+		
+			<li>
+				<a title="modularcode.site on GitHub" href="https://github.com/Sandared/modularcode.site"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>github</title>
+						<path d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0 1 10 4.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.163 20 14.418 20 10c0-5.523-4.478-10-10-10" fill-rule="evenodd">
+						</path>
+					</svg>					
+				</a>
+			</li>
+			<li class="divider"></li>
+		
+		
+		
+			<li>
+				<a title="SanfteSchorle on Twitter" href="https://twitter.com/SanfteSchorle"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>twitter</title>
+						<path d="M15.115 7.788c.005.11.009.223.009.335 0 3.43-2.611 7.384-7.386 7.384-1.467 0-2.831-.43-3.98-1.166a5.244 5.244 0 0 0 3.843-1.075 2.596 2.596 0 0 1-2.424-1.801 2.645 2.645 0 0 0 1.171-.045 2.597 2.597 0 0 1-2.082-2.544v-.033c.351.194.752.311 1.177.324a2.59 2.59 0 0 1-1.154-2.16c0-.475.127-.92.35-1.305A7.37 7.37 0 0 0 9.99 8.414a2.596 2.596 0 0 1 4.423-2.367 5.174 5.174 0 0 0 1.648-.63 2.602 2.602 0 0 1-1.142 1.436 5.17 5.17 0 0 0 1.491-.41 5.233 5.233 0 0 1-1.295 1.345M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0" fill-rule="evenodd">
+						</path>
+					</svg>			
+				</a>
+			</li>
+			<li class="divider"></li>
+		
+	  </ul>        
+
+	  <a data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+	</div>
+</nav>
+	
+	
+	
+  <main>	
+  <div class="container">
+		<div class="row">	
+		
+			<div id="text-content" class="section col s12 l10">
+				
+
+
+<nav class="breadcrumbs">
+	<div class="nav-wrapper">
+	
+	
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+							
+				
+				
+							
+				
+				
+			
+				
+					
+					<a href="/tutorials.html" class="breadcrumb">Tutorials</a>
+				
+			
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+							
+				
+				
+							
+				
+				
+					
+				
+				<a href="/tutorials/base_tutorial.html" class="breadcrumb">Base Tutorial</a>
+				
+			
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+							
+				
+				
+							
+				
+				
+					
+				
+				<a href="/tutorials/base_tutorial/ci.html" class="breadcrumb">Continuous Integration</a>
+				
+			
+		
+	
+	</div>
+</nav>
+
+				<h1 id="continuous-integration">Continuous Integration</h1>
+
+<h2 id="what-you-will-learn-in-this-section">What You Will Learn in This Section</h2>
+
+<p>In this section we will first see how our current bnd workspace has built in build support through Gradle. Though this can be useful for some local work, the primary purpose is to do continuous integration. So we push the project to Github and set up a Travis Continuous Integration server.</p>
+
+<h2 id="building-outside-the-ide">Building Outside the IDE</h2>
+
+<p>If you can’t automatically build your product then you’re not a software engineer! One of the giant steps of software engineering was when we came from the cave
+of releasing code from our personal machines and moved into the world of continuous integration. It is amazing how many unwanted dependencies creep up when you
+build on a personal system. Automating repeated processes is at the heart of building software. This is why OSGi enRoute (well, bnd) includes a full gradle build that does not require any extra work, you’re basically already setup. The <em>raison d’être</em> of bnd is that it runs inside an IDE like Eclipse but can also run from a shell. Great care has been taken to ensure that bnd builds virtual identical artifacts inside the IDE and from the command line.</p>
+
+<p>So we only have to fire up a shell and run the build!</p>
+
+<p>You do not even need to have gradle installed. There is a script included, <code class="highlighter-rouge">gradlew</code>, that will download the correct gradle version. You can also install gradle (&gt;= 1.12) and use it. It should go without saying, but you should also have java 8 installed on the command line.</p>
+<div class="language-shell shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> /Users/aqute/git/com.acme.prime
+<span class="nv">$ </span>java <span class="nt">-version</span>
+java version <span class="s2">"1.8.0"</span>
+Java<span class="o">(</span>TM<span class="o">)</span> SE Runtime Environment ...
+<span class="nv">$ </span>./gradlew
+Downloading https://b../biz.aQute.bnd-latest.jar to 
+	/Users/aqute/git/com.acme.prime/cnf/cache/biz.aQute.bnd-latest.jar ...
+:help
+
+Welcome to Gradle 1.12.
+To run a build, run gradlew &lt;task&gt; ...
+To see a list of available tasks, run gradlew tasks
+To see a list of command-line options, run gradlew <span class="nt">--help</span>
+BUILD SUCCESSFUL
+</code></pre></div></div>
+
+<p>For almost all features of bndtools there is a corresponding gradle task you can execute. You can see all the possible tasks with <code class="highlighter-rouge">./gradlew tasks</code>. For example, you automatically get a task to build your <code class="highlighter-rouge">com.acme.prime.eval</code> application:</p>
+<div class="language-shell shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./gradlew export.com.acme.prime.eval
+:com.acme.prime.eval.api:compileJava
+:com.acme.prime.eval.api:processResources UP-TO-DATE
+:com.acme.prime.eval.api:classes
+:com.acme.prime.eval.api:jar
+Warning: Please update this Bundle-Description <span class="k">in </span>com.acme.prime.eval.api/bnd.bnd
+:com.acme.prime.eval.api:assemble
+:com.acme.prime.eval.api:export.hello
+Plugin found aQute.launcher.plugin.ProjectLauncherImpl 1.4.0.201406101507
+
+BUILD SUCCESSFUL
+</code></pre></div></div>
+
+<p>This task will store the output in <code class="highlighter-rouge">com.acme.prime.eval.application/generated/distributions/executable/com.acme.prime.eval.jar</code>.</p>
+
+<h2 id="putting-it-on-github">Putting it on Github</h2>
+
+<p>We should now create a repository on Github, for which you will need an account. There is a nice tutorial about <a href="https://help.github.com/articles/create-a-repo/">setting up new repositories on Github</a> but we take it here one by one.</p>
+
+<p>Lets call this new repository the same as the workspace <code class="highlighter-rouge">com.acme.prime</code>. So go to your home page and click on te <code class="highlighter-rouge">+</code> on the top and select <code class="highlighter-rouge">New Repository</code>.</p>
+
+<p><img src="img/ci-github-0.png" alt="Create new repo" /></p>
+
+<p>This will open the window where we can define our repository information. Be nice, also add a description …</p>
+
+<p><img src="img/ci-github-1.png" alt="Create new repo" /></p>
+
+<p>We then click on <code class="highlighter-rouge">Create Repository</code> which brings us on a page that explains how to connect our local repository in <code class="highlighter-rouge">~/git/com.acme.prime.eval</code> to this repository on Github. In our case, we want to connect a brand new repository, even though our current Git workspace is still connected to the OSGi <code class="highlighter-rouge">workspace</code> repository, and it is highly unlikely you can write that repository.</p>
+
+<p><img src="img/ci-github-2.png" alt="Create new repo" /></p>
+
+<p>We will follow the first scenario but we want to use the SSH URI, so click on the <code class="highlighter-rouge">SSH</code> button and copy the URI in the adjoining text box to the clipboard. It should be something like:</p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">git@github.com:&lt;you&gt;/com.acme.prime.git</code></p>
+</blockquote>
+
+<p>This URL will of course differ for you.</p>
+
+<p>Now, in bndtools we must connect our bnd workspace to this repository. It should theoretically be possible to do this inside Eclipse with EGit but this was trickier than expected. So we will take it from the command line. EGit is just not yet up to the level of the original legendary CVS plugin in Eclipse and this turned to be quite cumbersome.</p>
+
+<p>So we will reconnect from the shell. We basically do what Github told us to do on the start page of our repository …</p>
+
+<div class="language-shell shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ~/git/com.acme.prime
+<span class="nv">$ </span>git add <span class="nb">.</span>
+<span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s2">"first commit"</span>
+<span class="nv">$ </span>git remote add origin git@github.com:&lt;you&gt;/com.acme.prime.git
+<span class="nv">$ </span>git push <span class="nt">-u</span> origin master
+Counting objects: 98, <span class="k">done</span><span class="nb">.</span>
+Delta compression using up to 8 threads.
+Compressing objects: 100% <span class="o">(</span>60/60<span class="o">)</span>, <span class="k">done</span><span class="nb">.</span>
+Writing objects: 100% <span class="o">(</span>98/98<span class="o">)</span>, 66.13 KiB | 0 bytes/s, <span class="k">done</span><span class="nb">.</span>
+Total 98 <span class="o">(</span>delta 8<span class="o">)</span>, reused 0 <span class="o">(</span>delta 0<span class="o">)</span>
+To git@github.com:&lt;you&gt;/com.acme.prime.git
+ <span class="k">*</span> <span class="o">[</span>new branch]      master -&gt; master
+Branch master <span class="nb">set </span>up to track remote branch master from origin.
+<span class="err">$</span>
+</code></pre></div></div>
+
+<p>Sometimes command line interfaces are hard to beat … If you go to <a href="https:/github.com">Github</a> then you should be able to see your workspace now.</p>
+
+<p><img src="img/ci-github-3.png" alt="Create new repo" /></p>
+
+<p>Future changes can now be pushed from the command line (<code class="highlighter-rouge">git push</code>) or from inside Eclipse with <code class="highlighter-rouge">@/Team</code></p>
+
+<h2 id="continuous-integration-1">Continuous Integration</h2>
+
+<p>The bnd workspace is setup to be built continuously with [Travis CI][3]. The way to activate this is ridiculously simple. Just go to the <a href="https://travis-ci.org/">Travis site</a>, create an account based on your Github credentials, and go to your account page. This is so simple that we will not explain this in detail.</p>
+
+<p>Once you’re logged in, click on your icon and/or name and select accounts. Select the <code class="highlighter-rouge">Repositories</code> tab. The first time it is likely that you need to click on the <code class="highlighter-rouge">Sync Now</code> button, this refreshes your list of repositories. Find your new repository and set the right button to <code class="highlighter-rouge">ON</code>, that’s it. Now every push will automatically build the repository.</p>
+
+<p><img src="img/ci-travis-1.png" alt="Create new repo" /></p>
+
+<p>Travis will not kick off a build when you switch on the repository. To kick it off we need to make a change and commit that change to Github. Github and Travis are buddies so that this push will result in a build.</p>
+
+<p>Ok, lets add some description in the manifest for our <code class="highlighter-rouge">com.acme.prime.eval.provider</code> bundle. Double click the <code class="highlighter-rouge">bnd.bnd</code> file in that project, and select the <code class="highlighter-rouge">Source</code> tab. (Although there is a <code class="highlighter-rouge">Description</code> tab with real widgets we find the <code class="highlighter-rouge">Source</code> tab easier to use for these things.)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bundle-Version:					1.0.0.${tstamp}
+Bundle-Description: 				\
+	A bundle with a provider. Notice that this provider exports the API package. \
+	It also provides a JUnit test and it can be run standalone. \
+	\
+	${warning;Please update this Bundle-Description in com.acme.prime.eval.provider/bnd.bnd}
+</code></pre></div></div>
+
+<p>The version is ok, the description could use some improvement. We should also remove the warning once we added a proper description:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bundle-Description: 				\
+	They told me to change the manifest so I did.
+</code></pre></div></div>
+
+<p>Save it, select the <code class="highlighter-rouge">bnd.bnd</code> file and then <code class="highlighter-rouge">@/Team/Commit</code>. This will pop up the following dialog:</p>
+
+<p><img src="img/ci-travis-2.png" alt="Create new repo" /></p>
+
+<p>Click on <code class="highlighter-rouge">Commit and Push</code>, this will commit the changes and push the changes to the repo. Github will call Travis and then Travis will start building.</p>
+
+<p class="bug">EGit repeatedly hang but the server was ok. If EGit indicates 100% then your changes are on Github.</p>
+
+<p>It might take a few minutes, but after some time your home screen on Travis should show the build of the <code class="highlighter-rouge">com.acme.prime</code> workspace.</p>
+
+<p><img src="img/ci-travis-3.png" alt="Create new repo" /></p>
+
+<h2 id="how-does-it-work">How Does it Work?</h2>
+
+<p>Continuous integration is not a new development; our first Continuous Integration (CI) server was setup in 1994. However, maintaining a CI server was often a pain in the ass. Jenkins/Hudson improved on the situation but always felt a bit uneasy feeling why we needed a build tool, that is supposed to customize our build environments, <em>and</em> a CI server tool with its own cumbersome plugin model? Debugging those CI server setups was sometimes quite an endurance. Travis showed us how easy it can be to maintain a CI server when you can properly build your workspace. Now, most testing of the build can be done on the laptop with the confidence that the CI will act the same.</p>
+
+<p>So to repeat the steps. We use Github to store the workspace. This is easy to manage from Eclipse with EGit or from the command line. A push to Github will send all changes to Github. Once everything is there, Github posts a URL to Travis and travis will build. If the build fails, you will get a notification.</p>
+
+
+		    </div>
+			<div class="col hide-on-med-and-down l2">
+				<div id="toc-wrapper" class="toc-wrapper pin-top">
+				  <ul id="toc" class="section table-of-contents">
+					
+				  </ul>
+				</div>
+			</div>
+			
+			
+				
+				<div class="col s6 left-align hide-on-large-only show-on-med-and-down"><a href="deploy.html"><i class="large material-icons">keyboard_arrow_left</i></a></div>
+			
+			
+				<div class="col s6  right-align hide-on-large-only show-on-med-and-down"><a href="start.html"><i class="large material-icons">keyboard_arrow_right</i></a></div>
+			
+			
+			
+				<div class="prev-nav hide-on-med-and-down"><a href="deploy.html"><i class="small material-icons">keyboard_arrow_left</i></a></div>
+			
+			
+				<div class="next-nav hide-on-med-and-down"><a href="start.html"><i class="small material-icons">keyboard_arrow_right</i></a></div>
+			
+		
+			
+    </div> 
+	
+  </div>
+  </main>
+	<footer class="page-footer">
+    <!--<div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5>Lorem Ipsum</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+    </div>-->
+    <div class="footer-copyright">
+        <div class="container">
+            <div>
+				<span style="text-align: left; float: left; width: 30%;">
+				Made with <a target="_blank" href="http://materializecss.com">Materialize</a>
+				</span>
+				<span style="text-align: center; float: left; width: 40%;">
+				Copyright © 2018 <a href="https://www.osgi.org/">Thomas Driessen</a>
+				</span>
+                <span style="text-align: right; float: left; width: 30%;">
+				Powered by <a target="_blank" href="http://jekyllrb.com/">Jekyll</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>      
+	<!--  Scripts-->  
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/materialize.min.js"></script>
+<script src="/assets/js/init.js"></script>	
+	<script src="/assets/js/content.js"></script>	
+  </body>
+
+</html>

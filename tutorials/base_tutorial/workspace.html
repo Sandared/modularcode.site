@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>The Workspace</title>
+    <meta name="description" content="The Workspace What you will learn in this section In this section you will learn what a bnd workspace is and how it relates to the Git and Eclipse workspaces..." />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="/assets/materialize.css" />
+    <link rel="canonical" href="/tutorials/base_tutorial/workspace.html" />
+    <link rel="alternate" type="application/rss+xml" title="modularcode" href="/feed.xml" />
+    
+</head>
+<!-- Is it a content or a nested page -->
+	
+	
+	
+	<style>a {color: #757575;fill:#424242;}a:hover {color: #03a9f4;fill:#03a9f4;}h1,h2,h3,h4,h5,h6{color: #424242;}body{color: #212121; display: flex; min-height: 100vh; flex-direction: column;}nav ul a{color: #424242;}nav .brand-logo{color: #424242}.justify-align{text-align:justify;}nav a{color: #424242;}main{flex: 1 0 auto;}.side-nav li>a{color: #424242;}.side-nav .collapsible-header, .side-nav.fixed .collapsible-header{padding-left:32px;}.side-nav .collapsible-body li a, .side-nav.fixed .collapsible-body li a{padding-left:47px;}h1,h2,h3,h4,h5,h6{-webkit-font-smoothing: antialiased;}.icon-block{padding: 0 15px;}.icon-block .material-icons{font-size: inherit;}.row{margin-bottom:0px;}.logo img{padding-top:3px;}.page-footer{background-color:#03a9f4; padding-top: 0px;}.nav-button{width:20px; height:20px; viewBox:0 0 20 20;}footer h5{color:#FFFFFF;}hr{background-color:#bdbdbd;}.divider{background-color:#bdbdbd;}img{max-width: 100%; height: auto;}.page-footer .footer-copyright{background-color:#03a9f4;}/* Code Highlighting */.highlight .c { color: #bdbdbd; font-style: italic } /* Comment */.highlight .k { color: #212121; font-weight: bold } /* Keyword */.highlight .cm { color: #bdbdbd; font-style: italic } /* Comment.Multiline */.highlight .c1 { color: #bdbdbd; font-style: italic } /* Comment.Single */.highlight .kc { color: #424242; font-weight: bold } /* Keyword.Constant */.highlight .kd { color: #212121; font-weight: bold } /* Keyword.Declaration */.highlight .kn { color: #424242; font-weight: bold } /* Keyword.Namespace */.highlight .kp { color: #424242; font-weight: bold } /* Keyword.Pseudo */.highlight .kr { color: #424242; font-weight: bold } /* Keyword.Reserved */.highlight .kt { color: #424242; font-weight: bold } /* Keyword.Type */.highlight .s { color: #757575 } /* Literal.String */.highlight .n { color: #03a9f4 } /* Name */.highlight .na { color: #03a9f4 } /* Name.Attribute */.highlight .nc { color: #03a9f4} /* Name.Class */.highlight .nd { color: #757575 } /* Name.Decorator */.highlight .nf { color: #03a9f4 } /* Name.Function */.highlight .mf { color: #757575 } /* Literal.Number.Float */.highlight .mh { color: #757575 } /* Literal.Number.Hex */.highlight .mi { color: #757575 } /* Literal.Number.Integer */.highlight .mo { color: #757575 } /* Literal.Number.Oct */.highlight .sb { color: #757575 } /* Literal.String.Backtick */.highlight .sc { color: #757575 } /* Literal.String.Char */.highlight .sd { color: #757575 } /* Literal.String.Doc */.highlight .s2 { color: #757575 } /* Literal.String.Double */.highlight .se { color: #757575 } /* Literal.String.Escape */.highlight .sh { color: #757575 } /* Literal.String.Heredoc */.highlight .si { color:#757575 } /* Literal.String.Interpol */.highlight .sx { color: #757575 } /* Literal.String.Other */.highlight .sr { color: #757575 } /* Literal.String.Regex */.highlight .s1 { color: #757575 } /* Literal.String.Single */.highlight .ss { color: #757575 } /* Literal.String.Symbol */.highlight {tab-size: 4;}div.highlighter-rouge{padding:5px;background:#f5f5f5;border:1px solid #bdbdbd;border-radius:4px;}div.highlight pre.highlight{margin:0px;}code.highlighter-rouge{padding:0px 3px;background:#f5f5f5;border:1px solid #bdbdbd;border-radius:3px;}/* Make headers a little bit smaller */h1{font-size:2.8rem;}h2{font-size:2.5rem;}h3{font-size:2.1rem;}h4{font-size:1.8rem;}h5{font-size:1.3rem;}h6{font-size:1rem;}/* Plain text */p{text-align:justify;}/* Blockquotes */blockquote{border-left:3px solid #03a9f4;font-style:italic;font-weight:300;}/* Tables */table.striped>tbody>tr:nth-child(odd){background-color:#f5f5f5;}/* Cards */.card .card-image .card-title{color: #212121; font-weight: 600; padding-bottom: 0px; padding-left:12px; padding-right: 12px;}.card-content{color: #757575;}.card .card-content{padding-top: 5px;}.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){color: #424242;}.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover{color: #03a9f4;}.card.small{height: 225px;}.card-placeholder-image{color:#bdbdbd;}.card-image img{opacity: 0.3;}.card-image h2{opacity: 0.3;}.card .card-image{min-height:60%;}/* Breadcrumbs */nav{background-color: #FFFFFF;}a.breadcrumb{color: #757575;}.breadcrumb:last-child{color:#03a9f4;}.breadcrumb:before{color:#757575;font-size:15px;}nav.breadcrumbs{box-shadow:none;margin-top:4px;}ul.collapsible{list-style-type: none;padding:0px;}.collapsible-header{border-bottom:0px;}.collapsible-body{padding:5px;}/* Table of Contents */.second-level{padding:0px;}.table-of-contents .second-level a{padding-left:40px;font-size:13px;}.table-of-contents a{color:#757575;}.table-of-contents a:hover{border-left:1px solid #03a9f4;color:#03a9f4;}.table-of-contents a.active{border-left:2px solid #03a9f4;color:#757575;}.toc-wrapper li{padding:1px;}/* Navigation Arrows */.prev-nav{top: 50%;left: 3%;position:fixed;}.next-nav{top: 50%;right: 3%;position:fixed;}</style>
+
+  <body>
+	<!-- Navigation Header -->
+	<nav class="white lighten-1" role="navigation">
+	<div class="nav-wrapper container">
+		<a id="logo-container" class="brand-logo logo show-on-medium-and-up hide-on-small-only" href="/"><img src="//logo.png"></a>
+		<a id="logo-container" class="brand-logo logo show-on-small hide-on-med-and-up" href="/"><img src="//logo-small.png"></a>
+	  
+	  
+	
+	  <ul class="right hide-on-med-and-down">
+		
+			
+			<li><a href="/tutorials.html">Tutorials</a></li>
+		
+			
+			<li><a href="/modules.html">Modules</a></li>
+		
+			
+			<li><a href="/projects.html">Projects</a></li>
+		
+			
+			<li><a href="/contribute.html">Contribute</a></li>
+		
+		
+			<li>
+				<a title="modularcode.site on GitHub" href="https://github.com/Sandared/modularcode.site"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>github</title>
+						<path d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0 1 10 4.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.163 20 14.418 20 10c0-5.523-4.478-10-10-10" fill-rule="evenodd">
+						</path>
+					</svg>					
+				</a>
+			</li>
+		
+		
+		
+			<li>
+				<a title="SanfteSchorle on Twitter" href="https://twitter.com/SanfteSchorle"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>twitter</title>
+						<path d="M15.115 7.788c.005.11.009.223.009.335 0 3.43-2.611 7.384-7.386 7.384-1.467 0-2.831-.43-3.98-1.166a5.244 5.244 0 0 0 3.843-1.075 2.596 2.596 0 0 1-2.424-1.801 2.645 2.645 0 0 0 1.171-.045 2.597 2.597 0 0 1-2.082-2.544v-.033c.351.194.752.311 1.177.324a2.59 2.59 0 0 1-1.154-2.16c0-.475.127-.92.35-1.305A7.37 7.37 0 0 0 9.99 8.414a2.596 2.596 0 0 1 4.423-2.367 5.174 5.174 0 0 0 1.648-.63 2.602 2.602 0 0 1-1.142 1.436 5.17 5.17 0 0 0 1.491-.41 5.233 5.233 0 0 1-1.295 1.345M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0" fill-rule="evenodd">
+						</path>
+					</svg>			
+				</a>
+			</li>
+		
+	  </ul>
+
+	  <ul id="nav-mobile" class="side-nav">
+		<li><a href="">Home</a></li>
+		<li class="divider"></li>
+		
+			
+			<li><a href="/tutorials.html">Tutorials</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/modules.html">Modules</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/projects.html">Projects</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/contribute.html">Contribute</a></li>
+			<li class="divider"></li>
+		
+		
+			<li>
+				<a title="modularcode.site on GitHub" href="https://github.com/Sandared/modularcode.site"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>github</title>
+						<path d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0 1 10 4.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.163 20 14.418 20 10c0-5.523-4.478-10-10-10" fill-rule="evenodd">
+						</path>
+					</svg>					
+				</a>
+			</li>
+			<li class="divider"></li>
+		
+		
+		
+			<li>
+				<a title="SanfteSchorle on Twitter" href="https://twitter.com/SanfteSchorle"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>twitter</title>
+						<path d="M15.115 7.788c.005.11.009.223.009.335 0 3.43-2.611 7.384-7.386 7.384-1.467 0-2.831-.43-3.98-1.166a5.244 5.244 0 0 0 3.843-1.075 2.596 2.596 0 0 1-2.424-1.801 2.645 2.645 0 0 0 1.171-.045 2.597 2.597 0 0 1-2.082-2.544v-.033c.351.194.752.311 1.177.324a2.59 2.59 0 0 1-1.154-2.16c0-.475.127-.92.35-1.305A7.37 7.37 0 0 0 9.99 8.414a2.596 2.596 0 0 1 4.423-2.367 5.174 5.174 0 0 0 1.648-.63 2.602 2.602 0 0 1-1.142 1.436 5.17 5.17 0 0 0 1.491-.41 5.233 5.233 0 0 1-1.295 1.345M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0" fill-rule="evenodd">
+						</path>
+					</svg>			
+				</a>
+			</li>
+			<li class="divider"></li>
+		
+	  </ul>        
+
+	  <a data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+	</div>
+</nav>
+	
+	
+	
+  <main>	
+  <div class="container">
+		<div class="row">	
+		
+			<div id="text-content" class="section col s12 l10">
+				
+
+
+<nav class="breadcrumbs">
+	<div class="nav-wrapper">
+	
+	
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+							
+				
+				
+							
+				
+				
+			
+				
+					
+					<a href="/tutorials.html" class="breadcrumb">Tutorials</a>
+				
+			
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+							
+				
+				
+							
+				
+				
+					
+				
+				<a href="/tutorials/base_tutorial.html" class="breadcrumb">Base Tutorial</a>
+				
+			
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+							
+				
+				
+							
+				
+				
+					
+				
+				<a href="/tutorials/base_tutorial/workspace.html" class="breadcrumb">The Workspace</a>
+				
+			
+		
+	
+	</div>
+</nav>
+
+				<h1 id="the-workspace">The Workspace</h1>
+
+<h2 id="what-you-will-learn-in-this-section">What you will learn in this section</h2>
+
+<p>In this section you will learn what a bnd workspace is and how it relates to the Git and Eclipse workspaces. We will address naming and how to use a ready made enRoute workspace template from github to get all the settings we need in one go. At the end of this section you will have a new workspace.</p>
+
+<p>Optionally, you can learn how Eclipse, Git, enRoute, and bnd workspaces relate to each other.</p>
+
+<p>Before you start this section, make sure you’ve checked the <a href="prerequisites.html">prerequisites</a> for OSGi enRoute on your platform.</p>
+
+<p>In the next section you learn how to set up a workspace. For this tutorial you must ensure you have a new workspace. If you’ve done the quickstart
+tutorial you might already have a workspace. Delete it or use one with another name for this tutorial to not get confused.</p>
+
+<p>OSGi enRoute requires that you group a number of projects in a <em>bnd workspace</em>. A bnd workspace is basically a directory with a <code class="highlighter-rouge">cnf</code> directory. We start with a template workspace by getting it from git.</p>
+
+<p class="warning">This is the BETA tutorial for OSGi enRoute 2.0.0. To use the right workspace template, 
+go to Bndtools preferences and select <code class="highlighter-rouge">Workspace Templates</code>.  You should edit the
+OSGi enRoute template and select the <code class="highlighter-rouge">next</code> branch.</p>
+
+<p class="note">This tutorial requires Bndtools 3.3.0 or later, the workspace templates were added in 3.2.0</p>
+
+<p class="note">We generally advise you to place things in your home directory (~). However, Eclipse does not recognize the tile (<code class="highlighter-rouge">~</code>) as a reference to your home directory so different paths are shown in the pictures.</p>
+
+<h2 id="two-workspaces">Two Workspaces???</h2>
+
+<p>First get some confusing stuff out of the way. We will have two (2) workspaces:</p>
+
+<ul>
+  <li><em>Eclipse</em> – The Eclipse workspace. An Eclipse workspace is a directory with a <code class="highlighter-rouge">.metadata</code> directory. In OSGi enRoute tutorials we <strong>never</strong> place any projects in this directory. This directory will never be stored in Git or another SCM, it should therefore only contain your local preferences and information. To make it easy to switch between Eclipse workspaces, it is suggested to place all Eclipse workspaces in one easy to access directory. For example <code class="highlighter-rouge">/Ws/eclipse</code>.</li>
+  <li><em>bnd</em> –  All <em>projects</em> will reside in a single <em>bnd workspace directory</em>. The bnd workspace is stored in Git or an alternative SCM. It must therefore never contain any personal stuff. A bnd workspace is <em>flat</em>, the <code class="highlighter-rouge">cnf</code> directory and <strong>all</strong> project directories must reside in exactly the same parent directory, which is the <em>workspace directory</em>. Sorry, no exceptions. The bnd workspaces could be grouped in a directory for Git. Eclipse recommends <code class="highlighter-rouge">~/git</code>.</li>
+</ul>
+
+<p>The structure is depicted in the following illustration:</p>
+
+<p><img src="../shared_assets/workspace/workspaces-layout.png" alt="Eclipse &amp; bnd workspace" /></p>
+
+<h2 id="opening-eclipse-or-switching-workspace">Opening Eclipse (Or Switching Workspace)</h2>
+
+<p>If you start Eclipse you will have to open the Eclipse workspace, see the previous issues. At the start of Eclipse (or when you do <code class="highlighter-rouge">File/Switch Workspace</code>) you will see the following dialog:</p>
+
+<p><img src="../shared_assets/workspace/qs-switch-0.png" alt="Switch Workspace" /></p>
+
+<p>After filling in the proper path and then closing the dialog by clicking <code class="highlighter-rouge">OK</code>, we get an Eclipse restart. After Eclipse is done, we should finally get:</p>
+
+<p><img src="../shared_assets/workspace/qs-switch-1.png" alt="Start Screen" /></p>
+
+<h2 id="creating-the-bnd-workspace">Creating the bnd Workspace</h2>
+
+<p>To create a new bnd Workspace we use the <code class="highlighter-rouge">New/Other/Bndtools/Bnd OSGi Workspace</code> menu:</p>
+
+<p><img src="../shared_assets/workspace/workspace-select.png" alt="Select New Workspace Wizard" /></p>
+
+<p>Select <code class="highlighter-rouge">Bnd OSGi Workspace</code> and click <code class="highlighter-rouge">Next</code>. This will bring you to a dialog that allows you to specify the location of the bnd workspace. Here we must select the <code class="highlighter-rouge">Create in</code> radio button because it is bad practice to use the same directory for the bnd workspace as the Eclipse workspace as explained before.</p>
+
+<p><img src="../shared_assets/workspace/location.png" alt="bnd workspace location" /></p>
+
+<p>Clicking on <code class="highlighter-rouge">Next</code> will bring us to the window that selects the template that we will use. In this case we will obviously choose the OSGi enRoute template.</p>
+
+<p><img src="../shared_assets/workspace/select-enroute.png" alt="Select OSGi enRoute Template" /></p>
+
+<p>After you selected the template and clicked <code class="highlighter-rouge">Next</code> then Bndtools will show you proposed new content of the workspace in a list. If you would update an existing workspace you could control any conflicts.</p>
+
+<p><img src="../shared_assets/workspace/empty-bnd-workspace.png" alt="Content list" /></p>
+
+<p>In our case we just click <code class="highlighter-rouge">Finish</code> and we’re done! Our Eclipse should look like:</p>
+
+<p><img src="../shared_assets/workspace/bnd-empty-workspace.png" alt="Empty IDE with just cnf" /></p>
+
+<h2 id="how-does-it-work">How Does it Work?</h2>
+
+<p>It helps to understand how the workspace is layed out. An Eclipse workspace is a directory where Eclipse stores its metadata, e.g. the plugins persistent storage or the history. Though it can be used to also store the actual projects, it is in general not a good idea, especially if you use a source control system. EGit can actually become quite slow when you include the Git workspace.</p>
+
+<p>Therefore, the best way to work with projects in Eclipse is not to store them in the Eclipse workspace folder but to import them from another directory.</p>
+
+<p>For bnd, a workspace is a directory with a <code class="highlighter-rouge">cnf</code> folder and a number of projects. This is a flat space; hated by many but it works quite well because it is very simple and hard to get wrong. Don’t count on it changing so do not try to work around it, you’ll regret it. The <code class="highlighter-rouge">cnf</code> folder contains a <code class="highlighter-rouge">build.bnd</code> file and a <code class="highlighter-rouge">ext</code> directory which together define the workspace properties.</p>
+
+<p>A bnd workspace is like a module; it imports bundles (and JARs) from a repository and it exports bundles to the same or another repository. On the inside we have projects that are private to the workspace. The projects should be cohesive so that they can share information via the <code class="highlighter-rouge">cnf</code> project.</p>
+
+<p>The Git workspace is a directory that has a <code class="highlighter-rouge">.git</code> sub directory. When used with bnd, the Git workspace and the bnd workspace overlap. That is, the bnd workspace is a single Git workspace. Projects do not have their own repositories.</p>
+
+		    </div>
+			<div class="col hide-on-med-and-down l2">
+				<div id="toc-wrapper" class="toc-wrapper pin-top">
+				  <ul id="toc" class="section table-of-contents">
+					
+				  </ul>
+				</div>
+			</div>
+			
+			
+				
+				<div class="col s6 left-align hide-on-large-only show-on-med-and-down"><a href="prerequisites.html"><i class="large material-icons">keyboard_arrow_left</i></a></div>
+			
+			
+				<div class="col s6  right-align hide-on-large-only show-on-med-and-down"><a href="api.html"><i class="large material-icons">keyboard_arrow_right</i></a></div>
+			
+			
+			
+				<div class="prev-nav hide-on-med-and-down"><a href="prerequisites.html"><i class="small material-icons">keyboard_arrow_left</i></a></div>
+			
+			
+				<div class="next-nav hide-on-med-and-down"><a href="api.html"><i class="small material-icons">keyboard_arrow_right</i></a></div>
+			
+		
+			
+    </div> 
+	
+  </div>
+  </main>
+	<footer class="page-footer">
+    <!--<div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5>Lorem Ipsum</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+    </div>-->
+    <div class="footer-copyright">
+        <div class="container">
+            <div>
+				<span style="text-align: left; float: left; width: 30%;">
+				Made with <a target="_blank" href="http://materializecss.com">Materialize</a>
+				</span>
+				<span style="text-align: center; float: left; width: 40%;">
+				Copyright © 2018 <a href="https://www.osgi.org/">Thomas Driessen</a>
+				</span>
+                <span style="text-align: right; float: left; width: 30%;">
+				Powered by <a target="_blank" href="http://jekyllrb.com/">Jekyll</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>      
+	<!--  Scripts-->  
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/materialize.min.js"></script>
+<script src="/assets/js/init.js"></script>	
+	<script src="/assets/js/content.js"></script>	
+  </body>
+
+</html>

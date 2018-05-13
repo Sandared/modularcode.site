@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Testing in OSGi</title>
+    <meta name="description" content="Testing in OSGi" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="/assets/materialize.css" />
+    <link rel="canonical" href="/tutorials/base_tutorial/testing.html" />
+    <link rel="alternate" type="application/rss+xml" title="modularcode" href="/feed.xml" />
+    
+</head>
+<!-- Is it a content or a nested page -->
+	
+	
+	
+	<style>a {color: #757575;fill:#424242;}a:hover {color: #03a9f4;fill:#03a9f4;}h1,h2,h3,h4,h5,h6{color: #424242;}body{color: #212121; display: flex; min-height: 100vh; flex-direction: column;}nav ul a{color: #424242;}nav .brand-logo{color: #424242}.justify-align{text-align:justify;}nav a{color: #424242;}main{flex: 1 0 auto;}.side-nav li>a{color: #424242;}.side-nav .collapsible-header, .side-nav.fixed .collapsible-header{padding-left:32px;}.side-nav .collapsible-body li a, .side-nav.fixed .collapsible-body li a{padding-left:47px;}h1,h2,h3,h4,h5,h6{-webkit-font-smoothing: antialiased;}.icon-block{padding: 0 15px;}.icon-block .material-icons{font-size: inherit;}.row{margin-bottom:0px;}.logo img{padding-top:3px;}.page-footer{background-color:#03a9f4; padding-top: 0px;}.nav-button{width:20px; height:20px; viewBox:0 0 20 20;}footer h5{color:#FFFFFF;}hr{background-color:#bdbdbd;}.divider{background-color:#bdbdbd;}img{max-width: 100%; height: auto;}.page-footer .footer-copyright{background-color:#03a9f4;}/* Code Highlighting */.highlight .c { color: #bdbdbd; font-style: italic } /* Comment */.highlight .k { color: #212121; font-weight: bold } /* Keyword */.highlight .cm { color: #bdbdbd; font-style: italic } /* Comment.Multiline */.highlight .c1 { color: #bdbdbd; font-style: italic } /* Comment.Single */.highlight .kc { color: #424242; font-weight: bold } /* Keyword.Constant */.highlight .kd { color: #212121; font-weight: bold } /* Keyword.Declaration */.highlight .kn { color: #424242; font-weight: bold } /* Keyword.Namespace */.highlight .kp { color: #424242; font-weight: bold } /* Keyword.Pseudo */.highlight .kr { color: #424242; font-weight: bold } /* Keyword.Reserved */.highlight .kt { color: #424242; font-weight: bold } /* Keyword.Type */.highlight .s { color: #757575 } /* Literal.String */.highlight .n { color: #03a9f4 } /* Name */.highlight .na { color: #03a9f4 } /* Name.Attribute */.highlight .nc { color: #03a9f4} /* Name.Class */.highlight .nd { color: #757575 } /* Name.Decorator */.highlight .nf { color: #03a9f4 } /* Name.Function */.highlight .mf { color: #757575 } /* Literal.Number.Float */.highlight .mh { color: #757575 } /* Literal.Number.Hex */.highlight .mi { color: #757575 } /* Literal.Number.Integer */.highlight .mo { color: #757575 } /* Literal.Number.Oct */.highlight .sb { color: #757575 } /* Literal.String.Backtick */.highlight .sc { color: #757575 } /* Literal.String.Char */.highlight .sd { color: #757575 } /* Literal.String.Doc */.highlight .s2 { color: #757575 } /* Literal.String.Double */.highlight .se { color: #757575 } /* Literal.String.Escape */.highlight .sh { color: #757575 } /* Literal.String.Heredoc */.highlight .si { color:#757575 } /* Literal.String.Interpol */.highlight .sx { color: #757575 } /* Literal.String.Other */.highlight .sr { color: #757575 } /* Literal.String.Regex */.highlight .s1 { color: #757575 } /* Literal.String.Single */.highlight .ss { color: #757575 } /* Literal.String.Symbol */.highlight {tab-size: 4;}div.highlighter-rouge{padding:5px;background:#f5f5f5;border:1px solid #bdbdbd;border-radius:4px;}div.highlight pre.highlight{margin:0px;}code.highlighter-rouge{padding:0px 3px;background:#f5f5f5;border:1px solid #bdbdbd;border-radius:3px;}/* Make headers a little bit smaller */h1{font-size:2.8rem;}h2{font-size:2.5rem;}h3{font-size:2.1rem;}h4{font-size:1.8rem;}h5{font-size:1.3rem;}h6{font-size:1rem;}/* Plain text */p{text-align:justify;}/* Blockquotes */blockquote{border-left:3px solid #03a9f4;font-style:italic;font-weight:300;}/* Tables */table.striped>tbody>tr:nth-child(odd){background-color:#f5f5f5;}/* Cards */.card .card-image .card-title{color: #212121; font-weight: 600; padding-bottom: 0px; padding-left:12px; padding-right: 12px;}.card-content{color: #757575;}.card .card-content{padding-top: 5px;}.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){color: #424242;}.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover{color: #03a9f4;}.card.small{height: 225px;}.card-placeholder-image{color:#bdbdbd;}.card-image img{opacity: 0.3;}.card-image h2{opacity: 0.3;}.card .card-image{min-height:60%;}/* Breadcrumbs */nav{background-color: #FFFFFF;}a.breadcrumb{color: #757575;}.breadcrumb:last-child{color:#03a9f4;}.breadcrumb:before{color:#757575;font-size:15px;}nav.breadcrumbs{box-shadow:none;margin-top:4px;}ul.collapsible{list-style-type: none;padding:0px;}.collapsible-header{border-bottom:0px;}.collapsible-body{padding:5px;}/* Table of Contents */.second-level{padding:0px;}.table-of-contents .second-level a{padding-left:40px;font-size:13px;}.table-of-contents a{color:#757575;}.table-of-contents a:hover{border-left:1px solid #03a9f4;color:#03a9f4;}.table-of-contents a.active{border-left:2px solid #03a9f4;color:#757575;}.toc-wrapper li{padding:1px;}/* Navigation Arrows */.prev-nav{top: 50%;left: 3%;position:fixed;}.next-nav{top: 50%;right: 3%;position:fixed;}</style>
+
+  <body>
+	<!-- Navigation Header -->
+	<nav class="white lighten-1" role="navigation">
+	<div class="nav-wrapper container">
+		<a id="logo-container" class="brand-logo logo show-on-medium-and-up hide-on-small-only" href="/"><img src="//logo.png"></a>
+		<a id="logo-container" class="brand-logo logo show-on-small hide-on-med-and-up" href="/"><img src="//logo-small.png"></a>
+	  
+	  
+	
+	  <ul class="right hide-on-med-and-down">
+		
+			
+			<li><a href="/tutorials.html">Tutorials</a></li>
+		
+			
+			<li><a href="/modules.html">Modules</a></li>
+		
+			
+			<li><a href="/projects.html">Projects</a></li>
+		
+			
+			<li><a href="/contribute.html">Contribute</a></li>
+		
+		
+			<li>
+				<a title="modularcode.site on GitHub" href="https://github.com/Sandared/modularcode.site"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>github</title>
+						<path d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0 1 10 4.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.163 20 14.418 20 10c0-5.523-4.478-10-10-10" fill-rule="evenodd">
+						</path>
+					</svg>					
+				</a>
+			</li>
+		
+		
+		
+			<li>
+				<a title="SanfteSchorle on Twitter" href="https://twitter.com/SanfteSchorle"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>twitter</title>
+						<path d="M15.115 7.788c.005.11.009.223.009.335 0 3.43-2.611 7.384-7.386 7.384-1.467 0-2.831-.43-3.98-1.166a5.244 5.244 0 0 0 3.843-1.075 2.596 2.596 0 0 1-2.424-1.801 2.645 2.645 0 0 0 1.171-.045 2.597 2.597 0 0 1-2.082-2.544v-.033c.351.194.752.311 1.177.324a2.59 2.59 0 0 1-1.154-2.16c0-.475.127-.92.35-1.305A7.37 7.37 0 0 0 9.99 8.414a2.596 2.596 0 0 1 4.423-2.367 5.174 5.174 0 0 0 1.648-.63 2.602 2.602 0 0 1-1.142 1.436 5.17 5.17 0 0 0 1.491-.41 5.233 5.233 0 0 1-1.295 1.345M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0" fill-rule="evenodd">
+						</path>
+					</svg>			
+				</a>
+			</li>
+		
+	  </ul>
+
+	  <ul id="nav-mobile" class="side-nav">
+		<li><a href="">Home</a></li>
+		<li class="divider"></li>
+		
+			
+			<li><a href="/tutorials.html">Tutorials</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/modules.html">Modules</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/projects.html">Projects</a></li>
+			<li class="divider"></li>
+		
+			
+			<li><a href="/contribute.html">Contribute</a></li>
+			<li class="divider"></li>
+		
+		
+			<li>
+				<a title="modularcode.site on GitHub" href="https://github.com/Sandared/modularcode.site"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>github</title>
+						<path d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0 1 10 4.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.163 20 14.418 20 10c0-5.523-4.478-10-10-10" fill-rule="evenodd">
+						</path>
+					</svg>					
+				</a>
+			</li>
+			<li class="divider"></li>
+		
+		
+		
+			<li>
+				<a title="SanfteSchorle on Twitter" href="https://twitter.com/SanfteSchorle"> 
+					<svg class="nav-button" xmlns="http://www.w3.org/2000/svg">
+						<title>twitter</title>
+						<path d="M15.115 7.788c.005.11.009.223.009.335 0 3.43-2.611 7.384-7.386 7.384-1.467 0-2.831-.43-3.98-1.166a5.244 5.244 0 0 0 3.843-1.075 2.596 2.596 0 0 1-2.424-1.801 2.645 2.645 0 0 0 1.171-.045 2.597 2.597 0 0 1-2.082-2.544v-.033c.351.194.752.311 1.177.324a2.59 2.59 0 0 1-1.154-2.16c0-.475.127-.92.35-1.305A7.37 7.37 0 0 0 9.99 8.414a2.596 2.596 0 0 1 4.423-2.367 5.174 5.174 0 0 0 1.648-.63 2.602 2.602 0 0 1-1.142 1.436 5.17 5.17 0 0 0 1.491-.41 5.233 5.233 0 0 1-1.295 1.345M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0" fill-rule="evenodd">
+						</path>
+					</svg>			
+				</a>
+			</li>
+			<li class="divider"></li>
+		
+	  </ul>        
+
+	  <a data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+	</div>
+</nav>
+	
+	
+	
+  <main>	
+  <div class="container">
+		<div class="row">	
+		
+			<div id="text-content" class="section col s12 l10">
+				
+
+
+<nav class="breadcrumbs">
+	<div class="nav-wrapper">
+	
+	
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+							
+				
+				
+							
+				
+				
+			
+				
+					
+					<a href="/tutorials.html" class="breadcrumb">Tutorials</a>
+				
+			
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+							
+				
+				
+							
+				
+				
+					
+				
+				<a href="/tutorials/base_tutorial.html" class="breadcrumb">Base Tutorial</a>
+				
+			
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+							
+				
+				
+							
+				
+				
+					
+				
+				<a href="/tutorials/base_tutorial/testing.html" class="breadcrumb">Testing in OSGi</a>
+				
+			
+		
+	
+	</div>
+</nav>
+
+				<h1 id="testing-in-osgi">Testing in OSGi</h1>
+
+<h2 id="what-you-will-learn-in-this-section">What You Will Learn in This Section</h2>
+
+<p>In this section we define OSGi based testing in an actual framework. OSGi tests start a configured framework and then execute a JUnit Runner to execute the tests. The test framework is completely integrated with the Eclipse JUnit support, it works almost identical.</p>
+
+<p>The intention of an OSGi JUnit test is to test service contracts; in general it is used to test if a provider fulfills the service contract. This means these tests are black-box tests; there is no knowledge about their inside.</p>
+
+<p>If you’re running the framework from the previous tutorial section then it is now time to kill it. In this section we run automated tests.</p>
+
+<h2 id="osgi-junit-test">OSGi JUnit Test</h2>
+
+<p>An OSGi JUnit test is a new project. So create a <code class="highlighter-rouge">com.acme.prime.eval.test</code> project, be sure to  use the OSGi enRoute templates. Since this project name ends with <code class="highlighter-rouge">.test</code> we automatically get a proper test setup.</p>
+
+<p><img src="img/test-test-0.png" alt="Test Project" /></p>
+
+<p>A tad confusing is the fact that in an OSGi Test project you will work in the <code class="highlighter-rouge">src</code> directory and <em>not</em> the <code class="highlighter-rouge">test</code> directory because we create a test bundle; if we used the <code class="highlighter-rouge">test</code> source directory we would never end up with any classes in the bundle. Classes in the <code class="highlighter-rouge">test</code> directory are never added to the JAR file.</p>
+
+<p>The OSGi enRoute template is already filled with a simple test case that gives us a Bundle Context but that test case does not use our service yet.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">acme</span><span class="o">.</span><span class="na">prime</span><span class="o">.</span><span class="na">eval</span><span class="o">.</span><span class="na">test</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Assert</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.osgi.framework.BundleContext</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.osgi.framework.FrameworkUtil</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EvalTest</span> <span class="o">{</span>
+
+	<span class="kd">private</span> <span class="kd">final</span> <span class="n">BundleContext</span> <span class="n">context</span> <span class="o">=</span> <span class="n">FrameworkUtil</span><span class="o">.</span><span class="na">getBundle</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">()).</span><span class="na">getBundleContext</span><span class="o">();</span>
+	
+	<span class="nd">@Test</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testEval</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+		<span class="n">Assert</span><span class="o">.</span><span class="na">assertNotNull</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>So how do we get the Eval service to test? This is a bit cumbersome because we do not get support from DS. Alas, back to the old days when you had to get a service by hand:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;T&gt; T getService(Class&lt;T&gt; clazz) throws InterruptedException {
+	ServiceTracker&lt;T,T&gt; st = new ServiceTracker&lt;&gt;(context, clazz, null);
+	st.open();
+	return st.waitForService(1000);
+}
+</code></pre></div></div>
+
+<p>We of course leak service trackers but for a test case that is not a major problem.</p>
+
+<p>We now need to add a test if our service exists.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Assert</span><span class="o">.</span><span class="na">assertNotNull</span><span class="o">(</span><span class="n">getService</span><span class="o">(</span><span class="n">Eval</span><span class="o">.</span><span class="na">class</span><span class="o">));</span>
+</code></pre></div></div>
+
+<p>However, if we add this code we find that Eclipse can’t find the <code class="highlighter-rouge">Eval</code> class. Remember the problem? We need to add the <code class="highlighter-rouge">com.acme.prime.eval.api</code> project to our build path. Double click the <code class="highlighter-rouge">bnd.bnd</code> file, select <code class="highlighter-rouge">Build</code> and add the <code class="highlighter-rouge">com.acme.prime.eval.api</code> project. Once the <code class="highlighter-rouge">bnd.bnd</code> file is saved we can import the <code class="highlighter-rouge">Eval</code> class and remove the error. Remember that the current provider also exports the <code class="highlighter-rouge">com.acme.prime.eval.api</code> package. It is bad practice to place an implementation bundle on your classpath: Always try to compile against the service contract.</p>
+
+<p>We’re almost ready to run, ehh, test. But before we do the testing, let’s think about our runtime. How should our environment look? Let’s go to the <code class="highlighter-rouge">Run</code> tab of the <code class="highlighter-rouge">bnd.bnd</code> file. The list of initial requirements contains the <code class="highlighter-rouge">com.acme.prime.eval.test</code> project. During a resolve, this will drag in the provider because it has the API and the required JUnit bundles.</p>
+
+<p>Hit the <code class="highlighter-rouge">Resolve</code> button and save. We have only a few dependencies, all caused by the fact that the provider uses Declarative Services (DS) a.k.a. SCR.</p>
+
+<p>Our bundles now look as follows:</p>
+
+<p><img src="img/test-test-1.png" alt="Test Project" /></p>
+
+<p>To run the test we can select any of: the <code class="highlighter-rouge">com.acme.prime.eval.test</code> project, its <code class="highlighter-rouge">src</code> folder, a package in this folder, a class in this package, a method in the a class, or the bnd.bnd file. We can then do <code class="highlighter-rouge">@/Debug As/Bnd OSGi Test Launcher (JUnit)</code> or you can use the keyboard shortcut (Shift+Alt+X C). This executes the tests in the specified scope. The test results are then reported in the standard JUnit view. Remember the pilots and retractable gear analogy? Want to bet you confuse the entries <code class="highlighter-rouge">JUnit Test</code> and <code class="highlighter-rouge">Bnd OSGi Test Launcher (JUnit)</code>? Or even worse now, you might accidentally select <code class="highlighter-rouge">Bnd OSGi Run Launcher</code>. If you do the latter, you get an error that the bundles cannot be resolved because JUnit is missing.</p>
+
+<p>And then … the green bar!</p>
+
+<p><img src="img/test-test-2.png" alt="Test Project" /></p>
+
+<h2 id="testing--debugging">Testing &amp; Debugging</h2>
+
+<p>The current tests only tests if the service exists. So lets add some more:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">trig</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+	<span class="n">Assert</span><span class="o">.</span><span class="na">assertSame</span><span class="o">(</span> <span class="mi">1</span><span class="o">,</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">getService</span><span class="o">(</span><span class="n">Eval</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">eval</span><span class="o">(</span><span class="s">"sin(1)*sin(1)+cos(1)*cos(1)"</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The tests are run in a real OSGi Framework but this does not stop us from debugging. Just click on the left margin next to the <code class="highlighter-rouge">trig</code> function, select the function name, and then <code class="highlighter-rouge">@/Debug As/Bnd OSGi Test Launcher (JUnit) (Shift+Alt+D K)</code>. The debugger stops in the method and you can now single step, even if this crosses to another bundle.</p>
+
+<p>If you make changes then in this case the changes are not immediately reflected in the running framework.</p>
+
+<h2 id="how-does-it-work">How Does it Work?</h2>
+
+<p>Test bundles are normal bundles but are marked with a special header: <code class="highlighter-rouge">Test-Cases</code>. This header contains a list with class names that contain JUnit tests. If you look in the <code class="highlighter-rouge">bnd.bnd</code> <code class="highlighter-rouge">Source</code> tab then you see that this header looks like:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Test-Cases: ${test-cases}
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">${test-cases}</code> macro is set by OSGi enRoute; it calculates the classes that either extend <code class="highlighter-rouge">junit.framework.TestCase</code> class or that use the the JUnit 4 annotations like <code class="highlighter-rouge">@Test</code> (you cannot combine these mechanisms). In our example the expansion looks like:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Test-Cases: com.acme.prime.eval.test.EvalTest
+</code></pre></div></div>
+
+<p>You can verify this by double clicking on the <code class="highlighter-rouge">generated/com.acme.prime.eval.test.jar</code> and looking for the <code class="highlighter-rouge">Test-Cases</code> header in the manifest.</p>
+
+<p>When you launch an OSGi JUnit test, bnd will create a new framework with the set run bundles. On the class path for this framework it also adds a bundle <code class="highlighter-rouge">aQute.junit</code> as well as any JARs listed on the <code class="highlighter-rouge">-testpath</code>. Any features available for running a framework can also be used for running a test, e.g. <code class="highlighter-rouge">-runproperties</code> and <code class="highlighter-rouge">-runtrace</code>.</p>
+
+<p>After the bundles are all started the <code class="highlighter-rouge">aQute.junit</code> bundle will scan all bundles for the magic <code class="highlighter-rouge">Test-Cases</code> header. It will then load those classes and run their tests.</p>
+
+<p>If the tests are run from the Eclipse JUnit framework then the model is slightly different. Then bnd sets up a new framework as indicated but it passes the set of classes/methods that Eclipse had decided from the selection. For example, all tests in a package. The <code class="highlighter-rouge">aQute.junit</code> will then only execute those classes/methods and will report the results back to Eclipse so they can be shown in the JUnit view.</p>
+
+		    </div>
+			<div class="col hide-on-med-and-down l2">
+				<div id="toc-wrapper" class="toc-wrapper pin-top">
+				  <ul id="toc" class="section table-of-contents">
+					
+				  </ul>
+				</div>
+			</div>
+			
+			
+				
+				<div class="col s6 left-align hide-on-large-only show-on-med-and-down"><a href="dependencies.html"><i class="large material-icons">keyboard_arrow_left</i></a></div>
+			
+			
+				<div class="col s6  right-align hide-on-large-only show-on-med-and-down"><a href="deploy.html"><i class="large material-icons">keyboard_arrow_right</i></a></div>
+			
+			
+			
+				<div class="prev-nav hide-on-med-and-down"><a href="dependencies.html"><i class="small material-icons">keyboard_arrow_left</i></a></div>
+			
+			
+				<div class="next-nav hide-on-med-and-down"><a href="deploy.html"><i class="small material-icons">keyboard_arrow_right</i></a></div>
+			
+		
+			
+    </div> 
+	
+  </div>
+  </main>
+	<footer class="page-footer">
+    <!--<div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5>Lorem Ipsum</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+    </div>-->
+    <div class="footer-copyright">
+        <div class="container">
+            <div>
+				<span style="text-align: left; float: left; width: 30%;">
+				Made with <a target="_blank" href="http://materializecss.com">Materialize</a>
+				</span>
+				<span style="text-align: center; float: left; width: 40%;">
+				Copyright © 2018 <a href="https://www.osgi.org/">Thomas Driessen</a>
+				</span>
+                <span style="text-align: right; float: left; width: 30%;">
+				Powered by <a target="_blank" href="http://jekyllrb.com/">Jekyll</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>      
+	<!--  Scripts-->  
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/materialize.min.js"></script>
+<script src="/assets/js/init.js"></script>	
+	<script src="/assets/js/content.js"></script>	
+  </body>
+
+</html>
