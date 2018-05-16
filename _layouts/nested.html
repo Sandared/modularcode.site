@@ -47,7 +47,7 @@
 				{% endfor %}				
 				<!--create a card with image for each-->
 				<div class="col s12 m8 push-m2 l6 xl4">
-					<a class="card-action-link" href="{{"" | relative_url | prepend: site.url | append: fileHTMLPath}}">
+					<a class="card-action-link" href="{{fileHTMLPath}}">
 						<div class="card small hoverable">
 							<div class="card-image">
 							{% assign image = htmlFile.image %}
@@ -80,7 +80,7 @@
 				
 				<!--create a card with image for each-->
 				<div class="col s12 m8 push-m2 l6 xl4">
-					<a class="card-action-link" href="{{"" | relative_url | prepend: site.url | append: subfolderInfoHTMLPath}}">
+					<a class="card-action-link" href="{{subfolderInfoHTMLPath}}">
 						<div class="card small hoverable">
 							<div class="card-image">
 							{% assign image = subfolderInfo.image %}	
