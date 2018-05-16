@@ -2,11 +2,11 @@
 <html lang="en"><head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>Projects</title>
-    <meta name="description" content="Java Modularity" />
+    <title>Landing Page</title>
+    <meta name="description" content="Sections of the Landing Page" />
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen,projection" href="/assets/materialize.css" />
-    <link rel="canonical" href="http://localhost:4000/projects.html" />
+    <link rel="canonical" href="http://localhost:4000/contribute/template_and_markdown/landingpage.html" />
     <link rel="alternate" type="application/rss+xml" title="modularcode" href="/feed.xml" />
     
 </head>
@@ -121,7 +121,7 @@
   <div class="container">
 		<div class="row">	
 		
-			<div class="section col s12">
+			<div id="text-content" class="section col s12 l10">
 				
 
 
@@ -158,61 +158,124 @@
 			
 				
 					
-					<a href="http://localhost:4000/projects.html" class="breadcrumb">Projects</a>
+					<a href="http://localhost:4000/contribute.html" class="breadcrumb">Contribute</a>
+				
+			
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+					
+				
+				<a href="http://localhost:4000/contribute/template_and_markdown.html" class="breadcrumb">Template and Markdown</a>
+				
+			
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+					
+				
+				<a href="http://localhost:4000/contribute/template_and_markdown/landingpage.html" class="breadcrumb">Landing Page</a>
 				
 			
 		
 	
 	</div>
 </nav>
-				
-			</div>
-			<!--add all files in this folder-->
-			
-			<!-- create path to the file --> 
-				
-				<!--find the file-->
-				
-					
-					
-				
-					
-					
-				
-					
-					
-				
-					
-					
-				
-					
-					
-										
-				<!--create a card with image for each-->
-				<div class="col s12 m8 push-m2 l6 xl4">
-					<a class="card-action-link" href="/projects/projects.html">
-						<div class="card small hoverable">
-							<div class="card-image">
-							
-							
-								<img src="projects/img/under_construction.png">
-							
-								<span class="card-title">UNDER CONSTRUCTION</span>
-							</div>
-							<div class="card-content">
-								<p>This site is currently under construction</p>
-							</div>
-						</div>							
-					</a>
-				</div>				
-				
-			
-			<!-- add all subfolders-->
-			
-			<div id="text-content" class="section col s12 l10">			
-				
 
-			</div>
+				<h1 id="sections-of-the-landing-page">Sections of the Landing Page</h1>
+
+<p>The landing page consists of three differen sections:</p>
+
+<ul>
+  <li>Heroheader</li>
+  <li>Peptalks</li>
+  <li>About</li>
+</ul>
+
+<p>Each section can be edited through separate .md files with a respective layout in their front matter.</p>
+
+<h2 id="heroheader">Heroheader</h2>
+
+<p>The Heroheader is an eye-catcher on every modern website. Its purpose is to provide the visitor with the most basic of information about your project:</p>
+
+<ul>
+  <li>What is the name of your project?</li>
+  <li>What is its purpose?</li>
+  <li>Where do I have to go to learn more about it?</li>
+</ul>
+
+<p>Therefore in your heroheader.md file you only provide these bits of information in the front matter:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: heroheader
+button:
+  text: GET STARTED!
+  url: https://github.com/Sandared/documentation_template
+title: Project Documentation Template
+subtitle: The Easy Way Towards Project Documentation
+version: 1.0.0
+---
+</code></pre></div></div>
+
+<p>Actually the properties are rather selfexplanatory. The content of this file is never used, it merely provides the front matter information neccessary to create the header.</p>
+
+<h2 id="peptalks">Peptalks</h2>
+
+<p>Peptalks are usually placed directly under the Heroheader. The user has read your Heroheader, but is still not completely convinced. Now it’s time to show your project at its best! 
+Take the most convincing properties of your project and spice them up with a pinch of Buzzwords and a small dose of exageration ;)
+Usually you have a multiple of three. For each peptalk you create one .md file which has a front matter like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: peptalk
+icon: flash_on
+title: Speeds up development
+---
+text goes here
+</code></pre></div></div>
+
+<p>The <strong>icon</strong> property can be chosen from the set of <a href="https://material.io/icons/">material icons</a> provided by Google.
+The content is used as the body of your Peptalk. Don’t be too short but also don’t try to explain your whole project.</p>
+
+<h2 id="news">News</h2>
+
+<p>Now you’ve nearly convinced your visitor that you are the best project on earth, whether or not your visitor needs what you provide, but one question is still unanswered: 
+Is this project up-to-date, relevant and still active?
+Well, what could be better than an About section where you pull all the strings to persuade a wannabe contributer to become a full maintainer of your project ;)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: about
+title: Some unbelievable About facts!!!
+---
+text goes here
+</code></pre></div></div>
+
+<h2 id="additional-section-ideas">Additional Section Ideas</h2>
+
+<p>Maybe in the near future I am able to add sections like:</p>
+
+<ul>
+  <li>partners: a collection of company logos of famous companies that use your product</li>
+  <li>pitch: a section containing a video of psyched users of your project. All of them completely overwhelmed by how your project easened their everyday life.</li>
+  <li>???</li>
+</ul>
+
+		    </div>
 			<div class="col hide-on-med-and-down l2">
 				<div id="toc-wrapper" class="toc-wrapper pin-top">
 				  <ul id="toc" class="section table-of-contents">
@@ -220,6 +283,21 @@
 				  </ul>
 				</div>
 			</div>
+			
+			
+				
+				<div class="col s6 left-align hide-on-large-only show-on-med-and-down"><a href="content.html"><i class="large material-icons">keyboard_arrow_left</i></a></div>
+			
+			
+				<div class="col s6  right-align hide-on-large-only show-on-med-and-down"><a href="nestedpage.html"><i class="large material-icons">keyboard_arrow_right</i></a></div>
+			
+			
+			
+				<div class="prev-nav hide-on-med-and-down"><a href="content.html"><i class="small material-icons">keyboard_arrow_left</i></a></div>
+			
+			
+				<div class="next-nav hide-on-med-and-down"><a href="nestedpage.html"><i class="small material-icons">keyboard_arrow_right</i></a></div>
+			
 		
 			
     </div> 

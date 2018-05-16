@@ -2,11 +2,11 @@
 <html lang="en"><head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>Projects</title>
-    <meta name="description" content="Java Modularity" />
+    <title>Nested Page</title>
+    <meta name="description" content="Nested Pages" />
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen,projection" href="/assets/materialize.css" />
-    <link rel="canonical" href="http://localhost:4000/projects.html" />
+    <link rel="canonical" href="http://localhost:4000/contribute/template_and_markdown/nestedpage.html" />
     <link rel="alternate" type="application/rss+xml" title="modularcode" href="/feed.xml" />
     
 </head>
@@ -121,7 +121,7 @@
   <div class="container">
 		<div class="row">	
 		
-			<div class="section col s12">
+			<div id="text-content" class="section col s12 l10">
 				
 
 
@@ -158,61 +158,140 @@
 			
 				
 					
-					<a href="http://localhost:4000/projects.html" class="breadcrumb">Projects</a>
+					<a href="http://localhost:4000/contribute.html" class="breadcrumb">Contribute</a>
+				
+			
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+					
+				
+				<a href="http://localhost:4000/contribute/template_and_markdown.html" class="breadcrumb">Template and Markdown</a>
+				
+			
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+					
+				
+				<a href="http://localhost:4000/contribute/template_and_markdown/nestedpage.html" class="breadcrumb">Nested Page</a>
 				
 			
 		
 	
 	</div>
 </nav>
-				
-			</div>
-			<!--add all files in this folder-->
-			
-			<!-- create path to the file --> 
-				
-				<!--find the file-->
-				
-					
-					
-				
-					
-					
-				
-					
-					
-				
-					
-					
-				
-					
-					
-										
-				<!--create a card with image for each-->
-				<div class="col s12 m8 push-m2 l6 xl4">
-					<a class="card-action-link" href="/projects/projects.html">
-						<div class="card small hoverable">
-							<div class="card-image">
-							
-							
-								<img src="projects/img/under_construction.png">
-							
-								<span class="card-title">UNDER CONSTRUCTION</span>
-							</div>
-							<div class="card-content">
-								<p>This site is currently under construction</p>
-							</div>
-						</div>							
-					</a>
-				</div>				
-				
-			
-			<!-- add all subfolders-->
-			
-			<div id="text-content" class="section col s12 l10">			
-				
 
-			</div>
+				<h1 id="nested-pages">Nested Pages</h1>
+
+<p>As mentioned on the landing page, we created a template that allows you to structure your content in a more website like way, in a nested structure.
+This is done by sticking to a certain structure and adding certain bits of information to your front matter.</p>
+
+<h2 id="structure">Structure</h2>
+
+<p>Each nested page is usually represented through an additional <a href="https://jekyllrb.com/docs/collections/">collection </a> and as an item in the navigation bar.
+The root of your nested page is a .md file with layout <em>nested</em> and must be named exactly as the collection. 
+In our case we created a collection <em>“documentation”</em>, created a folder <em>“_documentation”</em> which is demanded by Jekyll and created an <em>“documentation.md”</em> file in the root of our site directory, as depicted below:</p>
+
+<p><em>_config.yml:</em></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>... (other stuff)
+
+collections:
+  documentation:
+    output: true
+	
+... (other stuff)
+</code></pre></div></div>
+
+<p><em>Directory structure:</em></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root
+ |
+  -- ... (other stuff)
+ |
+  -- _documentation
+     |
+	  -- nestedpage.md
+	 |
+	  -- landingpage.md
+	 |
+	  -- nesteddemo.md 
+	 |
+	  -- nesteddemo
+	     |
+		  -- subchapter_1.md 
+		 |
+		  -- subchapter_2.md
+		 |
+		  -- subchapter_3.md
+</code></pre></div></div>
+
+<p><em>documentation.md:</em></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: nested
+title: Documentation
+navbaritem: true
+subfolders:
+  - 'nesteddemo'
+files:
+  - 'landingpage'
+  - 'nestedpage'
+---
+
+content ... bla bla bla
+</code></pre></div></div>
+
+<h2 id="front-matter">Front Matter</h2>
+
+<h3 id="navbaritem">Navbaritem</h3>
+
+<p>The <strong>navbaritem</strong> property is not used by the <em>nested</em> template, but by the header template which generates the navbar. If it is set to true a navbar entry is created with the <strong>title</strong> property as content.
+This works only for .md files that are in the root directory of your page.</p>
+
+<h3 id="subfolder-and-files">Subfolder and Files</h3>
+
+<p>As the names imply these properties tell the template where to search for subfolders or files in the directory.</p>
+
+<p><strong>Subfolders</strong>
+The <em>documentation.md</em> file lies within the <em>root</em> directory of your site. The path given for its subfolders is relative to the <em>_documentation</em> subfolder, <strong>NOT</strong> relative to the .md file!
+For each subfolder in <strong>subfolders</strong> there must be a equally named .md file. 
+In our case <em>documentation.md</em> points to the subfolder <em>nesteddemo</em> which is represented by a folder <em>nesteddemo</em> within the <em>_documentation</em> folder and a .md file <em>nesteddemo.md</em>, also lying within the <em>_documentation</em> folder.
+The point of <em>nesteddemo.md</em> is to again point at the <strong>subfolders</strong> and <strong>files</strong> within the <em>nesteddemo</em> folder. 
+In our case <em>nesteddemo.md</em> has a front matter that looks as depicted below:</p>
+
+<p><em>nesteddemo.md:</em></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: nested
+title: Nested Demo
+description: A demonstration of nested sites
+files:
+  - 'subchapter_1'
+  - 'subchapter_2'
+  - 'subchapter_3'
+---
+
+content ... bla bla bla
+</code></pre></div></div>
+
+<p>This points to the files <em>subchapter_1.md</em>, <em>subchapter_2.md</em> and <em>subchapter_3.md</em> which reside within the subfolder <em>nesteddemo</em>.
+This structure can be enlargened to arbitrarily nested folders/files.</p>
+
+		    </div>
 			<div class="col hide-on-med-and-down l2">
 				<div id="toc-wrapper" class="toc-wrapper pin-top">
 				  <ul id="toc" class="section table-of-contents">
@@ -220,6 +299,21 @@
 				  </ul>
 				</div>
 			</div>
+			
+			
+				
+				<div class="col s6 left-align hide-on-large-only show-on-med-and-down"><a href="landingpage.html"><i class="large material-icons">keyboard_arrow_left</i></a></div>
+			
+			
+				<div class="col s6  right-align hide-on-large-only show-on-med-and-down"><a href="templateconfig.html"><i class="large material-icons">keyboard_arrow_right</i></a></div>
+			
+			
+			
+				<div class="prev-nav hide-on-med-and-down"><a href="landingpage.html"><i class="small material-icons">keyboard_arrow_left</i></a></div>
+			
+			
+				<div class="next-nav hide-on-med-and-down"><a href="templateconfig.html"><i class="small material-icons">keyboard_arrow_right</i></a></div>
+			
 		
 			
     </div> 
