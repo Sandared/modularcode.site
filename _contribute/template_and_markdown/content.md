@@ -1,7 +1,7 @@
 ---
 layout: nested
 title: Content
-description: How content is displayed in this template
+description: How content is displayed in this template (the markdown cheatsheet)
 lprev: templateconfig
 lnext: landingpage
 ---

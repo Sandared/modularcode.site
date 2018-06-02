@@ -47,12 +47,15 @@
 				{% endfor %}				
 				<!--create a card with image for each-->
 				<div class="col s12 m8 push-m2 l6 xl4">
-					<a class="card-action-link" href="{{fileHTMLPath}}">
+					{% assign external_link = htmlFile.external_link %}
+					<a class="card-action-link" {% if external_link %} href="{{external_link}}" {% else %} href="{{fileHTMLPath}}" {% endif %}>
 						<div class="card small hoverable">
 							<div class="card-image">
 							{% assign image = htmlFile.image %}
+							{% assign image_contribution = htmlFile.image_contribution %}
 							{% if image %}
-								<img src="{{ relative_url | append: relativeRootPath | append: image}}">
+								<img src="{{ relative_url | append: relativeRootPath | append: image | prepend: "/"}}">
+								{% if image_contribution %} <div class="image-contribution">{{image_contribution}}</div> {% endif %}
 							{% else %}
 								<h2 class="center card-placeholder-image"><i class="large material-icons">view_headline</i></h2>
 							{% endif %}
@@ -66,6 +69,8 @@
 				</div>				
 				
 			{% endfor %}
+			
+			
 			<!-- add all subfolders-->
 			{% for subfolder in page.subfolders %}
 				<!-- create path to the info.html file that is mandatory for each subfolder --> 
@@ -83,9 +88,11 @@
 					<a class="card-action-link" href="{{subfolderInfoHTMLPath}}">
 						<div class="card small hoverable">
 							<div class="card-image">
-							{% assign image = subfolderInfo.image %}	
+							{% assign image = subfolderInfo.image %}
+							{% assign image_contribution = subfolderInfo.image_contribution %}							
 							{% if image %}
-								<img src="{{ relative_url | append: relativeRootPath | append: subfolder | append: "/" | append: image}}">
+								<img  src="{{ relative_url | append: relativeRootPath | append: image | prepend: "/"}}">
+								{% if image_contribution %} <div class="image-contribution">{{image_contribution}}</div> {% endif %} 
 							{% else %}
 								<h2 class="center card-placeholder-image"><i class="large material-icons">folder</i></h2>
 							{% endif %}
@@ -93,7 +100,8 @@
 							</div>
 							<div class="card-stacked">
 								<div class="card-content">
-									<p>{{ subfolderInfo.description | truncatewords: 13 }}</p>									
+									<p>{{ subfolderInfo.description | truncatewords: 13 }}</p>	
+									
 								</div>								
 							</div>
 						</div>

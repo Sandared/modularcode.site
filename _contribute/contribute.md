@@ -1,7 +1,7 @@
 ---
 title: Contribute
 layout: nested
-description: How to contribute to this Site
+description: How to contribute to this site
 lprev: markdown_cheatsheet
 lnext: markdown_cheatsheet
 image: img/contribute.png

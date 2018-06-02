@@ -63,6 +63,9 @@ table.striped>tbody>tr:nth-child(odd){background-color:{{secondaryBackgroundColo
 .card-image img{opacity: 0.3;}
 .card-image h2{opacity: 0.3;}
 .card .card-image{min-height:60%;}
+div.image-contribution{font-size:5px;color:{{dividerColor}};float:right;padding-right:12px;}
+div.image-contribution a{font-size:5px;color:{{dividerColor}};}
+div.image-contribution a:hover{color:{{accentColor}};}
 
 /* Breadcrumbs */
 nav{background-color: {{inverseTextColor}};}

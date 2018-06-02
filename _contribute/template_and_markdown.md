@@ -1,7 +1,7 @@
 ---
 title: Template and Markdown
 layout: nested
-description: This template explained and a markdown cheatsheet
+description: An explanation of this template and a markdown cheatsheet
 lprev: contribute
 lnext: contribute
 image: img/markdown.png
