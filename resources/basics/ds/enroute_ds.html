@@ -2,11 +2,11 @@
 <html lang="en"><head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>Site Configuration</title>
-    <meta name="description" content="How to Configure this Template?" />
+    <title>enRoute FAQ - DS</title>
+    <meta name="description" content="" />
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen,projection" href="/assets/materialize.css" />
-    <link rel="canonical" href="http://localhost:4000/contribute/template_and_markdown/templateconfig.html" />
+    <link rel="canonical" href="http://localhost:4000/resources/basics/ds/enroute_ds.html" />
     <link rel="alternate" type="application/rss+xml" title="modularcode" href="/feed.xml" />
     
 </head>
@@ -158,7 +158,7 @@
 			
 				
 					
-					<a href="/contribute.html" class="breadcrumb">Contribute</a>
+					<a href="/resources.html" class="breadcrumb">Resources</a>
 				
 			
 		
@@ -172,9 +172,24 @@
 							
 				
 				
+							
+				
+				
+							
+				
+				
+							
+				
+				
+							
+				
+				
+							
+				
+				
 					
 				
-				<a href="/contribute/template_and_markdown.html" class="breadcrumb">Template and Markdown</a>
+				<a href="/resources/basics.html" class="breadcrumb">Basics</a>
 				
 			
 		
@@ -188,9 +203,55 @@
 							
 				
 				
+							
+				
+				
+							
+				
+				
+							
+				
+				
+							
+				
+				
+							
+				
+				
 					
 				
-				<a href="/contribute/template_and_markdown/templateconfig.html" class="breadcrumb">Site Configuration</a>
+				<a href="/resources/basics/ds.html" class="breadcrumb">Declarative Services</a>
+				
+			
+		
+	
+		
+			
+			
+			
+			
+			
+							
+				
+				
+							
+				
+				
+							
+				
+				
+							
+				
+				
+							
+				
+				
+							
+				
+				
+					
+				
+				<a href="/resources/basics/ds/enroute_ds.html" class="breadcrumb">enRoute FAQ - DS</a>
 				
 			
 		
@@ -198,145 +259,7 @@
 	</div>
 </nav>
 
-				<h1 id="how-to-configure-this-template">How to Configure this Template?</h1>
-
-<p>Every Jekyll Template is configured through</p>
-
-<ul>
-  <li>its <em>_config.yml</em> file</li>
-  <li><em>front matter</em> in each page</li>
-</ul>
-
-<p>First let’s have a look at the possible configuration properties offered by this template:</p>
-
-<h2 id="standard-stuff">Standard Stuff</h2>
-
-<p>Virtually any template offers stuff like social media buttons, github buttons, a site name, a logo and stuff like this.
-This can be configured through the following properties:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
-title: PDT
-author: Thomas Driessen
-email: thomas.driessen.td@gmail.com
-description: A Project Documentation Template for Jekyll
-
-# language to use in html tag, can be overriden by page.lang
-# lang: en 
-
-sass:
-    style: compressed
-
-# path to logo without leading slash e.g. images/logo.png or just the file name if it is in the root directory
-logo: logo.png
-
-# Github data, if present there will be a GitHub button in the navbar
-github_button:
-  user: Sandared
-  project: documentation_template
-
-# Twitter data, if present there will be a Twitter button in the navbar
-twitter_button:
-  user: SanfteSchorle
----
-</code></pre></div></div>
-
-<p>All of these properties are selfexplanatory or are explained through the comments in the <em>_config.yml</em> file.</p>
-
-<h2 id="colors">Colors</h2>
-
-<p>As mentioned on our landing page, this template provides a fully adaptable color scheme. 
-We ourselves have been frustrated to adapt each template to our needs when it comes to colors, so we provide a simple mechanism to change the complete look and feel of the whole site:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
-# You can look up the color names at http://materializecss.com/color.html
-colors:
-    primary_dark: black
-    primary_light: grey-darken-1
-    primary: grey-darken-3
-    accent: light-blue
-    primary_text: grey-darken-4
-    secondary_text: grey-darken-1
-    inverse_text: white
-    divider: grey-lighten-1
-    secondaryBackground: grey-lighten-4
----
-</code></pre></div></div>
-
-<p>Usually you will only change the first 4 colors:</p>
-
-<ul>
-  <li>primary_dark</li>
-  <li>pimary_light</li>
-  <li>primary</li>
-  <li>accent</li>
-</ul>
-
-<p>The predefined colors can be found on the <a href="http://materializecss.com/color.html">Materialize CSS Color Page</a>. Usually you choose one color as primary and then go up and down 2-3 steps for the primary_dark and primary_light. 
-Choose the accent color as you wish.
-Be careful if you choose very light colors, you might have to adapt the secondaryBackground, as it is used for code highlighting.</p>
-
-<h3 id="primary_dark">Primary_Dark</h3>
-
-<p>This color is used rather sparse throughout the website. Only the Heroheader and the News badges are currently making use of it.</p>
-
-<h3 id="primary_light">Primary_Light</h3>
-
-<p>This color is used in</p>
-
-<ul>
-  <li>Heroheader</li>
-  <li>Newsitem badges</li>
-  <li>News Header</li>
-  <li>Links</li>
-  <li>Code Highlighting (very often)</li>
-  <li>Breadcrumb Navigation</li>
-  <li>Table of Contents</li>
-</ul>
-
-<h3 id="primary">Primary</h3>
-
-<p>This color is used in</p>
-
-<ul>
-  <li>Headers</li>
-  <li>Navbars</li>
-  <li>Newsitem badges</li>
-  <li>Code Highlighting (very often)</li>
-  <li>Cards</li>
-</ul>
-
-<h3 id="accent">Accent</h3>
-
-<p>This color is used in</p>
-
-<ul>
-  <li>Link::hover</li>
-  <li>Page Footer</li>
-  <li>Table of Contents</li>
-  <li>Heroheader button</li>
-  <li>Blockquotes</li>
-  <li>Breadcrumbs</li>
-  <li>Code Highlighting</li>
-</ul>
-
-<p>We recommend to play aroud with these colors to create a site that looks good to you. 
-Remember that you have to restart the Jekyll Server each time you change the colors, as the configuration file is only readat startup.</p>
-
-<h2 id="additional-collections">Additional Collections</h2>
-
-<p>Well, this isn’t directly a feature provided by us, but by Jekyll. We merely enhanced it a little bit.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
-# any of these collections is used for nested pages
-collections:
-  landingpage:
-    output: true
-  documentation:
-    output: true
----
-</code></pre></div></div>
-
-<p>Any collection added to the collections section is searched by our <em>nested</em> template for pages it can display in a nested way.</p>
+				
 
 		    </div>
 			<div class="col hide-on-med-and-down l2">
@@ -348,18 +271,9 @@ collections:
 			</div>
 			
 			
-				
-				<div class="col s6 left-align hide-on-large-only show-on-med-and-down"><a href="nestedpage.html"><i class="large material-icons">keyboard_arrow_left</i></a></div>
-			
-			
-				<div class="col s6  right-align hide-on-large-only show-on-med-and-down"><a href="content.html"><i class="large material-icons">keyboard_arrow_right</i></a></div>
 			
 			
 			
-				<div class="prev-nav hide-on-med-and-down"><a href="nestedpage.html"><i class="small material-icons">keyboard_arrow_left</i></a></div>
-			
-			
-				<div class="next-nav hide-on-med-and-down"><a href="content.html"><i class="small material-icons">keyboard_arrow_right</i></a></div>
 			
 		
 			
