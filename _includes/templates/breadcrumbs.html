@@ -6,7 +6,7 @@
 	{% assign currentPath = "" %}
 	{% for segment in segments %}
 		{%if segment != "" %}
-			{% assign path = "" | relative_url | prepend: site.url | append: currentPath | append: "/" | append: segment | remove: ".html" | append: ".html" %}
+			{% assign path = "" | relative_url | append: currentPath | append: "/" | append: segment | remove: ".html" | append: ".html" %}
 			{% assign pathUrl = currentPath | append: "/" | append: segment | remove: ".html" | append: ".html" %}
 			
 			{% assign pathPage = site.documentation | where_exp:"item", "item.url == pathUrl" | first %}

@@ -49,7 +49,7 @@ twitter_button:
 collections:
   landingpage:
     output: true
-  tutorials:
+  resources:
     output: true
   projects:
     output: true

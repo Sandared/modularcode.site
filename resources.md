@@ -1,9 +1,9 @@
 ---
 layout: nested
-title: Tutorials
+title: Resources
 navbaritem: true
 index: 1
 subfolders:
-  - 'quickstarts'
   - 'basics'
+  - 'quickstarts'
 ---
