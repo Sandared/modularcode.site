@@ -1,5 +1,5 @@
 ---
-title: enRoute FAQ - DS
+title: enRoute FAQ
 description: DS - Background, dynamism and a short overview
 layout: nested
 image: img/enroute_ds.png

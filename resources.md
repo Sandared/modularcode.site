@@ -6,4 +6,6 @@ index: 1
 subfolders:
   - 'basics'
   - 'quickstarts'
+  - 'mailinglists'
+  - 'specifications'
 ---
